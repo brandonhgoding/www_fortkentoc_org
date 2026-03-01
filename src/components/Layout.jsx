@@ -28,7 +28,7 @@ function WebcamModal() {
           <CloseIcon />
         </button>
         <img
-          src="https://www.fortkentoc.org/webcam/image.jpg"
+          src="https://webcam.fortkentoc.org/webcam/image.jpg"
           alt="FKOC webcam view of the stadium - full size"
           className="modal-image"
         />

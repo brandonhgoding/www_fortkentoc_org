@@ -301,7 +301,7 @@ function Home() {
               >
                 <div className="webcam-image-wrapper">
                   <img
-                    src="https://www.fortkentoc.org/webcam/image-small.jpg"
+                    src="https://webcam.fortkentoc.org/webcam/image-small.jpg"
                     alt="FKOC webcam view of the stadium"
                     loading="lazy"
                   />
