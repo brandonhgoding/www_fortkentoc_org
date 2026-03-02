@@ -1,31 +1,58 @@
-import { Link } from 'react-router-dom'
-import { useWebcam } from '../components/WebcamContext'
+import { Link } from 'react-router-dom';
+import { useWebcam } from '../components/WebcamContext';
 
-import endowmentImage from '../assets/images/home/endowment.png'
-import wellnessImage from '../assets/images/www_v4.jpg'
-import nordicLogo from '../assets/hsrace/MPA NORDIC_logo.png'
-import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg'
-
+import endowmentImage from '../assets/images/home/endowment.png';
+import wellnessImage from '../assets/images/www_v4.jpg';
+import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg';
 
 // Icon components
 const Icons = {
   Close: () => (
-    <svg className="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <svg
+      className="icon-close"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
       <path d="M18 6L6 18M6 6l12 12" />
     </svg>
   ),
   ArrowRight: () => (
     <svg className="icon-arrow" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-      <path fillRule="evenodd" clipRule="evenodd" d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z" />
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M10.293 3.293a1 1 0 0 1 1.414 0l6 6a1 1 0 0 1 0 1.414l-6 6a1 1 0 0 1-1.414-1.414L14.586 11H3a1 1 0 1 1 0-2h11.586l-4.293-4.293a1 1 0 0 1 0-1.414z"
+      />
     </svg>
   ),
   Info: () => (
-    <svg className="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      className="icon-sm"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z" />
     </svg>
   ),
   Heart: () => (
-    <svg className="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      className="icon-sm"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
     </svg>
   ),
@@ -64,10 +91,10 @@ const Icons = {
       <path d="M12.9 3H17v4.1l-1.6-1.6-4.6 4.6-1.9-1.9 4.6-4.6L12.9 3ZM7 6h2v2H7V6Zm-2 4h4v2H5v-2Zm-2 4h8v2H3v-2Z" />
     </svg>
   ),
-}
+};
 
 function Home() {
-  const { openWebcam } = useWebcam()
+  const { openWebcam } = useWebcam();
 
   return (
     <div className="home-page">
@@ -78,12 +105,17 @@ function Home() {
             <div className="hero-content-wrapper">
               <h1 className="hero-title">Fort Kent Outdoor Center</h1>
               <p className="hero-text">
-                The Fort Kent Outdoor Center promotes healthy outdoor lifestyles by providing a first-rate facility,
-                outdoor trail system, and recreational activities for members, athletes, and visitors.
+                The Fort Kent Outdoor Center promotes healthy outdoor lifestyles by providing a
+                first-rate facility, outdoor trail system, and recreational activities for members,
+                athletes, and visitors.
               </p>
               <div className="hero-buttons">
-                <Link to="/about-us" className="btn btn-primary-light">Learn More</Link>
-                <Link to="/memberships" className="btn btn-outline-light">Become a Member</Link>
+                <Link to="/about-us" className="btn btn-primary-light">
+                  Learn More
+                </Link>
+                <Link to="/memberships" className="btn btn-outline-light">
+                  Become a Member
+                </Link>
               </div>
             </div>
           </div>
@@ -96,11 +128,7 @@ function Home() {
           <div className="two-col-grid">
             <div className="image-col">
               <div className="image-card">
-                <img
-                  src={wellnessImage}
-                  alt="Women's Winter Wellness Day"
-                  loading="lazy"
-                />
+                <img src={wellnessImage} alt="Women's Winter Wellness Day" loading="lazy" />
               </div>
             </div>
             <div className="content-col">
@@ -110,8 +138,9 @@ function Home() {
               </div>
               <h2 className="section-title">Women's Winter Wellness Day</h2>
               <p className="content-text">
-                Join us on <strong>March 7th, 2026</strong> for a day dedicated to wellness, community, and
-                outdoor adventure. Enjoy guided activities, wellness workshops, and more at the Fort Kent Outdoor Center.
+                Join us on <strong>March 7th, 2026</strong> for a day dedicated to wellness,
+                community, and outdoor adventure. Enjoy guided activities, wellness workshops, and
+                more at the Fort Kent Outdoor Center.
               </p>
               <div className="button-group">
                 <Link to="/womens-wellness-day" className="btn btn-primary">
@@ -137,11 +166,13 @@ function Home() {
               <p className="content-text">
                 Join us <strong>March 28–29, 2026</strong> at the Fort Kent Outdoor Center for two
                 days of competitive biathlon racing. Saturday features Sprint races and Sunday
-                brings the Mass Start. Open to all USBA and Biathlon Canada members in good standing.
+                brings the Mass Start. Open to all USBA and Biathlon Canada members in good
+                standing.
               </p>
               <p className="content-text">
-                Registration closes <strong>March 25 at 7:00 PM EST</strong>. Entry fees are $30 (U13/15)
-                and $40 (all other classes). Late registrations (March 23–25) incur a $20 surcharge.
+                Registration closes <strong>March 25 at 7:00 PM EST</strong>. Entry fees are $30
+                (U13/15) and $40 (all other classes). Late registrations (March 23–25) incur a $20
+                surcharge.
               </p>
               <div className="button-group">
                 <a
@@ -184,12 +215,14 @@ function Home() {
               <h2 className="section-title">Securing the Future of FKOC</h2>
               <div className="content-text">
                 <p>
-                  In 2024, with the transition away from Libra Foundation support, the Fort Kent Outdoor Center
-                  launched an <strong>endowment fund</strong> with the Maine Community Foundation.
+                  In 2024, with the transition away from Libra Foundation support, the Fort Kent
+                  Outdoor Center launched an <strong>endowment fund</strong> with the Maine
+                  Community Foundation.
                 </p>
                 <p>
-                  Our goal is to raise <strong>$2.4 million</strong> to sustain year-round operations, athlete
-                  development, and community programs. Thanks to generous donors, we've already secured over
+                  Our goal is to raise <strong>$2.4 million</strong> to sustain year-round
+                  operations, athlete development, and community programs. Thanks to generous
+                  donors, we've already secured over
                   <strong> 65% of the goal</strong>.
                 </p>
                 <p>Join us in keeping this community gem thriving for generations to come.</p>
@@ -236,7 +269,8 @@ function Home() {
                 Follow us for the latest trail conditions &amp; updates
               </h2>
               <p className="content-text text-light">
-                We post day-of updates, event reminders, photos, and more. Tap below to visit our page and give us a follow.
+                We post day-of updates, event reminders, photos, and more. Tap below to visit our
+                page and give us a follow.
               </p>
               <div className="button-group">
                 <a
@@ -281,12 +315,15 @@ function Home() {
               </div>
               <h2 className="section-title">Stadium Conditions</h2>
               <p className="content-text">
-                Keep up to date on current weather and snow conditions via our stadium webcam.
-                A new image is posted every minute.
+                Keep up to date on current weather and snow conditions via our stadium webcam. A new
+                image is posted every minute.
               </p>
               <div className="info-card">
                 <h3>Trail Conditions</h3>
-                <p>We use GPS reporting to publish the most recent trail conditions directly from our groomer.</p>
+                <p>
+                  We use GPS reporting to publish the most recent trail conditions directly from our
+                  groomer.
+                </p>
                 <Link to="/trails" className="btn btn-primary">
                   Trail Report
                   <Icons.ArrowRight />
@@ -294,11 +331,7 @@ function Home() {
               </div>
             </div>
             <div className="image-col">
-              <button
-                type="button"
-                className="webcam-card"
-                onClick={openWebcam}
-              >
+              <button type="button" className="webcam-card" onClick={openWebcam}>
                 <div className="webcam-image-wrapper">
                   <img
                     src="https://webcam.fortkentoc.org/webcam/image-small.jpg"
@@ -327,8 +360,9 @@ function Home() {
             </div>
             <h2 className="section-title text-inverse">Hoping to hit the trails today?</h2>
             <p className="content-text text-light">
-              We have a dedicated group of volunteers who keep our trails in great condition year-round.
-              Before you head out, be sure to check our updated trail maps and current conditions.
+              We have a dedicated group of volunteers who keep our trails in great condition
+              year-round. Before you head out, be sure to check our updated trail maps and current
+              conditions.
             </p>
 
             <ul className="feature-list">
@@ -359,9 +393,8 @@ function Home() {
           </div>
         </div>
       </section>
-
     </div>
-  )
+  );
 }
 
-export default Home
+export default Home;

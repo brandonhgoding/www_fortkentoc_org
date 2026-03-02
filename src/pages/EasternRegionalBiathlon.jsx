@@ -1,19 +1,27 @@
-import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg'
-import biathlonPdf from '../assets/2026EasternRegional2INVITATIONforMarch.pdf'
+import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg';
+import biathlonPdf from '../assets/2026EasternRegional2INVITATIONforMarch.pdf';
 
 const CheckIcon = () => (
   <svg className="benefit-icon" viewBox="0 0 20 20" fill="currentColor">
-    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    <path
+      fillRule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+      clipRule="evenodd"
+    />
   </svg>
-)
+);
 
 const schedule = [
   {
     day: 'Friday, March 27',
     items: [
       { time: '12:00 – 4:00 PM', activity: 'Official Training' },
-      { time: '4:30 PM', activity: 'Team Captain\'s Meeting', details: 'Main Lodge (Zoom link for registered coaches)' }
-    ]
+      {
+        time: '4:30 PM',
+        activity: "Team Captain's Meeting",
+        details: 'Main Lodge (Zoom link for registered coaches)',
+      },
+    ],
   },
   {
     day: 'Saturday, March 28 — Sprint',
@@ -22,8 +30,8 @@ const schedule = [
       { time: '8:00', activity: 'Equipment Check' },
       { time: '9:00', activity: 'Zero' },
       { time: '10:00 AM', activity: 'Race Start — Sprint' },
-      { time: '12:00 PM', activity: 'Awards in Stadium' }
-    ]
+      { time: '12:00 PM', activity: 'Awards in Stadium' },
+    ],
   },
   {
     day: 'Sunday, March 29 — Mass Start',
@@ -32,10 +40,10 @@ const schedule = [
       { time: '9:00', activity: 'Zero (all classes)' },
       { time: '10:00 AM', activity: 'Race Start — Mass Start (IBU Classes)' },
       { time: '11:30 AM', activity: 'Mass Start Masters & U13/15 (if needed)' },
-      { time: '12:00 PM', activity: 'Awards in Stadium' }
-    ]
-  }
-]
+      { time: '12:00 PM', activity: 'Awards in Stadium' },
+    ],
+  },
+];
 
 const included = [
   'Open to all USBA and Biathlon Canada members in good standing',
@@ -43,15 +51,25 @@ const included = [
   'Official training on Friday',
   'Wax rooms available ($75/day — reserve during registration)',
   'Trail passes for unofficial training ($15/day)',
-  'Start lists and results posted on Zone4'
-]
+  'Start lists and results posted on Zone4',
+];
 
 const contacts = [
-  { name: 'Pat Theriault', role: 'Logistics', email: 'theriault.pat@gmail.com', phone: '207-436-1298' },
-  { name: 'Laura Audibert', role: 'Logistics', email: 'la4568@roadrunner.com', phone: '207-231-0048' },
+  {
+    name: 'Pat Theriault',
+    role: 'Logistics',
+    email: 'theriault.pat@gmail.com',
+    phone: '207-436-1298',
+  },
+  {
+    name: 'Laura Audibert',
+    role: 'Logistics',
+    email: 'la4568@roadrunner.com',
+    phone: '207-231-0048',
+  },
   { name: 'Carl Theriault', role: 'Technical Questions', email: 'carlther17@gmail.com' },
-  { name: 'Dona Saucier', role: 'Housing / Hotels', email: 'dona.saucier@gmail.com' }
-]
+  { name: 'Dona Saucier', role: 'Housing / Hotels', email: 'dona.saucier@gmail.com' },
+];
 
 function EasternRegionalBiathlon() {
   return (
@@ -89,15 +107,15 @@ function EasternRegionalBiathlon() {
             <div className="content-col">
               <h2 className="section-title">About the Event</h2>
               <p className="section-intro">
-                The Fort Kent Outdoor Center is proud to host the 2026 Eastern Regional Biathlon
-                Cup #2, featuring Sprint races on Saturday and Mass Start races on Sunday. The event
-                is open to all members of USBA or Biathlon Canada in good standing. Please have your
+                The Fort Kent Outdoor Center is proud to host the 2026 Eastern Regional Biathlon Cup
+                #2, featuring Sprint races on Saturday and Mass Start races on Sunday. The event is
+                open to all members of USBA or Biathlon Canada in good standing. Please have your
                 current registration card or number available at check-in.
               </p>
               <p className="content-text">
                 Competition timing and schedule are subject to change based on registration numbers.
-                A detailed program will be provided at the Team Captain's Meeting on Friday afternoon.
-                Current IBU event and competition rules will be in effect.
+                A detailed program will be provided at the Team Captain's Meeting on Friday
+                afternoon. Current IBU event and competition rules will be in effect.
               </p>
             </div>
             <div className="image-col">
@@ -178,7 +196,9 @@ function EasternRegionalBiathlon() {
           <h2 className="section-title text-center">Competition Schedule</h2>
           {schedule.map((day, dayIndex) => (
             <div key={dayIndex} style={{ marginBottom: 'var(--space-2xl)' }}>
-              <h3 className="text-center" style={{ marginBottom: 'var(--space-lg)' }}>{day.day}</h3>
+              <h3 className="text-center" style={{ marginBottom: 'var(--space-lg)' }}>
+                {day.day}
+              </h3>
               <div className="schedule-list">
                 {day.items.map((item, index) => (
                   <div key={index} className="schedule-item">
@@ -208,7 +228,8 @@ function EasternRegionalBiathlon() {
             are available in the{' '}
             <a href={biathlonPdf} target="_blank" rel="noopener noreferrer">
               event invitation PDF
-            </a>.
+            </a>
+            .
           </p>
 
           <div className="collection-section">
@@ -224,16 +245,66 @@ function EasternRegionalBiathlon() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>SR Men</td><td>10 km</td><td>3.3 km</td><td>P-S</td></tr>
-                  <tr><td>SR Women</td><td>7.5 km</td><td>2.5 km</td><td>P-S</td></tr>
-                  <tr><td>U21 / Junior M</td><td>10 km</td><td>3.3 km</td><td>P-S</td></tr>
-                  <tr><td>U21 / Junior W</td><td>7.5 km</td><td>2.5 km</td><td>P-S</td></tr>
-                  <tr><td>U19 / Youth M</td><td>7.5 km</td><td>2.5 km</td><td>P-S</td></tr>
-                  <tr><td>U19 / Youth W</td><td>6 km</td><td>2 km</td><td>P-S</td></tr>
-                  <tr><td>U17 M/W</td><td>6 km</td><td>2 km</td><td>P-S</td></tr>
-                  <tr><td>Master 30–70</td><td>4.5–7.5 km</td><td>1.5–2.5 km</td><td>P-S</td></tr>
-                  <tr><td>U15 B/G</td><td>4.5 km</td><td>1.5 km</td><td>P-P</td></tr>
-                  <tr><td>U13 B/G</td><td>3 km</td><td>1 km</td><td>P-P</td></tr>
+                  <tr>
+                    <td>SR Men</td>
+                    <td>10 km</td>
+                    <td>3.3 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>SR Women</td>
+                    <td>7.5 km</td>
+                    <td>2.5 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U21 / Junior M</td>
+                    <td>10 km</td>
+                    <td>3.3 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U21 / Junior W</td>
+                    <td>7.5 km</td>
+                    <td>2.5 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U19 / Youth M</td>
+                    <td>7.5 km</td>
+                    <td>2.5 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U19 / Youth W</td>
+                    <td>6 km</td>
+                    <td>2 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U17 M/W</td>
+                    <td>6 km</td>
+                    <td>2 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>Master 30–70</td>
+                    <td>4.5–7.5 km</td>
+                    <td>1.5–2.5 km</td>
+                    <td>P-S</td>
+                  </tr>
+                  <tr>
+                    <td>U15 B/G</td>
+                    <td>4.5 km</td>
+                    <td>1.5 km</td>
+                    <td>P-P</td>
+                  </tr>
+                  <tr>
+                    <td>U13 B/G</td>
+                    <td>3 km</td>
+                    <td>1 km</td>
+                    <td>P-P</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
@@ -252,20 +323,73 @@ function EasternRegionalBiathlon() {
                   </tr>
                 </thead>
                 <tbody>
-                  <tr><td>SR Men</td><td>15 km</td><td>2.5 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>SR Women</td><td>12 km</td><td>2 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U21 / Junior M</td><td>12 km</td><td>2 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U21 / Junior W</td><td>9 km</td><td>1.5 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U19 / Youth M</td><td>12 km</td><td>2 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U19 / Youth W</td><td>9 km</td><td>1.5 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U17 M/W</td><td>9 km</td><td>1.5 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>Master 30–70</td><td>6–12 km</td><td>1–2 km</td><td>P-P-S-S</td></tr>
-                  <tr><td>U15 B/G</td><td>5 km</td><td>1 km</td><td>P-S-S</td></tr>
-                  <tr><td>U13 B/G</td><td>5 km</td><td>1 km</td><td>P-S-S</td></tr>
+                  <tr>
+                    <td>SR Men</td>
+                    <td>15 km</td>
+                    <td>2.5 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>SR Women</td>
+                    <td>12 km</td>
+                    <td>2 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U21 / Junior M</td>
+                    <td>12 km</td>
+                    <td>2 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U21 / Junior W</td>
+                    <td>9 km</td>
+                    <td>1.5 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U19 / Youth M</td>
+                    <td>12 km</td>
+                    <td>2 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U19 / Youth W</td>
+                    <td>9 km</td>
+                    <td>1.5 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U17 M/W</td>
+                    <td>9 km</td>
+                    <td>1.5 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>Master 30–70</td>
+                    <td>6–12 km</td>
+                    <td>1–2 km</td>
+                    <td>P-P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U15 B/G</td>
+                    <td>5 km</td>
+                    <td>1 km</td>
+                    <td>P-S-S</td>
+                  </tr>
+                  <tr>
+                    <td>U13 B/G</td>
+                    <td>5 km</td>
+                    <td>1 km</td>
+                    <td>P-S-S</td>
+                  </tr>
                 </tbody>
               </table>
             </div>
-            <p className="content-text" style={{ marginTop: 'var(--space-md)', fontSize: 'var(--text-sm)' }}>
+            <p
+              className="content-text"
+              style={{ marginTop: 'var(--space-md)', fontSize: 'var(--text-sm)' }}
+            >
               Mass Start day will be configured as a Mass Start 60. Final groupings decided after
               registration closes March 25. Start seeding determined by Sprint results.
             </p>
@@ -286,7 +410,9 @@ function EasternRegionalBiathlon() {
                 <div key={index} className="contact-card">
                   <h3 className="contact-name">{contact.name}</h3>
                   <p className="contact-role">{contact.role}</p>
-                  <a href={`mailto:${contact.email}`} className="contact-email">{contact.email}</a>
+                  <a href={`mailto:${contact.email}`} className="contact-email">
+                    {contact.email}
+                  </a>
                   {contact.phone && <p className="contact-phone">{contact.phone}</p>}
                 </div>
               ))}
@@ -295,7 +421,7 @@ function EasternRegionalBiathlon() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default EasternRegionalBiathlon
+export default EasternRegionalBiathlon;

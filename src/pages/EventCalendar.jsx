@@ -1,8 +1,12 @@
-import {useState, useCallback, useMemo} from 'react'
-import { Link } from 'react-router-dom'
-import FullCalendar from '@fullcalendar/react'
-import dayGridPlugin from '@fullcalendar/daygrid'
-import { fetchCalendarSessions, transformToCalendarEvents, getCategoryColor } from '../services/api'
+import { useState, useCallback } from 'react';
+import { Link } from 'react-router-dom';
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
+import {
+  fetchCalendarSessions,
+  transformToCalendarEvents,
+  getCategoryColor,
+} from '../services/api';
 
 const staticCalendarEvents = [
   {
@@ -24,7 +28,8 @@ const staticCalendarEvents = [
     end: '2026-03-28T12:00:00',
     color: getCategoryColor('races-competitions'),
     extendedProps: {
-      description: 'Sprint race day for the 2026 Eastern Regional Biathlon Cup #2. Bib pick-up at 8 AM, race start at 10 AM.',
+      description:
+        'Sprint race day for the 2026 Eastern Regional Biathlon Cup #2. Bib pick-up at 8 AM, race start at 10 AM.',
       categoryName: 'Races & Competitions',
       categorySlug: 'races-competitions',
     },
@@ -36,19 +41,20 @@ const staticCalendarEvents = [
     end: '2026-03-29T12:00:00',
     color: getCategoryColor('races-competitions'),
     extendedProps: {
-      description: 'Mass Start race day for the 2026 Eastern Regional Biathlon Cup #2. Bib pick-up at 8 AM, race start at 10 AM.',
+      description:
+        'Mass Start race day for the 2026 Eastern Regional Biathlon Cup #2. Bib pick-up at 8 AM, race start at 10 AM.',
       categoryName: 'Races & Competitions',
       categorySlug: 'races-competitions',
     },
   },
-]
+];
 
 /**
  * Format a datetime string for display.
  */
 function formatDateTime(dateTimeStr) {
-  if (!dateTimeStr) return null
-  const date = new Date(dateTimeStr)
+  if (!dateTimeStr) return null;
+  const date = new Date(dateTimeStr);
   return {
     date: date.toLocaleDateString('en-US', {
       weekday: 'long',
@@ -61,30 +67,30 @@ function formatDateTime(dateTimeStr) {
       minute: '2-digit',
       hour12: true,
     }),
-  }
+  };
 }
 
 /**
  * Event Detail Modal Component
  */
 function EventModal({ event, onClose }) {
-  if (!event) return null
+  if (!event) return null;
 
-  const { title, extendedProps, start, end } = event
-  const { description, categoryName } = extendedProps || {}
+  const { title, extendedProps, start, end } = event;
+  const { description, categoryName } = extendedProps || {};
 
-  const startFormatted = formatDateTime(start)
-  const endFormatted = formatDateTime(end)
+  const startFormatted = formatDateTime(start);
+  const endFormatted = formatDateTime(end);
 
   // Close on escape key
   const handleKeyDown = (e) => {
-    if (e.key === 'Escape') onClose()
-  }
+    if (e.key === 'Escape') onClose();
+  };
 
   // Close on backdrop click
   const handleBackdropClick = (e) => {
-    if (e.target === e.currentTarget) onClose()
-  }
+    if (e.target === e.currentTarget) onClose();
+  };
 
   return (
     <div
@@ -96,27 +102,37 @@ function EventModal({ event, onClose }) {
       aria-labelledby="event-modal-title"
     >
       <div className="modal-content event-modal">
-        <button
-          className="modal-close"
-          onClick={onClose}
-          aria-label="Close modal"
-        >
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <button className="modal-close" onClick={onClose} aria-label="Close modal">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
             <path d="M18 6L6 18M6 6l12 12" />
           </svg>
         </button>
 
         <div className="event-modal-header">
-          {categoryName && (
-            <span className="event-category-badge">{categoryName}</span>
-          )}
-          <h2 id="event-modal-title" className="event-modal-title">{title}</h2>
+          {categoryName && <span className="event-category-badge">{categoryName}</span>}
+          <h2 id="event-modal-title" className="event-modal-title">
+            {title}
+          </h2>
         </div>
 
         <div className="event-modal-body">
           <div className="event-modal-datetime">
             <div className="event-modal-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+              >
                 <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                 <line x1="16" y1="2" x2="16" y2="6" />
                 <line x1="8" y1="2" x2="8" y2="6" />
@@ -124,9 +140,7 @@ function EventModal({ event, onClose }) {
               </svg>
             </div>
             <div className="event-modal-datetime-text">
-              {startFormatted && (
-                <div className="event-modal-date">{startFormatted.date}</div>
-              )}
+              {startFormatted && <div className="event-modal-date">{startFormatted.date}</div>}
               <div className="event-modal-time">
                 {startFormatted?.time}
                 {endFormatted?.time && ` - ${endFormatted.time}`}
@@ -142,11 +156,7 @@ function EventModal({ event, onClose }) {
         </div>
 
         <div className="event-modal-footer">
-          <Link
-            to="/upcoming-events"
-            className="btn btn-primary"
-            onClick={onClose}
-          >
+          <Link to="/upcoming-events" className="btn btn-primary" onClick={onClose}>
             View All Events
           </Link>
           <button className="btn btn-secondary" onClick={onClose}>
@@ -155,52 +165,50 @@ function EventModal({ event, onClose }) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 function EventCalendar() {
-  const [events, setEvents] = useState([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
-  const [selectedEvent, setSelectedEvent] = useState(null)
-
-
+  const [events, setEvents] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   /**
    * Fetch events when the calendar date range changes.
    */
   const handleDatesSet = useCallback(async (dateInfo) => {
     try {
-      setLoading(true)
-      setError(null)
+      setLoading(true);
+      setError(null);
 
-      const start = dateInfo.startStr.split('T')[0]
-      const end = dateInfo.endStr.split('T')[0]
+      const start = dateInfo.startStr.split('T')[0];
+      const end = dateInfo.endStr.split('T')[0];
 
-      const sessions = await fetchCalendarSessions({ start, end })
-      const calendarEvents = transformToCalendarEvents(sessions)
-      setEvents(calendarEvents)
+      const sessions = await fetchCalendarSessions({ start, end });
+      const calendarEvents = transformToCalendarEvents(sessions);
+      setEvents(calendarEvents);
     } catch (err) {
-      console.error('Failed to fetch calendar events:', err)
-      setError('Failed to load events. Please try again later.')
+      console.error('Failed to fetch calendar events:', err);
+      setError('Failed to load events. Please try again later.');
     } finally {
-      setLoading(false)
+      setLoading(false);
     }
-  }, [])
+  }, []);
 
   /**
    * Handle click on calendar event.
    */
   const handleEventClick = useCallback((clickInfo) => {
-    setSelectedEvent(clickInfo.event)
-  }, [])
+    setSelectedEvent(clickInfo.event);
+  }, []);
 
   /**
    * Close the event modal.
    */
   const handleCloseModal = useCallback(() => {
-    setSelectedEvent(null)
-  }, [])
+    setSelectedEvent(null);
+  }, []);
 
   return (
     <div className="calendar-page">
@@ -235,34 +243,34 @@ function EventCalendar() {
               plugins={[dayGridPlugin]}
               initialView="dayGridMonth"
               events={async (info, successCallback) => {
-                const start = info.startStr.split('T')[0]
-                const end = info.endStr.split('T')[0]
+                const start = info.startStr.split('T')[0];
+                const end = info.endStr.split('T')[0];
 
-                let apiEvents = []
+                let apiEvents = [];
                 try {
                   const sessions = await fetchCalendarSessions({
                     start: start,
                     end: end,
-                  })
-                  apiEvents = transformToCalendarEvents(sessions)
+                  });
+                  apiEvents = transformToCalendarEvents(sessions);
                 } catch (err) {
-                  console.error('Failed to fetch calendar events:', err)
+                  console.error('Failed to fetch calendar events:', err);
                 }
 
-                const rangeStart = new Date(start)
-                const rangeEnd = new Date(end)
-                const staticInRange = staticCalendarEvents.filter(e => {
-                  const eventDate = new Date(e.start)
-                  return eventDate >= rangeStart && eventDate <= rangeEnd
-                })
-                successCallback([...apiEvents, ...staticInRange])
+                const rangeStart = new Date(start);
+                const rangeEnd = new Date(end);
+                const staticInRange = staticCalendarEvents.filter((e) => {
+                  const eventDate = new Date(e.start);
+                  return eventDate >= rangeStart && eventDate <= rangeEnd;
+                });
+                successCallback([...apiEvents, ...staticInRange]);
               }}
               datesSet={handleDatesSet}
               eventClick={handleEventClick}
               headerToolbar={{
                 left: 'title',
                 center: '',
-                right: 'today prev,next'
+                right: 'today prev,next',
               }}
               height="auto"
               eventDisplay="block"
@@ -279,8 +287,8 @@ function EventCalendar() {
           <div className="centered-content text-center">
             <h2 className="section-title">Want More Details?</h2>
             <p className="content-text">
-              Check out our upcoming events page for detailed information about
-              each event, registration links, and more.
+              Check out our upcoming events page for detailed information about each event,
+              registration links, and more.
             </p>
             <Link to="/upcoming-events" className="btn btn-primary">
               View Upcoming Events
@@ -290,11 +298,9 @@ function EventCalendar() {
       </section>
 
       {/* Event Detail Modal */}
-      {selectedEvent && (
-        <EventModal event={selectedEvent} onClose={handleCloseModal} />
-      )}
+      {selectedEvent && <EventModal event={selectedEvent} onClose={handleCloseModal} />}
     </div>
-  )
+  );
 }
 
-export default EventCalendar
+export default EventCalendar;

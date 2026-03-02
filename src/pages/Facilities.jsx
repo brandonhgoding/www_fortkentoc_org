@@ -1,9 +1,9 @@
-import lodgeInterior from '../assets/images/facilities/lodge-interior.jpg'
-import lodgeBunks from '../assets/images/facilities/lodge-bunks.jpg'
-import tenthMtnLodge from '../assets/images/facilities/10th-mtn-lodge.jpg'
-import waxBuilding from '../assets/images/facilities/wax-building.jpg'
-import stadiumTiming from '../assets/images/facilities/stadium-and-timing-building.jpg'
-import tenthAerial from '../assets/images/facilities/10th-aerial.jpg'
+import lodgeInterior from '../assets/images/facilities/lodge-interior.jpg';
+import lodgeBunks from '../assets/images/facilities/lodge-bunks.jpg';
+import tenthMtnLodge from '../assets/images/facilities/10th-mtn-lodge.jpg';
+import waxBuilding from '../assets/images/facilities/wax-building.jpg';
+import stadiumTiming from '../assets/images/facilities/stadium-and-timing-building.jpg';
+import tenthAerial from '../assets/images/facilities/10th-aerial.jpg';
 
 function Facilities() {
   return (
@@ -56,16 +56,8 @@ function Facilities() {
             </div>
             <div className="image-col">
               <div className="staggered-images">
-                <img
-                  src={lodgeInterior}
-                  alt="FKOC lodge interior"
-                  className="staggered-img-1"
-                />
-                <img
-                  src={lodgeBunks}
-                  alt="Lodge bunks"
-                  className="staggered-img-2"
-                />
+                <img src={lodgeInterior} alt="FKOC lodge interior" className="staggered-img-1" />
+                <img src={lodgeBunks} alt="Lodge bunks" className="staggered-img-2" />
               </div>
             </div>
           </div>
@@ -77,11 +69,7 @@ function Facilities() {
         <div className="container">
           <div className="two-col-grid">
             <div className="image-col">
-              <img
-                src={tenthMtnLodge}
-                alt="FKOC lodge"
-                className="facility-image"
-              />
+              <img src={tenthMtnLodge} alt="FKOC lodge" className="facility-image" />
             </div>
             <div className="content-col">
               <h2 className="section-title text-inverse">10th Mountain Lodge</h2>
@@ -116,11 +104,7 @@ function Facilities() {
               </p>
             </div>
             <div className="image-col">
-              <img
-                src={waxBuilding}
-                alt="Wax building"
-                className="facility-image"
-              />
+              <img src={waxBuilding} alt="Wax building" className="facility-image" />
             </div>
           </div>
         </div>
@@ -163,17 +147,13 @@ function Facilities() {
               </p>
             </div>
             <div className="image-col">
-              <img
-                src={tenthAerial}
-                alt="Aerial view of facility"
-                className="facility-image"
-              />
+              <img src={tenthAerial} alt="Aerial view of facility" className="facility-image" />
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default Facilities
+export default Facilities;

@@ -1198,7 +1198,7 @@
   }
 }
 
-.nav-dropdown-btn[aria-expanded="true"] .dropdown-arrow {
+.nav-dropdown-btn[aria-expanded='true'] .dropdown-arrow {
   transform: rotate(180deg);
 }
 
@@ -1449,7 +1449,7 @@
   padding: var(--space-sm) var(--space-lg);
   background-color: var(--color-gold);
   color: var(--color-text-primary);
-  border: 2px solid var(--color-gold);  
+  border: 2px solid var(--color-gold);
   border-radius: var(--radius-sm);
   font-weight: 600;
   text-decoration: none;
@@ -1525,7 +1525,7 @@
 .facebook-embed-placeholder svg {
   width: 48px;
   height: 48px;
-  color: #1877F2;
+  color: #1877f2;
   margin-bottom: var(--space-md);
 }
 
@@ -2244,7 +2244,8 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>') repeat;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>')
+    repeat;
   background-size: 100px 100px;
   opacity: 0.5;
 }
@@ -2674,7 +2675,7 @@
 }
 
 .policies-hero .hero-overlay {
-      background-color: var(--overlay-primary);
+  background-color: var(--overlay-primary);
   padding: var(--space-4xl) 0;
 }
 
@@ -2832,7 +2833,6 @@
   object-fit: cover;
   margin: 0 auto var(--space-md);
 }
-
 
 .coach-role {
   display: block;
@@ -3534,7 +3534,8 @@
   border-color: var(--color-border);
 }
 
-.fc td, .fc th {
+.fc td,
+.fc th {
   border-color: var(--color-border);
 }
 
@@ -4047,8 +4048,12 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -4250,7 +4255,7 @@ button.webcam-card {
 /* Wellness Hero */
 .wellness-hero {
   position: relative;
-  background: linear-gradient(135deg, #87CEEB 0%, #E0F4FF 50%, #B0E0E6 100%);
+  background: linear-gradient(135deg, #87ceeb 0%, #e0f4ff 50%, #b0e0e6 100%);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -4567,9 +4572,9 @@ button.webcam-card {
 
 /* Women's Wellness Day CTA on Homepage */
 .section-wellness-cta {
-  background: linear-gradient(135deg, #E8F4FC 0%, #F0F9FF 50%, #E0F2FE 100%);
-  border-top: 4px solid #87CEEB;
-  border-bottom: 4px solid #87CEEB;
+  background: linear-gradient(135deg, #e8f4fc 0%, #f0f9ff 50%, #e0f2fe 100%);
+  border-top: 4px solid #87ceeb;
+  border-bottom: 4px solid #87ceeb;
 }
 
 .badge-event {

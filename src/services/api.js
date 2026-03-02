@@ -9,14 +9,14 @@ const API_URL = import.meta.env.VITE_API_URL || 'https://carl.fortkentoc.org/api
  * Colors are based on the FKOC design system.
  */
 const CATEGORY_COLORS = {
-  'ski-lessons': '#2B7DB9',        // Accent Blue
-  'snowboard-lessons': '#22c55e',  // Green
+  'ski-lessons': '#2B7DB9', // Accent Blue
+  'snowboard-lessons': '#22c55e', // Green
   'cross-country-skiing': '#1E3A5F', // Navy
   'races-competitions': '#8B2332', // Primary Maroon
-  'youth-programs': '#22c55e',     // Green
-  'adult-programs': '#F7941D',     // Gold
-  'special-events': '#1E3A5F',     // Navy
-  'default': '#4A6A8B',            // Info color
+  'youth-programs': '#22c55e', // Green
+  'adult-programs': '#F7941D', // Gold
+  'special-events': '#1E3A5F', // Navy
+  default: '#4A6A8B', // Info color
 };
 
 /**
@@ -89,7 +89,7 @@ export async function fetchCalendarSessions({ start, end, category } = {}) {
  * @returns {Array} - Array of FullCalendar event objects
  */
 export function transformToCalendarEvents(sessions) {
-  return sessions.map(session => ({
+  return sessions.map((session) => ({
     id: `session-${session.session_id}`,
     title: session.title,
     start: session.start,
@@ -127,13 +127,13 @@ export async function fetchCategories() {
  * @returns {Array} - Array of grouped event objects
  */
 export function groupEventsForUpcoming(events) {
-  return events.map(event => ({
+  return events.map((event) => ({
     id: event.id,
     title: event.title,
     description: event.description,
     category: event.category,
     flyerUrl: event.flyer_url,
-    dates: event.sessions.map(session => ({
+    dates: event.sessions.map((session) => ({
       date: formatDate(session.date),
       time: formatTimeRange(session.start_time, session.end_time),
       rawDate: session.date,

@@ -10,8 +10,8 @@ function Location() {
               <p>
                 Fort Kent is situated on the northern border of Maine in the Saint John River
                 valley. The area is known for its ideal winter conditions with ample snow from
-                December through April. Rolling hills, lakes, rivers, forests, farms are all
-                scenes you experience as you drive over the hills into the valley.
+                December through April. Rolling hills, lakes, rivers, forests, farms are all scenes
+                you experience as you drive over the hills into the valley.
               </p>
             </div>
           </div>
@@ -24,12 +24,12 @@ function Location() {
           <div className="location-info">
             <h2 className="section-title">Fort Kent, Maine</h2>
             <p className="content-text">
-              Moose, bears, white-tail deer, raccoons, and multiple species of birds are
-              abundant. Nordic and alpine skiing, snowmobiling, ice fishing, and snowshoeing
-              are all popular forms of winter recreation. In the summer, golfing, canoeing,
-              fishing, boating, swimming, hiking, and biking occupy the residents' free time.
-              Fort Kent and the St John Valley region have the small town atmosphere full of
-              fun-loving, hard-working people who have embraced outdoor sports.
+              Moose, bears, white-tail deer, raccoons, and multiple species of birds are abundant.
+              Nordic and alpine skiing, snowmobiling, ice fishing, and snowshoeing are all popular
+              forms of winter recreation. In the summer, golfing, canoeing, fishing, boating,
+              swimming, hiking, and biking occupy the residents' free time. Fort Kent and the St
+              John Valley region have the small town atmosphere full of fun-loving, hard-working
+              people who have embraced outdoor sports.
             </p>
           </div>
         </div>
@@ -67,7 +67,7 @@ function Location() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default Location
+export default Location;

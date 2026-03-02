@@ -10,8 +10,8 @@
 
 :root {
   /* Primary Palette - Navy Blue (from "Fort Kent" in logo) */
-  --color-primary: #1D4ED8;
-  --color-secondary:#1877f2;
+  --color-primary: #1d4ed8;
+  --color-secondary: #1877f2;
   --color-primary-light: #e5e7eb;
   --color-primary-dark: #061b45;
   --overlay-primary: rgba(6, 18, 50, 0.8);
@@ -25,23 +25,23 @@
   /* Background & Surface */
   --color-snow-white: #f8f9fa;
   --color-wool-gray: #e0e6e8;
-  --color-stone-gray: #6B6B6B;
+  --color-stone-gray: #6b6b6b;
 
   /* Text Colors */
-  --color-text-primary: #2A2A28;
+  --color-text-primary: #2a2a28;
   --color-text-headings: #063aa4;
-  --color-text-secondary: #6B6B6B;
-  --color-text-inverse: #FAFAF8;
-  --color-text-muted: #8A8A88;
+  --color-text-secondary: #6b6b6b;
+  --color-text-inverse: #fafaf8;
+  --color-text-muted: #8a8a88;
 
   /* Status Colors */
-  --color-status-open: #4A7C59;
+  --color-status-open: #4a7c59;
   --color-status-open-bg: rgba(74, 124, 89, 0.15);
-  --color-status-caution: #D4A029;
+  --color-status-caution: #d4a029;
   --color-status-caution-bg: rgba(212, 160, 41, 0.15);
-  --color-status-closed: #9E4A4A;
+  --color-status-closed: #9e4a4a;
   --color-status-closed-bg: rgba(158, 74, 74, 0.15);
-  --color-status-info: #4A6A8B;
+  --color-status-info: #4a6a8b;
   --color-status-info-bg: rgba(74, 106, 139, 0.1);
 
   /* Typography */
@@ -146,7 +146,12 @@ select {
    3. Typography
    ========================================================================== */
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: var(--leading-tight);
@@ -154,12 +159,25 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0 0 var(--space-md) 0;
 }
 
-h1 { font-size: var(--text-5xl); font-weight: 700; }
-h2 { font-size: var(--text-4xl); }
-h3 { font-size: var(--text-3xl); }
-h4 { font-size: var(--text-2xl); }
-h5 { font-size: var(--text-xl); }
-h6 { font-size: var(--text-lg); }
+h1 {
+  font-size: var(--text-5xl);
+  font-weight: 700;
+}
+h2 {
+  font-size: var(--text-4xl);
+}
+h3 {
+  font-size: var(--text-3xl);
+}
+h4 {
+  font-size: var(--text-2xl);
+}
+h5 {
+  font-size: var(--text-xl);
+}
+h6 {
+  font-size: var(--text-lg);
+}
 
 p {
   margin: 0 0 var(--space-md) 0;
@@ -232,7 +250,6 @@ a:focus-visible {
 
 .section {
   padding: var(--space-4xl) 0;
-
 }
 
 .section-alt {
@@ -253,12 +270,20 @@ a:focus-visible {
   gap: var(--space-lg);
 }
 
-.grid-2 { grid-template-columns: repeat(2, 1fr); }
-.grid-3 { grid-template-columns: repeat(3, 1fr); }
-.grid-4 { grid-template-columns: repeat(4, 1fr); }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
 @media (max-width: 1024px) {
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 768px) {
@@ -272,34 +297,72 @@ a:focus-visible {
     padding: var(--space-2xl) 0;
   }
 
-  h1 { font-size: var(--text-4xl); }
-  h2 { font-size: var(--text-3xl); }
-  .text-display { font-size: var(--text-4xl); }
+  h1 {
+    font-size: var(--text-4xl);
+  }
+  h2 {
+    font-size: var(--text-3xl);
+  }
+  .text-display {
+    font-size: var(--text-4xl);
+  }
 }
 
 /* ==========================================================================
    7. Utility Classes
    ========================================================================== */
 
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}
 
-.text-pine { color: var(--color-primary); }
-.text-gold { color: var(--color-gold); }
-.text-muted { color: var(--color-text-secondary); }
-.text-inverse { color: var(--color-text-inverse); }
+.text-pine {
+  color: var(--color-primary);
+}
+.text-gold {
+  color: var(--color-gold);
+}
+.text-muted {
+  color: var(--color-text-secondary);
+}
+.text-inverse {
+  color: var(--color-text-inverse);
+}
 
-.bg-pine { background-color: var(--color-primary); }
-.bg-cream { background-color: var(--color-snow-white); }
-.bg-white { background-color: var(--color-snow-white); }
+.bg-pine {
+  background-color: var(--color-primary);
+}
+.bg-cream {
+  background-color: var(--color-snow-white);
+}
+.bg-white {
+  background-color: var(--color-snow-white);
+}
 
-.mt-0 { margin-top: 0; }
-.mb-0 { margin-bottom: 0; }
-.mb-sm { margin-bottom: var(--space-sm); }
-.mb-md { margin-bottom: var(--space-md); }
-.mb-lg { margin-bottom: var(--space-lg); }
-.mb-xl { margin-bottom: var(--space-xl); }
+.mt-0 {
+  margin-top: 0;
+}
+.mb-0 {
+  margin-bottom: 0;
+}
+.mb-sm {
+  margin-bottom: var(--space-sm);
+}
+.mb-md {
+  margin-bottom: var(--space-md);
+}
+.mb-lg {
+  margin-bottom: var(--space-lg);
+}
+.mb-xl {
+  margin-bottom: var(--space-xl);
+}
 
 .sr-only {
   position: absolute;

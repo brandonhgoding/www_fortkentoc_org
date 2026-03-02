@@ -1,49 +1,47 @@
-import { useEffect } from 'react'
-import wellnessFlyer from '../assets/images/www_v4.jpg'
-import wellnessPdf from '../assets/images/www_v4.pdf'
+import { useEffect } from 'react';
+import wellnessFlyer from '../assets/images/www_v4.jpg';
+import wellnessPdf from '../assets/images/www_v4.pdf';
 
 const CheckIcon = () => (
   <svg className="benefit-icon" viewBox="0 0 20 20" fill="currentColor">
-    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    <path
+      fillRule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+      clipRule="evenodd"
+    />
   </svg>
-)
+);
 
 const activities = [
   { name: 'Nordic Skiing', icon: '⛷️' },
   { name: 'Art', icon: '🎨' },
   { name: 'Snowshoeing', icon: '🥾' },
-  { name: 'Socializing', icon: '☕' }
-]
+  { name: 'Socializing', icon: '☕' },
+];
 
 const included = [
   'Lunch and snacks provided',
   'Trail passes included',
   'All equipment provided (or bring your own)',
   'No prior ski or snowshoe experience required',
-  'All abilities welcome and celebrated'
-]
+  'All abilities welcome and celebrated',
+];
 
 const schedule = [
   { time: '8:30 AM', activity: 'Arrive, socialize, light refreshments' },
   {
     time: '9:00 AM',
     activity: 'Morning Activities Begin',
-    details: [
-      'Groove Out Before You Glide with Kristen Moore, Maine Stage Dance',
-      'XC Skiing'
-    ]
+    details: ['Groove Out Before You Glide with Kristen Moore, Maine Stage Dance', 'XC Skiing'],
   },
   { time: '11:30 AM', activity: 'Lunch' },
   {
     time: '12:30 PM',
     activity: 'Afternoon Activities Begin',
-    details: [
-      'Art Activity with Jenna Jandreau, Rivertown Community Art Center',
-      'Snowshoeing'
-    ]
+    details: ['Art Activity with Jenna Jandreau, Rivertown Community Art Center', 'Snowshoeing'],
   },
-  { time: '3:30 PM', activity: 'Event Concludes' }
-]
+  { time: '3:30 PM', activity: 'Event Concludes' },
+];
 
 // Placeholder - Laura will send detailed list
 const collectionItems = [
@@ -52,25 +50,27 @@ const collectionItems = [
   'Conditioners',
   'Deodorant',
   'Body wash',
-  'Children\'s body wash',
-  'Diapers (any size)'
-]
+  "Children's body wash",
+  'Diapers (any size)',
+];
 
 function WomensWellnessDay() {
   useEffect(() => {
     // Load Stripe pricing table script
-    const script = document.createElement('script')
-    script.src = 'https://js.stripe.com/v3/pricing-table.js'
-    script.async = true
-    document.body.appendChild(script)
+    const script = document.createElement('script');
+    script.src = 'https://js.stripe.com/v3/pricing-table.js';
+    script.async = true;
+    document.body.appendChild(script);
 
     return () => {
-      const existingScript = document.querySelector('script[src="https://js.stripe.com/v3/pricing-table.js"]')
+      const existingScript = document.querySelector(
+        'script[src="https://js.stripe.com/v3/pricing-table.js"]',
+      );
       if (existingScript) {
-        document.body.removeChild(existingScript)
+        document.body.removeChild(existingScript);
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (
     <div className="wellness-page">
@@ -102,10 +102,10 @@ function WomensWellnessDay() {
             <div className="content-col">
               <h2 className="section-title">About the Event</h2>
               <p className="section-intro">
-                Fort Kent Outdoor Center invites all women 18+ to our annual Women's Winter
-                Wellness Day. Whether you're an experienced skier or trying snowshoeing for
-                the first time, this day is designed for you to enjoy the outdoors, try new
-                activities, and connect with other women in our community.
+                Fort Kent Outdoor Center invites all women 18+ to our annual Women's Winter Wellness
+                Day. Whether you're an experienced skier or trying snowshoeing for the first time,
+                this day is designed for you to enjoy the outdoors, try new activities, and connect
+                with other women in our community.
               </p>
 
               {/* Activities Grid */}
@@ -225,15 +225,15 @@ function WomensWellnessDay() {
           <div className="section-header text-center">
             <h2 className="section-title text-inverse">Complete Your Registration</h2>
             <p className="section-intro text-inverse">
-              Secure your spot for Women's Winter Wellness Day.
-              Payment processing powered by Stripe.
+              Secure your spot for Women's Winter Wellness Day. Payment processing powered by
+              Stripe.
             </p>
           </div>
           <div className="stripe-container">
             <stripe-pricing-table
               pricing-table-id="prctbl_1Sx8w0CNUZB7PvDyLe8MG74y"
-              publishable-key="pk_live_51K7Op9CNUZB7PvDyrt4Y4E7RoduQLDdUa8S0qfc2fZKdyHLcBbYXUAXAvS5UAzTWjGkIaCuxiTBLqFXYi01Xyb8N00CqrkdT6e">
-            </stripe-pricing-table>
+              publishable-key="pk_live_51K7Op9CNUZB7PvDyrt4Y4E7RoduQLDdUa8S0qfc2fZKdyHLcBbYXUAXAvS5UAzTWjGkIaCuxiTBLqFXYi01Xyb8N00CqrkdT6e"
+            ></stripe-pricing-table>
           </div>
         </div>
       </section>
@@ -247,7 +247,12 @@ function WomensWellnessDay() {
               For more information about Women's Winter Wellness Day, please contact us.
             </p>
             <div className="contact-links">
-              <a href="https://www.fortkentoc.org" target="_blank" rel="noopener noreferrer" className="btn btn-outline">
+              <a
+                href="https://www.fortkentoc.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-outline"
+              >
                 Visit fortkentoc.org
               </a>
             </div>
@@ -255,7 +260,7 @@ function WomensWellnessDay() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default WomensWellnessDay
+export default WomensWellnessDay;

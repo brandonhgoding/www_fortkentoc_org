@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 const rentalData = {
   headers: ['AGE', 'DAILY RENTALS', 'WEEKLY RENTALS', 'SEASONAL*'],
@@ -8,29 +8,29 @@ const rentalData = {
       ageNote: '(with adult)',
       daily: { free: true },
       weekly: { free: true },
-      seasonal: { single: '$50' }
+      seasonal: { single: '$50' },
     },
     {
       age: 'YOUTH (7-18)',
       daily: { skiPkg: '$10', snowshoes: '$5' },
       weekly: { skiPkg: '$30', snowshoes: '$15' },
-      seasonal: { skiPkg: '$80', snowshoes: '$25' }
+      seasonal: { skiPkg: '$80', snowshoes: '$25' },
     },
     {
       age: 'ADULT (19+)',
       daily: { skiPkg: '$20', snowshoes: '$15' },
       weekly: { skiPkg: '$50', snowshoes: '$25' },
-      seasonal: { skiPkg: '$120', snowshoes: '$50' }
-    }
-  ]
-}
+      seasonal: { skiPkg: '$120', snowshoes: '$50' },
+    },
+  ],
+};
 
 function RentalCell({ data }) {
   if (data.free) {
-    return <span className="rental-price-free">Free</span>
+    return <span className="rental-price-free">Free</span>;
   }
   if (data.single) {
-    return <span className="rental-price-single">{data.single}</span>
+    return <span className="rental-price-single">{data.single}</span>;
   }
   return (
     <div className="rental-price-group">
@@ -44,7 +44,7 @@ function RentalCell({ data }) {
         <span className="rental-price">{data.snowshoes}</span>
       </div>
     </div>
-  )
+  );
 }
 
 function Rentals() {
@@ -57,8 +57,8 @@ function Rentals() {
             <div className="rentals-hero-content">
               <h1>Rental Equipment</h1>
               <p>
-                Fully stocked with Skate & Classical ski equipment as well as snowshoes,
-                our rental shop is open weekends and holidays from Noon - 3PM
+                Fully stocked with Skate & Classical ski equipment as well as snowshoes, our rental
+                shop is open weekends and holidays from Noon - 3PM
               </p>
             </div>
           </div>
@@ -73,8 +73,16 @@ function Rentals() {
               <thead>
                 <tr>
                   <th className="col-age">AGE</th>
-                  <th className="col-daily">DAILY<br />RENTALS</th>
-                  <th className="col-weekly">WEEKLY<br />RENTALS</th>
+                  <th className="col-daily">
+                    DAILY
+                    <br />
+                    RENTALS
+                  </th>
+                  <th className="col-weekly">
+                    WEEKLY
+                    <br />
+                    RENTALS
+                  </th>
                   <th className="col-seasonal">
                     SEASONAL*
                     <span className="seasonal-note">*Requires Membership</span>
@@ -127,11 +135,11 @@ function Rentals() {
           <div className="centered-content text-center">
             <h2 className="section-title text-inverse">Need a Day Pass?</h2>
             <p className="content-text text-light">
-              Just like our rental fees, our memberships and day passes help cover the costs
-              that come with maintaining our facility. Day Passes are available for those who
-              would like to enjoy playing on our trails for a day or two. Daily Passes are
-              available from the Rental Shop on the lower level of the lodge from 12:00PM to
-              3:00 PM on weekends and school holidays, or you can purchase one online.
+              Just like our rental fees, our memberships and day passes help cover the costs that
+              come with maintaining our facility. Day Passes are available for those who would like
+              to enjoy playing on our trails for a day or two. Daily Passes are available from the
+              Rental Shop on the lower level of the lodge from 12:00PM to 3:00 PM on weekends and
+              school holidays, or you can purchase one online.
             </p>
             <Link to="/day-passes" className="btn btn-primary">
               Day Passes
@@ -140,7 +148,7 @@ function Rentals() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default Rentals
+export default Rentals;

@@ -1,24 +1,35 @@
 const InfoIcon = () => (
-  <svg className="info-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z" />
+  <svg
+    className="info-icon"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M13 16h-1v-4h-1m1-4h.01M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"
+    />
   </svg>
-)
+);
 
 const contributionLevels = [
   { tier: 'Gold Contributors', range: 'Over $50,000', colorClass: 'tier-gold' },
   { tier: 'Silver Contributors', range: '$10,000 – $50,000', colorClass: 'tier-silver' },
   { tier: 'Bronze Contributors', range: '$5,000 – $10,000', colorClass: 'tier-bronze' },
-  { tier: 'Blue Contributors', range: '< $5,000', colorClass: 'tier-blue' }
-]
+  { tier: 'Blue Contributors', range: '< $5,000', colorClass: 'tier-blue' },
+];
 
-const annualAmounts = ['$50', '$100', '$150', '$200', '$500', '$1,000', '$5,000', '$10,000']
+const annualAmounts = ['$50', '$100', '$150', '$200', '$500', '$1,000', '$5,000', '$10,000'];
 
 const whyItMatters = [
   'Maintain world-class trails and facilities.',
   'Offer year-round outdoor programs and events.',
   'Support aspiring athletes and community recreation.',
-  'Sustain a vital community asset in the St. John Valley.'
-]
+  'Sustain a vital community asset in the St. John Valley.',
+];
 
 function Endowment() {
   return (
@@ -46,11 +57,11 @@ function Endowment() {
               </p>
               <p>
                 In 2024 Libra concluded its direct operational support. At that time, the assets
-                belonging to the Fort Kent Outdoor Center were formally gifted to our operating Board
-                of Directors. For fifteen years, Libra's support helped cover capital improvements,
-                maintenance, taxes, insurance, and half of the venue manager's salary. That support
-                has now ended, making it increasingly difficult to maintain our daily operations and
-                programming.
+                belonging to the Fort Kent Outdoor Center were formally gifted to our operating
+                Board of Directors. For fifteen years, Libra's support helped cover capital
+                improvements, maintenance, taxes, insurance, and half of the venue manager's salary.
+                That support has now ended, making it increasingly difficult to maintain our daily
+                operations and programming.
               </p>
               <p>
                 To meet this challenge, FKOC has created an <strong>endowment fund</strong> with the
@@ -135,7 +146,9 @@ function Endowment() {
             <h3>Annual Contributions</h3>
             <div className="amount-tags">
               {annualAmounts.map((amount, index) => (
-                <span key={index} className="amount-tag">{amount}</span>
+                <span key={index} className="amount-tag">
+                  {amount}
+                </span>
               ))}
             </div>
 
@@ -143,9 +156,15 @@ function Endowment() {
               <div className="contribution-box">
                 <h4>Other Ways to Give</h4>
                 <ul>
-                  <li><span className="small-bullet" /> Stock transfers</li>
-                  <li><span className="small-bullet" /> Property transfers</li>
-                  <li><span className="small-bullet" /> One-time gifts or multi-year pledges</li>
+                  <li>
+                    <span className="small-bullet" /> Stock transfers
+                  </li>
+                  <li>
+                    <span className="small-bullet" /> Property transfers
+                  </li>
+                  <li>
+                    <span className="small-bullet" /> One-time gifts or multi-year pledges
+                  </li>
                 </ul>
               </div>
               <div className="contribution-box">
@@ -192,15 +211,17 @@ function Endowment() {
                 <h4>Preferred Donation Method</h4>
                 <div className="notice-text">
                   <p>
-                    To help us avoid the 3% credit card processing fee, we kindly encourage donations
-                    by check whenever possible.
+                    To help us avoid the 3% credit card processing fee, we kindly encourage
+                    donations by check whenever possible.
                   </p>
                   <p>
                     Please make checks payable to <strong>FKOC</strong> and mail to:
                   </p>
                   <address>
-                    Fort Kent Outdoor Center<br />
-                    P.O. Box 541<br />
+                    Fort Kent Outdoor Center
+                    <br />
+                    P.O. Box 541
+                    <br />
                     Fort Kent, ME 04743
                   </address>
                 </div>
@@ -210,7 +231,7 @@ function Endowment() {
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default Endowment
+export default Endowment;

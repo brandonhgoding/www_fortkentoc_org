@@ -1,22 +1,22 @@
-import { Routes, Route } from 'react-router-dom'
-import './App.css'
+import { Routes, Route } from 'react-router-dom';
+import './App.css';
 
-import Layout from './components/Layout'
-import Home from './pages/Home'
-import AboutUs from './pages/AboutUs'
-import Facilities from './pages/Facilities'
-import Trails from './pages/Trails'
-import Endowment from './pages/Endowment'
-import PoliciesAndSafety from './pages/PoliciesAndSafety'
-import CoachingPrograms from './pages/CoachingPrograms'
-import DayPasses from './pages/DayPasses'
-import Rentals from './pages/Rentals'
-import Memberships from './pages/Memberships'
-import EventCalendar from './pages/EventCalendar'
-import UpcomingEvents from './pages/UpcomingEvents'
-import WomensWellnessDay from './pages/WomensWellnessDay'
-import EasternRegionalBiathlon from './pages/EasternRegionalBiathlon'
-import Location from './pages/Location'
+import Layout from './components/Layout';
+import Home from './pages/Home';
+import AboutUs from './pages/AboutUs';
+import Facilities from './pages/Facilities';
+import Trails from './pages/Trails';
+import Endowment from './pages/Endowment';
+import PoliciesAndSafety from './pages/PoliciesAndSafety';
+import CoachingPrograms from './pages/CoachingPrograms';
+import DayPasses from './pages/DayPasses';
+import Rentals from './pages/Rentals';
+import Memberships from './pages/Memberships';
+import EventCalendar from './pages/EventCalendar';
+import UpcomingEvents from './pages/UpcomingEvents';
+import WomensWellnessDay from './pages/WomensWellnessDay';
+import EasternRegionalBiathlon from './pages/EasternRegionalBiathlon';
+import Location from './pages/Location';
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
         <Route path="location" element={<Location />} />
       </Route>
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;

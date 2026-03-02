@@ -1,78 +1,91 @@
 // Coach images
-import coachBenParadis from '../assets/images/coaches/ben-paradis.png'
-import coachCarlTheriault from '../assets/images/coaches/carl-theriault.jpg'
-import coachMattMichaud from '../assets/images/coaches/matt-michaud.jpg'
-import coachSarahAshley from '../assets/images/coaches/sarah-ashley.jpg'
-import coachTorinLaliberte from '../assets/images/coaches/torin-laliberte.jpg'
+import coachBenParadis from '../assets/images/coaches/ben-paradis.png';
+import coachCarlTheriault from '../assets/images/coaches/carl-theriault.jpg';
+import coachMattMichaud from '../assets/images/coaches/matt-michaud.jpg';
+import coachSarahAshley from '../assets/images/coaches/sarah-ashley.jpg';
+import coachTorinLaliberte from '../assets/images/coaches/torin-laliberte.jpg';
 
 // Jalbert House images
-import jalbertHouse1 from '../assets/images/jalbert-house/jalbert-house-1.jpg'
-import jalbertHouse2 from '../assets/images/jalbert-house/jalbert-house-2.jpg'
-import jalbertHouse3 from '../assets/images/jalbert-house/jalbert-house-3.jpg'
-import jalbertHouse4 from '../assets/images/jalbert-house/jalbert-house-4.jpg'
-import jalbertHouse5 from '../assets/images/jalbert-house/jalbert-house-5.jpg'
-import jalbertHouse6 from '../assets/images/jalbert-house/jalbert-house-6.jpg'
-import jalbertHouse7 from '../assets/images/jalbert-house/jalbert-house-7.jpg'
-import jalbertHouse8 from '../assets/images/jalbert-house/jalbert-house-8.jpg'
+import jalbertHouse1 from '../assets/images/jalbert-house/jalbert-house-1.jpg';
+import jalbertHouse2 from '../assets/images/jalbert-house/jalbert-house-2.jpg';
+import jalbertHouse3 from '../assets/images/jalbert-house/jalbert-house-3.jpg';
+import jalbertHouse4 from '../assets/images/jalbert-house/jalbert-house-4.jpg';
+import jalbertHouse5 from '../assets/images/jalbert-house/jalbert-house-5.jpg';
+import jalbertHouse6 from '../assets/images/jalbert-house/jalbert-house-6.jpg';
+import jalbertHouse7 from '../assets/images/jalbert-house/jalbert-house-7.jpg';
+import jalbertHouse8 from '../assets/images/jalbert-house/jalbert-house-8.jpg';
 
 // Program images
-import jalbertSnowplow from '../assets/images/programs/jalbert-snowplow.jpg'
-import jalbertClass from '../assets/images/programs/jalbert-class.jpg'
-import jalbertBiathlon from '../assets/images/programs/jalbert-biathlon.jpg'
-import eastRegionBiathlon from '../assets/images/programs/east-region-biathlon.jpg'
+import jalbertSnowplow from '../assets/images/programs/jalbert-snowplow.jpg';
+import jalbertClass from '../assets/images/programs/jalbert-class.jpg';
+import jalbertBiathlon from '../assets/images/programs/jalbert-biathlon.jpg';
+import eastRegionBiathlon from '../assets/images/programs/east-region-biathlon.jpg';
 
 const CheckIcon = () => (
   <svg className="check-icon" viewBox="0 0 20 20" fill="currentColor">
-    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+    <path
+      fillRule="evenodd"
+      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+      clipRule="evenodd"
+    />
   </svg>
-)
+);
 
 const VideoIcon = () => (
   <svg className="btn-icon" fill="currentColor" viewBox="0 0 20 20">
     <path d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z" />
   </svg>
-)
+);
 
 const coaches = [
   {
     name: 'Ben Paradis',
     role: 'Youth and Masters Nordic Coach',
     image: coachBenParadis,
-    bio: 'Ben Paradis has been coaching Nordic skiing for over 30 years and has never had a bad day skiing. No matter what, skiing puts a smile on his face. Ben is especially adept at analyzing and explaining technique to all age levels, and you will surely come back from a refreshing ski in the brisk air with a smile on your face!'
+    bio: 'Ben Paradis has been coaching Nordic skiing for over 30 years and has never had a bad day skiing. No matter what, skiing puts a smile on his face. Ben is especially adept at analyzing and explaining technique to all age levels, and you will surely come back from a refreshing ski in the brisk air with a smile on your face!',
   },
   {
     name: 'Carl Theriault',
     role: 'Program Director',
     image: coachCarlTheriault,
-    bio: 'Carl has been involved with coaching skiing and biathlon for the past 23 years, and is a life long lover of anything you can do on skis! Coordinating training programs, range activities, FKOC development, and the local High School Nordic team fill most his days. When he is not working on ski programs and activities, you can find Carl out traveling, or riding horses, bicycles, and motorcycles.'
+    bio: 'Carl has been involved with coaching skiing and biathlon for the past 23 years, and is a life long lover of anything you can do on skis! Coordinating training programs, range activities, FKOC development, and the local High School Nordic team fill most his days. When he is not working on ski programs and activities, you can find Carl out traveling, or riding horses, bicycles, and motorcycles.',
   },
   {
     name: 'Matt Michaud',
     role: 'Youth and Masters Biathlon Coach',
     image: coachMattMichaud,
-    bio: 'An active skier all his life, Matt spent several years as part of the National Guard Biathlon team, and now focuses on volunteering to help us coach our youth and masters biathletes. Two of his boys are currently active in our programs and you can find Matt occasionally jumping in to a biathlon event demonstrating skills he learned during his years with the guard.'
+    bio: 'An active skier all his life, Matt spent several years as part of the National Guard Biathlon team, and now focuses on volunteering to help us coach our youth and masters biathletes. Two of his boys are currently active in our programs and you can find Matt occasionally jumping in to a biathlon event demonstrating skills he learned during his years with the guard.',
   },
   {
     name: 'Sarah Ashley',
     role: 'Nordic Coach',
     image: coachSarahAshley,
-    bio: 'Sarah Ashley is our wonderful middle school and ladies night coach who is an alumni of our high school ski team and she always finds a way to instill and have fun out in the ski trails with a smile on her face!'
+    bio: 'Sarah Ashley is our wonderful middle school and ladies night coach who is an alumni of our high school ski team and she always finds a way to instill and have fun out in the ski trails with a smile on her face!',
   },
   {
     name: 'Torin La Liberté',
     role: 'Venue Manager/Nordic Coach',
     image: coachTorinLaliberte,
-    bio: "Torin La Liberte comes to us after 6 years as the head coach of the Clarkson University Cross Country and Nordic Ski teams. While at Clarkson, Torin's teams tallied two USCSA National Championship titles, an NCAA Skiing Championship appearance, and were a perennial powerhouse in the USCSA. When there's not snow on the ground, you can usually find Torin riding his bike or obsessing over ski wax!"
-  }
-]
+    bio: "Torin La Liberte comes to us after 6 years as the head coach of the Clarkson University Cross Country and Nordic Ski teams. While at Clarkson, Torin's teams tallied two USCSA National Championship titles, an NCAA Skiing Championship appearance, and were a perennial powerhouse in the USCSA. When there's not snow on the ground, you can usually find Torin riding his bike or obsessing over ski wax!",
+  },
+];
 
 const pgPricing = [
   { title: 'Housing $300/Month', detail: 'Utilities and internet included.' },
-  { title: 'Coaching/Training $200/Month', detail: 'Includes: Daily training, Race support, Wax supplies, and Team FKOC Uniforms.' },
+  {
+    title: 'Coaching/Training $200/Month',
+    detail: 'Includes: Daily training, Race support, Wax supplies, and Team FKOC Uniforms.',
+  },
   { title: 'Ammunition $50/Month', detail: 'Biathletes only' },
-  { title: 'Training Camps/Events - In Region', detail: 'We will provide transport/housing/food. You will cover the registration costs.' },
-  { title: 'Training Camps/Events - Out of Region', detail: 'We will provide housing and food, you must cover your airfare and registration fees' }
-]
+  {
+    title: 'Training Camps/Events - In Region',
+    detail: 'We will provide transport/housing/food. You will cover the registration costs.',
+  },
+  {
+    title: 'Training Camps/Events - Out of Region',
+    detail: 'We will provide housing and food, you must cover your airfare and registration fees',
+  },
+];
 
 const residencePhotos = [
   { src: jalbertHouse1, alt: 'Jalbert House front yard' },
@@ -82,8 +95,8 @@ const residencePhotos = [
   { src: jalbertHouse5, alt: 'Jalbert House kitchen' },
   { src: jalbertHouse6, alt: 'Jalbert House' },
   { src: jalbertHouse7, alt: 'Jalbert House sign' },
-  { src: jalbertHouse8, alt: 'Jalbert House parking' }
-]
+  { src: jalbertHouse8, alt: 'Jalbert House parking' },
+];
 
 function CoachingPrograms() {
   return (
@@ -96,8 +109,8 @@ function CoachingPrograms() {
               <h1>Coaching Programs</h1>
               <p>
                 Along with many community outings and events offered at the FKOC for our adult
-                members, such as annual Welcome Winter evening in early December, and the Band
-                and BBQ event in the fall, we also offer ongoing educational programming for youth.
+                members, such as annual Welcome Winter evening in early December, and the Band and
+                BBQ event in the fall, we also offer ongoing educational programming for youth.
               </p>
             </div>
           </div>
@@ -136,9 +149,9 @@ function CoachingPrograms() {
               <div className="pg-block">
                 <h3>Description</h3>
                 <p>
-                  The FKOC Post Graduate program is a high performance training program designed
-                  to bring high school graduated Nordic skiers and Biathletes, aged 18-23, to the
-                  next level of competitive performance with a dedicated annual full time training
+                  The FKOC Post Graduate program is a high performance training program designed to
+                  bring high school graduated Nordic skiers and Biathletes, aged 18-23, to the next
+                  level of competitive performance with a dedicated annual full time training
                   program.
                 </p>
               </div>
@@ -168,9 +181,9 @@ function CoachingPrograms() {
                 <p>
                   The training will take advantage of the excellent facilities at the Fort Kent
                   Outdoor Center. This includes a 3km paved roller skiing loop, a 30-point shooting
-                  range, and 25km of excellent Nordic trails that are FIS and IBU homologated.
-                  Fort Kent has the longest snow-covered season in the Northeast, usually starting
-                  in early November and finishing in late April.
+                  range, and 25km of excellent Nordic trails that are FIS and IBU homologated. Fort
+                  Kent has the longest snow-covered season in the Northeast, usually starting in
+                  early November and finishing in late April.
                 </p>
               </div>
               <div className="pg-block">
@@ -209,8 +222,8 @@ function CoachingPrograms() {
             <h2>Space is Limited!</h2>
             <p>
               The PG Program will be limited to the first 5 athletes registered due to housing
-              restrictions, so don't delay! Follow the link to download and submit your
-              application today.
+              restrictions, so don't delay! Follow the link to download and submit your application
+              today.
             </p>
             <div className="pg-cta-buttons">
               <a
@@ -241,11 +254,11 @@ function CoachingPrograms() {
           <div className="section-header text-center">
             <h2 className="section-title text-inverse">Jalbert Biathlon Residence</h2>
             <p className="content-text text-light residence-intro">
-              The Post Graduate program is supported by the generous help of Phyllis Jalbert,
-              who has provided us with the "Jalbert Biathlon Residence", located within walking
-              distance of the FKOC. There are 5 bedrooms, a spacious living room/kitchen, and
-              a common area in the basement at the location at 42 2nd Ave, about a mile from FKOC.
-              Available to full time athletes on a first come first serve basis.
+              The Post Graduate program is supported by the generous help of Phyllis Jalbert, who
+              has provided us with the "Jalbert Biathlon Residence", located within walking distance
+              of the FKOC. There are 5 bedrooms, a spacious living room/kitchen, and a common area
+              in the basement at the location at 42 2nd Ave, about a mile from FKOC. Available to
+              full time athletes on a first come first serve basis.
             </p>
           </div>
           <div className="residence-gallery">
@@ -264,26 +277,26 @@ function CoachingPrograms() {
               <h2 className="section-title">Jalbert Ski Program</h2>
               <div className="content-text">
                 <p>
-                  The Jalbert Youth Ski Program is a great opportunity for children grades K-6
-                  to get outside and learn to cross-country ski! This exciting winter program
-                  hosted at the Fort Kent Outdoor Center (FKOC) offers trail passes, ski rentals,
-                  and instruction at no cost thanks to Phyllis Jalbert who has supported the
-                  program for many years. Sessions are typically held on Saturday afternoons
-                  twice a month (January-March). Dates and details are posted each year once
-                  the trails at the FKOC are skiable.
+                  The Jalbert Youth Ski Program is a great opportunity for children grades K-6 to
+                  get outside and learn to cross-country ski! This exciting winter program hosted at
+                  the Fort Kent Outdoor Center (FKOC) offers trail passes, ski rentals, and
+                  instruction at no cost thanks to Phyllis Jalbert who has supported the program for
+                  many years. Sessions are typically held on Saturday afternoons twice a month
+                  (January-March). Dates and details are posted each year once the trails at the
+                  FKOC are skiable.
                 </p>
                 <p>
-                  Whether your child ends up coming to just one session, or catches Ski Fever
-                  and doesn't miss a single one, each week's session will incorporate most of
-                  the necessary skills, including balance, glide and uphill and downhill
-                  techniques into the activities and games.
+                  Whether your child ends up coming to just one session, or catches Ski Fever and
+                  doesn't miss a single one, each week's session will incorporate most of the
+                  necessary skills, including balance, glide and uphill and downhill techniques into
+                  the activities and games.
                 </p>
                 <p>
                   A dedicated team of FKOC volunteers help coordinate ski rentals and provide
                   instruction to the participants according to their ability level and preferred
-                  technique. While most participants are equipped with classic skis (fish-scales
-                  on the base), some participants take advantage of the opportunity to try skate
-                  skiing (no fish scales). Classic technique is the best choice for beginning skiers.
+                  technique. While most participants are equipped with classic skis (fish-scales on
+                  the base), some participants take advantage of the opportunity to try skate skiing
+                  (no fish scales). Classic technique is the best choice for beginning skiers.
                 </p>
                 <p>
                   Participants who have rented complimentary ski packages through the Jalbert
@@ -292,18 +305,14 @@ function CoachingPrograms() {
                 <p>
                   We are always looking for volunteers (ages 15+) to help out inside and outside.
                   Our indoor tasks include helping with registration and running the rental shop.
-                  Our outdoor volunteers would be helping with instruction out on the snow.
-                  If you are interested in helping out, please send us a message.
+                  Our outdoor volunteers would be helping with instruction out on the snow. If you
+                  are interested in helping out, please send us a message.
                 </p>
               </div>
             </div>
             <div className="image-col">
               <div className="staggered-images">
-                <img
-                  src={jalbertSnowplow}
-                  alt="Kid skiing"
-                  className="staggered-img-1"
-                />
+                <img src={jalbertSnowplow} alt="Kid skiing" className="staggered-img-1" />
                 <img
                   src={jalbertClass}
                   alt="Kids taking a ski lesson"
@@ -324,37 +333,29 @@ function CoachingPrograms() {
               <div className="content-text text-light">
                 <p>
                   For youth ages 10+ interested in competing in biathlon, the Jalbert Biathlon
-                  Program offers instruction at the same time as the Youth Ski Program. The
-                  biathlon portion of the program extends beyond the winter months, however,
-                  with training and events held throughout the summer for a nominal fee.
+                  Program offers instruction at the same time as the Youth Ski Program. The biathlon
+                  portion of the program extends beyond the winter months, however, with training
+                  and events held throughout the summer for a nominal fee.
                 </p>
                 <p>
-                  Since it began in 2011, the Jalbert Youth Ski & Biathlon Programs have been
-                  funded by the generosity and enthusiasm of Fort Kent native, Mrs. Phyllis
-                  Jalbert. Phyllis is happy to see cross-country skiing and biathlon thriving
-                  in our community. The FKOC is very grateful for her ongoing support.
+                  Since it began in 2011, the Jalbert Youth Ski & Biathlon Programs have been funded
+                  by the generosity and enthusiasm of Fort Kent native, Mrs. Phyllis Jalbert.
+                  Phyllis is happy to see cross-country skiing and biathlon thriving in our
+                  community. The FKOC is very grateful for her ongoing support.
                 </p>
               </div>
             </div>
             <div className="image-col">
               <div className="staggered-images">
-                <img
-                  src={jalbertBiathlon}
-                  alt="Biathlon racer"
-                  className="staggered-img-1"
-                />
-                <img
-                  src={eastRegionBiathlon}
-                  alt="Biathlon range"
-                  className="staggered-img-2"
-                />
+                <img src={jalbertBiathlon} alt="Biathlon racer" className="staggered-img-1" />
+                <img src={eastRegionBiathlon} alt="Biathlon range" className="staggered-img-2" />
               </div>
             </div>
           </div>
         </div>
       </section>
     </div>
-  )
+  );
 }
 
-export default CoachingPrograms
+export default CoachingPrograms;
