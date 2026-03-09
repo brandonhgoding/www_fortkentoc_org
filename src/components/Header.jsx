@@ -226,11 +226,6 @@ function Header() {
                     </Link>
                   </li>
                   <li>
-                    <Link to="/womens-wellness-day" onClick={closeAll}>
-                      Women's Wellness Day
-                    </Link>
-                  </li>
-                  <li>
                     <Link to="/eastern-regional-biathlon" onClick={closeAll}>
                       Eastern Regional Biathlon
                     </Link>
