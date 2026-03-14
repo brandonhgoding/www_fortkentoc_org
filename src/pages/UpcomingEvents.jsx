@@ -1,16 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchEvents, groupEventsForUpcoming } from '../services/api';
-import biathlonPdf from '../assets/2026EasternRegional2INVITATIONforMarch.pdf';
 
 const staticEvents = [
   {
     id: 'static-biathlon-2026',
-    title: '2026 Eastern Regional Biathlon Cup #2',
+    title: '2026 Eastern Regional Biathlon Cup #4',
     description:
       'Two days of competitive biathlon racing — Sprint on Saturday, Mass Start on Sunday. Open to all USBA and Biathlon Canada members.',
     category: { name: 'Races & Competitions' },
-    flyerUrl: biathlonPdf,
+    flyerUrl: 'https://drive.google.com/file/d/1VRKjqbDhyiAIy6GMCzmAJg0n6ANehjPT/view',
     link: '/eastern-regional-biathlon',
     dates: [
       { date: 'March 27, 2026', time: '12:00 PM - 4:00 PM', rawDate: '2026-03-27' },

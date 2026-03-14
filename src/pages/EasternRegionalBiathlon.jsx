@@ -1,5 +1,4 @@
 import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg';
-import biathlonPdf from '../assets/2026EasternRegional2INVITATIONforMarch.pdf';
 
 const CheckIcon = () => (
   <svg className="benefit-icon" viewBox="0 0 20 20" fill="currentColor">
@@ -79,7 +78,7 @@ function EasternRegionalBiathlon() {
         <div className="hero-overlay">
           <div className="container">
             <div className="wellness-hero-content">
-              <h1>2026 Eastern Regional Biathlon Cup #2</h1>
+              <h1>2026 Eastern Regional Biathlon Cup #4</h1>
               <p className="hero-subtitle">
                 Two days of competitive biathlon racing at Fort Kent Outdoor Center
               </p>
@@ -88,7 +87,7 @@ function EasternRegionalBiathlon() {
                 <span className="hero-time">Fort Kent, Maine</span>
               </div>
               <a
-                href="https://zone4.ca/event/2026/BiathlonCup2"
+                href="https://zone4.ca/event/2026/M0xz0q/"
                 className="btn btn-primary btn-lg"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -119,7 +118,11 @@ function EasternRegionalBiathlon() {
               </p>
             </div>
             <div className="image-col">
-              <a href={biathlonPdf} target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://drive.google.com/file/d/1VRKjqbDhyiAIy6GMCzmAJg0n6ANehjPT/view"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src={biathlonImage}
                   alt="Eastern Regional Biathlon Cup at Fort Kent Outdoor Center"
@@ -127,7 +130,11 @@ function EasternRegionalBiathlon() {
                 />
               </a>
               <p className="flyer-download-text">
-                <a href={biathlonPdf} target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://drive.google.com/file/d/1VRKjqbDhyiAIy6GMCzmAJg0n6ANehjPT/view"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Download the full event invitation (PDF)
                 </a>
               </p>
@@ -179,7 +186,7 @@ function EasternRegionalBiathlon() {
               <strong>Registration deadline:</strong> Wednesday, March 25 at 7:00 PM EST
             </p>
             <a
-              href="https://zone4.ca/event/2026/BiathlonCup2"
+              href="https://zone4.ca/event/2026/M0xz0q/"
               className="btn btn-primary btn-lg"
               target="_blank"
               rel="noopener noreferrer"
@@ -226,7 +233,11 @@ function EasternRegionalBiathlon() {
           <p className="content-text text-center" style={{ marginBottom: 'var(--space-xl)' }}>
             Full class details including distances, loop lengths, targets, and rifle requirements
             are available in the{' '}
-            <a href={biathlonPdf} target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://drive.google.com/file/d/1VRKjqbDhyiAIy6GMCzmAJg0n6ANehjPT/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               event invitation PDF
             </a>
             .

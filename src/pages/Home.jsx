@@ -121,7 +121,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Eastern Regional Biathlon Cup #2 CTA */}
+      {/* Eastern Regional Biathlon Cup #4 CTA */}
       <section className="section section-gradient">
         <div className="container">
           <div className="two-col-grid">
@@ -130,7 +130,7 @@ function Home() {
                 <span className="badge-dot"></span>
                 Upcoming Event
               </div>
-              <h2 className="section-title">2026 Eastern Regional Biathlon Cup #2</h2>
+              <h2 className="section-title">2026 Eastern Regional Biathlon Cup #4</h2>
               <p className="content-text">
                 Join us <strong>March 28–29, 2026</strong> at the Fort Kent Outdoor Center for two
                 days of competitive biathlon racing. Saturday features Sprint races and Sunday
@@ -144,7 +144,7 @@ function Home() {
               </p>
               <div className="button-group">
                 <a
-                  href="https://zone4.ca/event/2026/BiathlonCup2"
+                  href="https://zone4.ca/event/2026/M0xz0q/"
                   className="btn btn-primary"
                   target="_blank"
                   rel="noopener noreferrer"
