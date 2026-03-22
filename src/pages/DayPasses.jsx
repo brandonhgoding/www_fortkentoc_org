@@ -53,7 +53,7 @@ function DayPasses() {
           <div className="stripe-container">
             <stripe-pricing-table
               pricing-table-id="prctbl_1ScbCQCNUZB7PvDyamhwiHrY"
-              publishable-key="pk_live_51K7Op9CNUZB7PvDyrt4Y4E7RoduQLDdUa8S0qfc2fZKdyHLcBbYXUAXAvS5UAzTWjGkIaCuxiTBLqFXYi01Xyb8N00CqrkdT6e"
+              publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
             />
           </div>
         </div>
