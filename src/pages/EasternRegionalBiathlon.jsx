@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg';
 
 const CheckIcon = () => (
@@ -70,7 +71,17 @@ const contacts = [
   { name: 'Dona Saucier', role: 'Housing / Hotels', email: 'dona.saucier@gmail.com' },
 ];
 
+const tabs = [
+  { id: 'event-info', label: 'Event Info' },
+  { id: 'sat-sprint-am', label: 'Sat Sprint AM' },
+  { id: 'sat-sprint-pm', label: 'Sat Sprint PM' },
+  { id: 'sun-short-ind-am', label: 'Sun Short Ind AM' },
+  { id: 'sun-short-ind-pm', label: 'Sun Short Ind PM' },
+];
+
 function EasternRegionalBiathlon() {
+  const [activeTab, setActiveTab] = useState('event-info');
+
   return (
     <div className="wellness-page">
       {/* Hero Section */}
@@ -99,6 +110,68 @@ function EasternRegionalBiathlon() {
         </div>
       </section>
 
+      {/* Tab Navigation */}
+      <section className="section">
+        <div className="container">
+          <div className="event-tabs">
+            {tabs.map((tab) => (
+              <button
+                key={tab.id}
+                className={`event-tab${activeTab === tab.id ? ' active' : ''}`}
+                onClick={() => setActiveTab(tab.id)}
+              >
+                {tab.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {activeTab === 'sat-sprint-am' && (
+        <section className="section">
+          <div className="container">
+            <div className="tab-coming-soon">
+              <h2>Saturday Sprint — AM</h2>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === 'sat-sprint-pm' && (
+        <section className="section">
+          <div className="container">
+            <div className="tab-coming-soon">
+              <h2>Saturday Sprint — PM</h2>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === 'sun-short-ind-am' && (
+        <section className="section">
+          <div className="container">
+            <div className="tab-coming-soon">
+              <h2>Sunday Short Individual — AM</h2>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === 'sun-short-ind-pm' && (
+        <section className="section">
+          <div className="container">
+            <div className="tab-coming-soon">
+              <h2>Sunday Short Individual — PM</h2>
+              <p>Coming soon</p>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {activeTab === 'event-info' && <>
       {/* Event Overview */}
       <section className="section">
         <div className="container">
@@ -431,6 +504,7 @@ function EasternRegionalBiathlon() {
           </div>
         </div>
       </section>
+      </>}
     </div>
   );
 }

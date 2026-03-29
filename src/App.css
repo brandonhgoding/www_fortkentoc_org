@@ -4763,3 +4763,62 @@ button.webcam-card {
 .classes-table tbody tr:hover {
   background-color: var(--color-wool-gray);
 }
+
+/* Event Tabs */
+.event-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-xs);
+  border-bottom: 2px solid var(--color-wool-gray);
+  margin-bottom: var(--space-2xl);
+}
+
+.event-tab {
+  padding: var(--space-sm) var(--space-lg);
+  border: none;
+  background: none;
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-slate);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.event-tab:hover {
+  color: var(--color-forest);
+}
+
+.event-tab.active {
+  color: var(--color-forest);
+  border-bottom-color: var(--color-forest);
+}
+
+.tab-coming-soon {
+  text-align: center;
+  padding: var(--space-3xl) var(--space-lg);
+}
+
+.tab-coming-soon h2 {
+  font-size: var(--text-2xl);
+  color: var(--color-slate);
+  margin-bottom: var(--space-sm);
+}
+
+.tab-coming-soon p {
+  font-size: var(--text-lg);
+  color: var(--color-slate-light);
+}
+
+@media (max-width: 600px) {
+  .event-tabs {
+    gap: 0;
+  }
+
+  .event-tab {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--text-sm);
+  }
+}
