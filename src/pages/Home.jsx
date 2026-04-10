@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useWebcam } from '../components/WebcamContext';
 
 import endowmentImage from '../assets/images/home/endowment.png';
-import biathlonImage from '../assets/images/programs/east-region-biathlon.jpg';
+import discGolfFlyer from '../assets/2026MAY30DISCGOLFFLYER.jpeg';
 
 // Icon components
 const Icons = {
@@ -121,7 +121,7 @@ function Home() {
         </div>
       </section>
 
-      {/* Eastern Regional Biathlon Cup #4 CTA */}
+      {/* Disc Golf Tournament CTA */}
       <section className="section section-gradient">
         <div className="container">
           <div className="two-col-grid">
@@ -130,39 +130,35 @@ function Home() {
                 <span className="badge-dot"></span>
                 Upcoming Event
               </div>
-              <h2 className="section-title">2026 Eastern Regional Biathlon Cup #4</h2>
+              <h2 className="section-title">
+                1st Annual Lucien Theriault "Let Them Fly" Disc Golf Tournament & BBQ
+              </h2>
               <p className="content-text">
-                Join us <strong>March 28–29, 2026</strong> at the Fort Kent Outdoor Center for two
-                days of competitive biathlon racing. Saturday features Sprint races and Sunday
-                brings the Mass Start. Open to all USBA and Biathlon Canada members in good
-                standing.
+                Join us <strong>May 30, 2026</strong> at the Fort Kent Outdoor Center for a day of
+                disc golf and community fun. Tournament starts at <strong>10:00 AM</strong> with a
+                BBQ to follow.
               </p>
               <p className="content-text">
-                Registration closes <strong>March 25 at 7:00 PM EST</strong>. Entry fees are $30
-                (U13/15) and $40 (all other classes). Late registrations (March 23–25) incur a $20
-                surcharge.
+                <strong>$20 entry fee</strong> — bring a donation to our local food bank and get $5
+                off! Register on UDisc or in person.
               </p>
               <div className="button-group">
                 <a
-                  href="https://zone4.ca/event/2026/M0xz0q/"
+                  href="https://udisc.com/events/1st-annual-lucien-theriault-let-them-fly-tournament-and-bbq-YdCNMY/about"
                   className="btn btn-primary"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <Icons.Clipboard />
-                  Register Now
+                  Register on UDisc
                 </a>
-                <Link to="/eastern-regional-biathlon" className="btn btn-outline">
-                  <Icons.Info />
-                  Event Details
-                </Link>
               </div>
             </div>
             <div className="image-col">
               <div className="image-card">
                 <img
-                  src={biathlonImage}
-                  alt="Eastern Regional Biathlon Cup at Fort Kent Outdoor Center"
+                  src={discGolfFlyer}
+                  alt="1st Annual Lucien Theriault Let Them Fly Disc Golf Tournament and BBQ flyer - May 30, 2026"
                   loading="lazy"
                 />
               </div>

@@ -225,11 +225,6 @@ function Header() {
                       Upcoming Events
                     </Link>
                   </li>
-                  <li>
-                    <Link to="/eastern-regional-biathlon" onClick={closeAll}>
-                      Eastern Regional Biathlon
-                    </Link>
-                  </li>
                 </ul>
               </div>
             </li>

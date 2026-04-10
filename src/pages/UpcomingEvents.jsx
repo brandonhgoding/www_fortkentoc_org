@@ -2,22 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { fetchEvents, groupEventsForUpcoming } from '../services/api';
 
-const staticEvents = [
-  {
-    id: 'static-biathlon-2026',
-    title: '2026 Eastern Regional Biathlon Cup #4',
-    description:
-      'Two days of competitive biathlon racing — Sprint on Saturday, Mass Start on Sunday. Open to all USBA and Biathlon Canada members.',
-    category: { name: 'Races & Competitions' },
-    flyerUrl: 'https://drive.google.com/file/d/1VRKjqbDhyiAIy6GMCzmAJg0n6ANehjPT/view',
-    link: '/eastern-regional-biathlon',
-    dates: [
-      { date: 'March 27, 2026', time: '12:00 PM - 4:00 PM', rawDate: '2026-03-27' },
-      { date: 'March 28, 2026', time: '8:00 AM - 12:00 PM', rawDate: '2026-03-28' },
-      { date: 'March 29, 2026', time: '8:00 AM - 12:00 PM', rawDate: '2026-03-29' },
-    ],
-  },
-];
+const staticEvents = [];
 
 const PdfIcon = () => (
   <svg className="pdf-icon" viewBox="0 0 384 512" fill="currentColor">
