@@ -1,0 +1,27 @@
+.topo-divider {
+  display: block;
+  width: 100%;
+  height: 50px;
+  padding: 0 var(--space-md);
+  margin: 0;
+}
+
+.topo-divider svg {
+  width: 100%;
+  height: 100%;
+  opacity: 0.45;
+}
+
+.topo-divider--tall {
+  height: 80px;
+}
+
+.topo-divider--on-dark svg {
+  opacity: 0.3;
+}
+
+@media (min-width: 768px) {
+  .topo-divider {
+    padding: 0 var(--space-xl);
+  }
+}
