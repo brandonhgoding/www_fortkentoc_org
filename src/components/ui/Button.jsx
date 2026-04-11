@@ -41,8 +41,9 @@ const Button = forwardRef(function Button(
     );
   }
   if (href) {
+    const safeRel = rest.target === '_blank' ? rest.rel ?? 'noreferrer noopener' : rest.rel;
     return (
-      <a ref={ref} href={href} className={classes} {...rest}>
+      <a ref={ref} href={href} className={classes} {...rest} rel={safeRel}>
         {content}
       </a>
     );

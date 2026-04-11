@@ -23,7 +23,7 @@ function Callout({
         {children}
         {buttons && <div className="callout-ui__buttons">{buttons}</div>}
       </div>
-      <div className="callout-ui__media">{media}</div>
+      {media && <div className="callout-ui__media">{media}</div>}
     </div>
   );
 }
