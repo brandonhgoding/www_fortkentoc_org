@@ -1,0 +1,108 @@
+.btn-ui {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 12px 22px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+  white-space: nowrap;
+}
+
+.btn-ui:disabled,
+.btn-ui[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ui:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Primary: midnight bg, gold text */
+.btn-ui--primary {
+  background: var(--color-midnight);
+  color: var(--color-gold);
+  border-color: var(--color-midnight);
+}
+.btn-ui--primary:hover {
+  background: var(--color-midnight-soft);
+  border-color: var(--color-midnight-soft);
+  color: var(--color-gold);
+}
+
+/* Secondary: outlined midnight */
+.btn-ui--secondary {
+  background: transparent;
+  color: var(--color-midnight);
+  border-color: var(--color-midnight);
+}
+.btn-ui--secondary:hover {
+  background: var(--color-midnight);
+  color: var(--color-gold);
+}
+
+/* Support: brick for donate */
+.btn-ui--support {
+  background: var(--color-brick);
+  color: var(--color-cream);
+  border-color: var(--color-brick);
+}
+.btn-ui--support:hover {
+  background: var(--color-brick-dark);
+  border-color: var(--color-brick-dark);
+  color: var(--color-cream);
+}
+
+/* Ghost: underlined link */
+.btn-ui--ghost {
+  background: transparent;
+  color: var(--color-lake);
+  border-color: transparent;
+  padding: 12px 4px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.btn-ui--ghost:hover {
+  color: var(--color-lake-dark);
+}
+
+/* On-dark outline: for use on dark sections */
+.btn-ui--on-dark-outline {
+  background: transparent;
+  color: var(--color-cream);
+  border-color: var(--color-cream);
+}
+.btn-ui--on-dark-outline:hover {
+  background: var(--color-cream);
+  color: var(--color-midnight);
+}
+
+.btn-ui--sm {
+  padding: 8px 14px;
+  font-size: var(--text-xs);
+}
+
+.btn-ui--lg {
+  padding: 16px 28px;
+  font-size: var(--text-base);
+}
+
+.btn-ui__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 auto;
+}
