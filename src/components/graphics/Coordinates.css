@@ -1,0 +1,13 @@
+.coordinates {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-ink-muted);
+}
+
+.coordinates--on-dark {
+  color: rgba(245, 186, 20, 0.6);
+}
