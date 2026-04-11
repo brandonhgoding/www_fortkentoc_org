@@ -1,0 +1,103 @@
+.content-page__body {
+  padding: var(--space-4xl) 0;
+  background: var(--color-birch);
+}
+
+.content-page__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .content-page__inner {
+    padding: 0 var(--space-xl);
+  }
+}
+
+.content-page__wrap {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--space-3xl);
+}
+
+.content-page__toc {
+  border-left: 1px solid var(--color-rule);
+  padding-left: var(--space-md);
+  position: sticky;
+  top: 24px;
+  align-self: start;
+}
+
+.content-page__toc h5 {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  margin: 0 0 var(--space-sm) 0;
+}
+
+.content-page__toc a {
+  display: block;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px dashed var(--color-rule);
+}
+
+.content-page__toc a:hover,
+.content-page__toc a.active {
+  color: var(--color-brick);
+  font-weight: 600;
+}
+
+.content-page__main h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-brick);
+  line-height: 1.05;
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-md) 0;
+}
+
+.content-page__main h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--color-midnight);
+  margin: var(--space-xl) 0 var(--space-sm) 0;
+}
+
+.content-page__main p,
+.content-page__main li {
+  font-size: var(--text-base);
+  color: var(--color-ink-soft);
+  line-height: var(--leading-relaxed);
+}
+
+.content-page__main p {
+  max-width: 62ch;
+  margin: 0 0 var(--space-md) 0;
+}
+
+.content-page__section {
+  margin-bottom: var(--space-2xl);
+}
+
+.content-page__section:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 860px) {
+  .content-page__wrap {
+    grid-template-columns: 1fr;
+  }
+  .content-page__toc {
+    position: static;
+    margin-bottom: var(--space-xl);
+  }
+}
