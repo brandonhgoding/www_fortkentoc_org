@@ -1,0 +1,20 @@
+.container-ui {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .container-ui {
+    padding: 0 var(--space-xl);
+  }
+}
+
+.container-ui--narrow {
+  max-width: 820px;
+}
+
+.container-ui--wide {
+  max-width: 1400px;
+}
