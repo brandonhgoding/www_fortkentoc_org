@@ -1,0 +1,29 @@
+.stat-card {
+  padding: var(--space-lg) var(--space-xl);
+  background: var(--color-birch);
+}
+
+.stat-card__num {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--color-midnight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.stat-card__num small {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.stat-card__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-top: var(--space-sm);
+}
