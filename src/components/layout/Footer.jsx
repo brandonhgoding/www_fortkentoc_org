@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
 import Eyebrow from '../ui/Eyebrow';
 import Coordinates from '../graphics/Coordinates';
+import { DONATE_URL, FACEBOOK_URL } from '../../lib/urls';
 import './Footer.css';
-
-const DONATE_URL = 'https://buy.stripe.com/9AQ3g1dXm5cc1m83ch';
-const FACEBOOK_URL = 'https://www.facebook.com/FortKentOutdoorCenter/';
 
 function Footer() {
   const year = new Date().getFullYear();

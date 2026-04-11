@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/fkoc-logo.jpeg';
 import { useWebcam } from '../WebcamContext';
 import Button from '../ui/Button';
+import { DONATE_URL } from '../../lib/urls';
 import './Header.css';
 
 const NAV = [
@@ -55,8 +56,6 @@ const NAV = [
   },
 ];
 
-const DONATE_URL = 'https://buy.stripe.com/9AQ3g1dXm5cc1m83ch';
-
 function Header() {
   const { openWebcam } = useWebcam();
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -69,8 +68,18 @@ function Header() {
         setOpenMenu(null);
       }
     }
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        setOpenMenu(null);
+        setMobileOpen(false);
+      }
+    }
     document.addEventListener('mousedown', handleClick);
-    return () => document.removeEventListener('mousedown', handleClick);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   function closeAll() {
@@ -80,7 +89,12 @@ function Header() {
 
   return (
     <header className="nav-header">
-      <div className="nav-topbar" role="status" aria-live="polite">
+      <div
+        className="nav-topbar"
+        role="status"
+        aria-live="polite"
+        aria-label="Trail status and conditions"
+      >
         <div className="nav-topbar__inner">
           <div className="nav-topbar__status">
             <span className="nav-topbar__pill">
@@ -137,6 +151,7 @@ function Header() {
               <button
                 type="button"
                 className="nav-trigger"
+                aria-haspopup="true"
                 aria-expanded={openMenu === group.id}
                 onClick={() => setOpenMenu(openMenu === group.id ? null : group.id)}
               >
