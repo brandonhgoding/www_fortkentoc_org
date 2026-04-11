@@ -101,15 +101,14 @@ a:hover {
   color: var(--color-lake-dark);
 }
 
-a:focus-visible {
-  outline: 2px solid var(--color-lake);
-  outline-offset: 3px;
-  border-radius: var(--radius-xs);
-}
-
 :focus-visible {
   outline: 2px solid var(--color-lake);
   outline-offset: 2px;
+}
+
+a:focus-visible {
+  outline-offset: 3px;
+  border-radius: var(--radius-xs);
 }
 
 hr {
