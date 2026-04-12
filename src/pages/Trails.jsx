@@ -1,8 +1,7 @@
-import { useState } from 'react';
-import IndexPage from '../templates/IndexPage';
+import PageHeader from '../components/layout/PageHeader';
 import Section from '../components/ui/Section';
 import Eyebrow from '../components/ui/Eyebrow';
-import Card from '../components/ui/Card';
+import Button from '../components/ui/Button';
 import './Trails.css';
 
 // Map thumbnails
@@ -33,105 +32,44 @@ import biathlon15kmFull from '../assets/images/trails/maps-original/biathlon-1-5
 import biathlonCompositeFull from '../assets/images/trails/maps-original/biathlon-composite.jpg';
 import biathlon1kmFull from '../assets/images/trails/maps-original/biathlon-1km.jpg';
 
-// NOTE: The original Trails.jsx had no individual trail data array — it used embedded
-// iframes from nordic-pulse.com and downloadable map images. The TRAILS array below
-// uses the three representative trails provided in the plan scaffold. These should be
-// updated with real trail data when available from the FKOC groomer's system.
-const TRAILS = [
-  {
-    id: 1,
-    name: 'Meadow Loop',
-    difficulty: 'Beginner',
-    distanceKm: 2.1,
-    types: ['classic'],
-    status: 'open',
-    description:
-      'Flat classic trail through the stadium meadow. Great first ski for beginners and children.',
-  },
-  {
-    id: 2,
-    name: 'Jalbert Run',
-    difficulty: 'Intermediate',
-    distanceKm: 5.4,
-    types: ['classic', 'skate'],
-    status: 'open',
-    description:
-      'Rolling forest trail with moderate climbs. Skate and classic lanes. Named for the Jalbert family.',
-  },
-  {
-    id: 3,
-    name: 'Stadium Sprint',
-    difficulty: 'Advanced',
-    distanceKm: 1.6,
-    types: ['skate'],
-    status: 'limited',
-    description: 'Fast laps around the race stadium. Lit after dark Tuesday and Thursday nights.',
-  },
-];
-
-const FILTERS = [
-  { id: 'all', label: 'All' },
-  { id: 'classic', label: 'Classic' },
-  { id: 'skate', label: 'Skate' },
-  { id: 'snowshoe', label: 'Snowshoe' },
-  { id: 'beginner', label: 'Beginner' },
-];
-
 function Trails() {
-  const [activeFilter, setActiveFilter] = useState('all');
-
-  const visibleTrails = TRAILS.filter((t) => {
-    if (activeFilter === 'all') return true;
-    if (activeFilter === 'beginner') return t.difficulty === 'Beginner';
-    return t.types.includes(activeFilter);
-  });
-
-  const filters = FILTERS.map((f) => ({
-    ...f,
-    active: f.id === activeFilter,
-    onClick: () => setActiveFilter(f.id),
-  }));
-
   return (
-    <>
-      <IndexPage
+    <div className="trails-page">
+      <PageHeader
         crumb={[{ label: 'Visit' }, { label: 'Trails' }]}
         title={
           <>
-            Trail maps &amp; <em>conditions.</em>
+            Trails &amp; <em>conditions.</em>
           </>
         }
-        lede="22 named trails across 40 kilometers. Cross-country, skate, snowshoe, and fat-bike routes. Maps are updated seasonally; conditions update daily from our groomer's GPS."
-        filters={filters}
-      >
-        {visibleTrails.map((trail, i) => (
-          <Card
-            key={trail.id}
-            number={`Trail ${String(i + 1).padStart(2, '0')} · ${trail.difficulty}`}
-            title={trail.name}
-            meta={`${trail.distanceKm} km · ${trail.status.toUpperCase()}`}
-          >
-            {trail.description}
-          </Card>
-        ))}
-      </IndexPage>
+        lede="22 named trails across 40 kilometers. Cross-country ski, skate, snowshoe, and fat-bike routes. Maps are updated seasonally; conditions update daily from our groomer's GPS."
+      />
 
-      <Section variant="flush">
+      {/* Live conditions section: nordic-pulse iframe */}
+      <Section>
+        <div className="trails-page__inner">
+          <Eyebrow>Live conditions</Eyebrow>
+          <h2 className="trails-page__h2">Today&rsquo;s trail report.</h2>
+          <p className="trails-page__lead">
+            Our groomer&rsquo;s GPS reports trail conditions to Nordic Pulse throughout the day.
+            Check here before you head out.
+          </p>
+          <div className="trails-page__embed">
+            <iframe
+              src="https://nordic-pulse.com/ski-areas/US/ME/Fort-Kent-Outdoor-Center/trails?embed=true&header=false&footer=false&tab=abc"
+              title="Trail Conditions"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </Section>
+
+      {/* Maps section: reuse the existing trails-maps grid */}
+      <Section variant="soft">
         <div className="trails-maps">
           <div className="trails-maps__inner">
             <Eyebrow>Printable maps</Eyebrow>
-            <h2
-              style={{
-                fontFamily: 'var(--font-heading)',
-                fontSize: 'var(--text-3xl)',
-                fontWeight: 800,
-                color: 'var(--color-brick)',
-                margin: '14px 0 0',
-                lineHeight: 1.05,
-              }}
-            >
-              Download or print for the trailhead.
-            </h2>
+            <h2 className="trails-page__h2">Download or print for the trailhead.</h2>
             <div className="trails-maps__grid">
               <figure className="trails-maps__item">
                 <a href={snowshoeMapFull} target="_blank" rel="noopener noreferrer">
@@ -209,7 +147,37 @@ function Trails() {
           </div>
         </div>
       </Section>
-    </>
+
+      {/* Nordic Pulse App promo section */}
+      <Section variant="dark">
+        <div className="trails-page__inner">
+          <Eyebrow variant="on-dark">Nordic Pulse App</Eyebrow>
+          <h2 className="trails-page__h2 trails-page__h2--on-dark">
+            Take trail conditions with you.
+          </h2>
+          <p className="trails-page__lead trails-page__lead--on-dark">
+            Install Nordic Pulse to see live trail conditions, grooming history, and interactive
+            maps right on your phone.
+          </p>
+          <div className="trails-page__app-buttons">
+            <Button
+              href="https://apps.apple.com/us/app/nordic-pulse/id1625390785"
+              variant="on-dark-outline"
+              target="_blank"
+            >
+              App Store
+            </Button>
+            <Button
+              href="https://play.google.com/store/apps/details?id=com.nordicpulse.skier"
+              variant="on-dark-outline"
+              target="_blank"
+            >
+              Google Play
+            </Button>
+          </div>
+        </div>
+      </Section>
+    </div>
   );
 }
 

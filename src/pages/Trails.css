@@ -50,3 +50,62 @@
     grid-template-columns: 1fr;
   }
 }
+
+.trails-page__inner {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .trails-page__inner {
+    padding: 0 var(--space-xl);
+  }
+}
+
+.trails-page__h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-brick);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1.05;
+  margin: var(--space-sm) 0 var(--space-md) 0;
+}
+
+.trails-page__h2--on-dark {
+  color: var(--color-cream);
+}
+
+.trails-page__lead {
+  font-size: var(--text-base);
+  color: var(--color-ink-soft);
+  line-height: var(--leading-relaxed);
+  max-width: 52ch;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.trails-page__lead--on-dark {
+  color: var(--color-cream-muted);
+}
+
+.trails-page__embed {
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-birch);
+}
+
+.trails-page__embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 600px;
+  border: 0;
+}
+
+.trails-page__app-buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
