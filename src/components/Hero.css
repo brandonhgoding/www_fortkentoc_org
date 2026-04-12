@@ -1,0 +1,123 @@
+.hero-ui {
+  padding: var(--space-4xl) 0 var(--space-xl) 0;
+  background: var(--color-birch);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-ui::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top right, rgba(27, 106, 168, 0.08), transparent 55%);
+  pointer-events: none;
+}
+
+.hero-ui__inner {
+  position: relative;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+@media (min-width: 768px) {
+  .hero-ui__inner {
+    padding: 0 var(--space-xl);
+  }
+}
+
+.hero-ui__coord {
+  position: absolute;
+  top: var(--space-lg);
+  right: var(--space-xl);
+}
+
+.hero-ui__grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: var(--space-3xl);
+  align-items: end;
+}
+
+.hero-ui__title {
+  font-family: var(--font-heading);
+  font-size: var(--text-display);
+  font-weight: 800;
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--color-midnight);
+  margin: var(--space-md) 0 var(--space-md) 0;
+}
+
+.hero-ui__title em {
+  color: var(--color-brick);
+  font-style: normal;
+}
+
+.hero-ui__lede {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-ink-soft);
+  max-width: 48ch;
+  margin: 0 0 var(--space-xl) 0;
+}
+
+.hero-ui__buttons {
+  display: flex;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+}
+
+.hero-ui__media {
+  background: var(--color-midnight);
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  aspect-ratio: 4 / 5;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: var(--space-lg);
+  color: var(--color-cream);
+}
+
+.hero-ui__media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    115deg,
+    transparent 0 22px,
+    rgba(245, 186, 20, 0.06) 22px 23px
+  );
+  pointer-events: none;
+}
+
+.hero-ui__media-label {
+  position: relative;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: rgba(245, 186, 20, 0.6);
+}
+
+.hero-ui__media-art {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold);
+  opacity: 0.3;
+}
+
+@media (max-width: 880px) {
+  .hero-ui__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .hero-ui__coord {
+    display: none;
+  }
+}
