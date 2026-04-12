@@ -17,10 +17,10 @@ function ContentPage({ crumb, title, lede, toc, children }) {
                   </a>
                 ))}
               </aside>
-              <main className="content-page__main">{children}</main>
+              <div className="content-page__main">{children}</div>
             </div>
           ) : (
-            <main className="content-page__main">{children}</main>
+            <div className="content-page__main">{children}</div>
           )}
         </div>
       </div>
