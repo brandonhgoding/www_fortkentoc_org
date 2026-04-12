@@ -218,7 +218,12 @@ function Events() {
           aria-labelledby="event-modal-title"
         >
           <div className="modal-content event-modal">
-            <button className="modal-close" onClick={handleCloseModal} aria-label="Close modal">
+            <button
+              type="button"
+              className="modal-close"
+              onClick={handleCloseModal}
+              aria-label="Close modal"
+            >
               <svg
                 width="24"
                 height="24"
@@ -246,7 +251,7 @@ function Events() {
               </div>
             )}
             <div className="event-modal-footer">
-              <button className="btn btn-secondary" onClick={handleCloseModal}>
+              <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
                 Close
               </button>
             </div>
