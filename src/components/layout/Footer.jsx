@@ -49,13 +49,16 @@ function Footer() {
                 <Link to="/coaching-programs#fkoc-coaching">Coaching</Link>
               </li>
               <li>
-                <Link to="/coaching-programs#ski-program">Jalbert ski</Link>
+                <Link to="/coaching-programs#ski-program">Ski training</Link>
               </li>
               <li>
-                <Link to="/coaching-programs#biathlon-program">Jalbert biathlon</Link>
+                <Link to="/coaching-programs#biathlon-program">Biathlon training</Link>
               </li>
               <li>
                 <Link to="/coaching-programs#residence">Biathlon residence</Link>
+              </li>
+              <li>
+                <Link to="/coaching-programs#pg-training">PG training</Link>
               </li>
             </ul>
           </div>
@@ -64,15 +67,15 @@ function Footer() {
             <h5>Support</h5>
             <ul>
               <li>
-                <Link to="/memberships">Become a member</Link>
+                <Link to="/memberships">Memberships</Link>
+              </li>
+              <li>
+                <Link to="/endowment">Endowment fund</Link>
               </li>
               <li>
                 <a href={DONATE_URL} target="_blank" rel="noopener noreferrer">
                   Donate
                 </a>
-              </li>
-              <li>
-                <Link to="/endowment">Endowment fund</Link>
               </li>
             </ul>
           </div>
