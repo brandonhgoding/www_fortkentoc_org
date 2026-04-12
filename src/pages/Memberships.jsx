@@ -1,69 +1,81 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import IndexPage from '../templates/IndexPage';
+import Eyebrow from '../components/ui/Eyebrow';
+import Button from '../components/ui/Button';
 import massStartRace from '../assets/images/about/mass-start-race.jpg';
+import './Memberships.css';
 
-const CheckIcon = () => (
-  <svg className="benefit-icon" viewBox="0 0 20 20" fill="currentColor">
-    <path
-      fillRule="evenodd"
-      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-      clipRule="evenodd"
-    />
-  </svg>
-);
-
-const membershipTiers = [
+const TIERS = [
   {
+    id: 'adult',
     name: 'Adult',
-    description: 'Ages 19+',
     price: '$100',
-    period: '/year',
+    tag: 'Ages 19+ · Per year',
+    perks: [
+      'Physical membership card mailed after waiver completion',
+      'Year-round trail access for cross-country skiing',
+      'Snowshoe trail access',
+      'Disc golf course access',
+      'Mountain biking trails',
+      'Roller-skiing on paved loops',
+      'Running and walking trails',
+      'Lodge access during ski season',
+    ],
   },
   {
+    id: 'youth',
     name: 'Youth',
-    description: 'Ages 7-18',
     price: '$50',
-    period: '/year',
+    tag: 'Ages 7–18 · Per year',
+    perks: [
+      'Physical membership card mailed after waiver completion',
+      'Year-round trail access for cross-country skiing',
+      'Snowshoe trail access',
+      'Disc golf course access',
+      'Mountain biking trails',
+      'Roller-skiing on paved loops',
+      'Running and walking trails',
+      'Lodge access during ski season',
+    ],
   },
   {
+    id: 'family',
     name: 'Family',
-    description: 'Same household',
     price: '$225',
-    period: '/year',
-    featured: true,
+    tag: 'Same household · Best value',
+    perks: [
+      'Covers all household members',
+      'Physical membership cards mailed after waiver completion',
+      'Year-round trail access for cross-country skiing',
+      'Snowshoe trail access',
+      'Disc golf course access',
+      'Mountain biking trails',
+      'Roller-skiing on paved loops',
+      'Running and walking trails',
+      'Lodge access during ski season',
+    ],
   },
   {
+    id: 'student',
     name: 'UMFK Student',
-    description: 'Valid student ID required',
     price: '$50',
-    period: '/year',
+    tag: 'Valid student ID required',
+    perks: [
+      'Physical membership card mailed after waiver completion',
+      'Year-round trail access for cross-country skiing',
+      'Snowshoe trail access',
+      'Disc golf course access',
+      'Mountain biking trails',
+      'Roller-skiing on paved loops',
+      'Running and walking trails',
+      'Lodge access during ski season',
+    ],
   },
-];
-
-const benefits = [
-  'Physical membership card mailed after waiver completion',
-  'Year-round trail access for cross-country skiing',
-  'Snowshoe trail access',
-  'Disc golf course access',
-  'Mountain biking trails',
-  'Roller-skiing on paved loops',
-  'Running and walking trails',
-  'Lodge access daily during ski season (through late April)',
-];
-
-const activities = [
-  { name: 'Nordic Skiing', icon: '⛷️' },
-  { name: 'Snowshoeing', icon: '🥾' },
-  { name: 'Disc Golf', icon: '🥏' },
-  { name: 'Mountain Biking', icon: '🚵' },
-  { name: 'Roller Skiing', icon: '🎿' },
-  { name: 'Trail Running', icon: '🏃' },
 ];
 
 function Memberships() {
   useEffect(() => {
-    // Load Stripe pricing table script
     const script = document.createElement('script');
     script.src = 'https://js.stripe.com/v3/pricing-table.js';
     script.async = true;
@@ -80,172 +92,203 @@ function Memberships() {
   }, []);
 
   return (
-    <div className="memberships-page">
-      {/* Hero Section */}
-      <section className="memberships-hero">
-        <div className="hero-overlay">
-          <div className="container">
-            <div className="memberships-hero-content">
-              <h1>Become a Member</h1>
-              <p>
-                Membership is the lifeblood of the FKOC, providing the primary source of funding
-                that sustains our operations. Join our community and enjoy year-round access to
-                world-class trails and facilities.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Membership Info Section */}
-      <section className="section">
-        <div className="container">
-          <div className="membership-intro">
-            <h2 className="section-title text-center">Annual Memberships</h2>
-            <p className="section-intro text-center">
-              Memberships run from <strong>January 1 to December 31</strong> annually. Your
-              membership supports trail maintenance, facility operations, and community programming.
-            </p>
-          </div>
-
-          {/* Activities Grid */}
-          <div className="activities-grid">
-            {activities.map((activity, index) => (
-              <div key={index} className="activity-badge">
-                <span className="activity-icon">{activity.icon}</span>
-                <span className="activity-name">{activity.name}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Membership Tiers Section */}
-      <section className="section section-alt">
-        <div className="container">
-          <h2 className="section-title text-center">Membership Options</h2>
-          <div className="membership-tiers-grid">
-            {membershipTiers.map((tier, index) => (
-              <div
-                key={index}
-                className={`membership-tier-card ${tier.featured ? 'tier-featured' : ''}`}
+    <>
+      <IndexPage
+        crumb={[{ label: 'Support' }, { label: 'Memberships' }]}
+        title={
+          <>
+            Become a <em>member.</em>
+          </>
+        }
+        lede="Membership is the lifeblood of the FKOC, providing the primary source of funding that sustains our operations. Memberships run January 1 to December 31 annually and include access to all trails and facilities year-round."
+      >
+        {TIERS.map((tier) => (
+          <div key={tier.id} className="membership-card">
+            <Eyebrow>{tier.tag}</Eyebrow>
+            <h3
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'var(--text-2xl)',
+                fontWeight: 700,
+                color: 'var(--color-midnight)',
+                margin: 0,
+              }}
+            >
+              {tier.name}
+            </h3>
+            <div className="membership-card__price">
+              {tier.price}
+              <span
+                style={{
+                  fontSize: 'var(--text-base)',
+                  fontWeight: 400,
+                  color: 'var(--color-ink-soft)',
+                }}
               >
-                {tier.featured && <div className="tier-badge">Best Value</div>}
-                <h3 className="tier-title">{tier.name}</h3>
-                <p className="tier-description">{tier.description}</p>
-                <div className="tier-price">
-                  <span className="price-amount">{tier.price}</span>
-                  <span className="price-period">{tier.period}</span>
-                </div>
-              </div>
-            ))}
+                /year
+              </span>
+            </div>
+            <ul className="membership-card__perks">
+              {tier.perks.map((p) => (
+                <li key={p}>{p}</li>
+              ))}
+            </ul>
+            <Button variant="primary" size="sm" href="#payment">
+              Join now
+            </Button>
           </div>
+        ))}
+      </IndexPage>
+
+      {/* Member benefits image */}
+      <section style={{ padding: 'var(--space-4xl) 0', background: 'var(--color-birch-soft)' }}>
+        <div
+          style={{
+            maxWidth: 'var(--container-max)',
+            margin: '0 auto',
+            padding: '0 var(--space-md)',
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 'var(--space-3xl)',
+            alignItems: 'center',
+          }}
+        >
+          <div>
+            <Eyebrow>How to enroll</Eyebrow>
+            <h2
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: 'var(--text-3xl)',
+                fontWeight: 800,
+                color: 'var(--color-brick)',
+                letterSpacing: 'var(--tracking-tight)',
+                lineHeight: 1.05,
+                margin: 'var(--space-sm) 0 var(--space-md)',
+              }}
+            >
+              Two steps to membership.
+            </h2>
+            <ol
+              style={{
+                paddingLeft: 'var(--space-lg)',
+                color: 'var(--color-ink-soft)',
+                fontSize: 'var(--text-sm)',
+                lineHeight: 1.7,
+              }}
+            >
+              <li style={{ marginBottom: 'var(--space-sm)' }}>
+                <strong>Sign the waiver</strong> — complete our release form via WaiverSign before
+                accessing any facility or trails.{' '}
+                <a
+                  href="https://app.waiversign.com/e/68b05e9a16bfaf7b2a6b56e5/doc/68b0934d9b73a3001293355d?event=none"
+                  rel="noopener noreferrer"
+                >
+                  Sign the waiver →
+                </a>
+              </li>
+              <li>
+                <strong>Complete payment</strong> — select your tier below and pay securely through
+                Stripe. Your membership card will be mailed after completion.
+              </li>
+            </ol>
+          </div>
+          <img
+            src={massStartRace}
+            alt="Athletes at Fort Kent Outdoor Center"
+            style={{ width: '100%', borderRadius: 'var(--radius-sm)', display: 'block' }}
+          />
         </div>
       </section>
 
-      {/* Benefits Section */}
-      <section className="section">
-        <div className="container">
-          <div className="two-col-grid">
-            <div className="content-col">
-              <h2 className="section-title">Member Benefits</h2>
-              <ul className="benefits-list">
-                {benefits.map((benefit, index) => (
-                  <li key={index} className="benefit-item">
-                    <CheckIcon />
-                    <span>{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="image-col">
-              <img
-                src={massStartRace}
-                alt="Athletes at Fort Kent Outdoor Center"
-                className="benefits-image"
-              />
-            </div>
-          </div>
+      {/* Stripe payment section */}
+      <section
+        id="payment"
+        style={{ padding: 'var(--space-4xl) 0', background: 'var(--color-birch)' }}
+      >
+        <div
+          style={{
+            maxWidth: 'var(--container-max)',
+            margin: '0 auto',
+            padding: '0 var(--space-md)',
+          }}
+        >
+          <Eyebrow>Secure payment</Eyebrow>
+          <h2
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--text-3xl)',
+              fontWeight: 800,
+              color: 'var(--color-brick)',
+              letterSpacing: 'var(--tracking-tight)',
+              lineHeight: 1.05,
+              margin: 'var(--space-sm) 0 var(--space-md)',
+            }}
+          >
+            Complete your membership.
+          </h2>
+          <p
+            style={{
+              color: 'var(--color-ink-soft)',
+              fontSize: 'var(--text-sm)',
+              marginBottom: 'var(--space-xl)',
+            }}
+          >
+            Select your membership type below to complete your enrollment. Secure payment processing
+            powered by Stripe.
+          </p>
+          <stripe-pricing-table
+            pricing-table-id="prctbl_1ScawpCNUZB7PvDyMKHEwRED"
+            publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
+          />
         </div>
       </section>
 
-      {/* Enrollment Process Section */}
-      <section className="section section-dark">
-        <div className="container">
-          <h2 className="section-title text-inverse text-center">How to Enroll</h2>
-          <div className="enrollment-steps">
-            <div className="enrollment-step">
-              <div className="step-number">1</div>
-              <h3>Complete Waiver</h3>
-              <p>
-                Sign our release form via WaiverSign. This is required before accessing any facility
-                or trails.
-              </p>
-              <a
-                href="https://app.waiversign.com/e/68b05e9a16bfaf7b2a6b56e5/doc/68b0934d9b73a3001293355d?event=none"
-                target="_self"
-                rel="noopener noreferrer"
-                className="btn btn-outline-light"
-              >
-                Sign Waiver
-              </a>
-            </div>
-            <div className="step-divider">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg>
-            </div>
-            <div className="enrollment-step">
-              <div className="step-number">2</div>
-              <h3>Complete Payment</h3>
-              <p>
-                Process your membership payment securely through Stripe. Your membership card will
-                be mailed after completion.
-              </p>
-              <a href="#payment" className="btn btn-primary">
-                Pay Now
-              </a>
-            </div>
-          </div>
+      {/* Day pass alternative */}
+      <section
+        style={{
+          padding: 'var(--space-4xl) 0',
+          background: 'var(--color-birch-soft)',
+          textAlign: 'center',
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 'var(--container-max)',
+            margin: '0 auto',
+            padding: '0 var(--space-md)',
+          }}
+        >
+          <Eyebrow>Not ready to commit?</Eyebrow>
+          <h2
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--text-3xl)',
+              fontWeight: 800,
+              color: 'var(--color-midnight)',
+              letterSpacing: 'var(--tracking-tight)',
+              lineHeight: 1.05,
+              margin: 'var(--space-sm) 0 var(--space-md)',
+            }}
+          >
+            Try a day pass first.
+          </h2>
+          <p
+            style={{
+              color: 'var(--color-ink-soft)',
+              fontSize: 'var(--text-sm)',
+              marginBottom: 'var(--space-xl)',
+              maxWidth: '40ch',
+              margin: '0 auto var(--space-xl)',
+            }}
+          >
+            Day passes are available online or at our trailhead donation boxes.
+          </p>
+          <Button variant="primary" to="/day-passes">
+            View day pass options
+          </Button>
         </div>
       </section>
-
-      {/* Payment Section */}
-      <section className="section" id="payment">
-        <div className="container">
-          <div className="section-header text-center">
-            <h2 className="section-title">Complete Your Membership</h2>
-            <p className="section-intro">
-              Select your membership type below to complete your enrollment. Secure payment
-              processing powered by Stripe.
-            </p>
-          </div>
-          <div className="stripe-container">
-            <script async src="https://js.stripe.com/v3/pricing-table.js"></script>
-            <stripe-pricing-table
-              pricing-table-id="prctbl_1ScawpCNUZB7PvDyMKHEwRED"
-              publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
-            ></stripe-pricing-table>
-          </div>
-        </div>
-      </section>
-
-      {/* Day Pass Alternative */}
-      <section className="section section-alt">
-        <div className="container">
-          <div className="centered-content text-center">
-            <h2 className="section-title">Not Ready for a Membership?</h2>
-            <p className="content-text">
-              Try our trails with a day pass first! Day passes are available for purchase online or
-              at our trailhead donation boxes.
-            </p>
-            <Link to="/day-passes" className="btn btn-primary">
-              View Day Pass Options
-            </Link>
-          </div>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }
 
