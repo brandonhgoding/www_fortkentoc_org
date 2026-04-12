@@ -89,7 +89,7 @@ function Home() {
                 >
                   Register on UDisc
                 </Button>
-                <Button variant="ghost" to="/event-calendar">
+                <Button variant="ghost" to="/events">
                   See all events →
                 </Button>
               </div>
@@ -276,7 +276,7 @@ function Home() {
             />
           </div>
           <div style={{ marginTop: 'var(--space-xl)' }}>
-            <Button variant="on-dark-outline" to="/upcoming-events">
+            <Button variant="on-dark-outline" to="/events">
               See full calendar →
             </Button>
           </div>

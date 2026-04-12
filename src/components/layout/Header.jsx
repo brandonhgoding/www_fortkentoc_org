@@ -32,10 +32,7 @@ const NAV = [
   {
     id: 'events',
     label: 'Events',
-    items: [
-      { to: '/event-calendar', label: 'Calendar' },
-      { to: '/upcoming-events', label: 'Upcoming events' },
-    ],
+    items: [{ to: '/events', label: 'All events' }],
   },
   {
     id: 'about',

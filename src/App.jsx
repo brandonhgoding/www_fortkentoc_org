@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import './styles/base.css';
 import './styles/utilities.css';
 
@@ -13,8 +13,7 @@ import CoachingPrograms from './pages/CoachingPrograms';
 import DayPasses from './pages/DayPasses';
 import Rentals from './pages/Rentals';
 import Memberships from './pages/Memberships';
-import EventCalendar from './pages/EventCalendar';
-import UpcomingEvents from './pages/UpcomingEvents';
+import Events from './pages/Events';
 import Location from './pages/Location';
 
 function App() {
@@ -31,8 +30,9 @@ function App() {
         <Route path="day-passes" element={<DayPasses />} />
         <Route path="rentals" element={<Rentals />} />
         <Route path="memberships" element={<Memberships />} />
-        <Route path="event-calendar" element={<EventCalendar />} />
-        <Route path="upcoming-events" element={<UpcomingEvents />} />
+        <Route path="events" element={<Events />} />
+        <Route path="event-calendar" element={<Navigate to="/events" replace />} />
+        <Route path="upcoming-events" element={<Navigate to="/events" replace />} />
         <Route path="location" element={<Location />} />
       </Route>
     </Routes>

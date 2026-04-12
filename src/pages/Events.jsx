@@ -39,7 +39,7 @@ function deriveDateParts(rawDate) {
   };
 }
 
-function EventCalendar() {
+function Events() {
   const [view, setView] = useState('list');
 
   // List view state
@@ -257,4 +257,4 @@ function EventCalendar() {
   );
 }
 
-export default EventCalendar;
+export default Events;
