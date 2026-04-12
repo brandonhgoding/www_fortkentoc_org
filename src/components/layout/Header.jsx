@@ -121,7 +121,7 @@ function Header() {
           </span>
           <span>
             <div className="nav-brand__title">Fort Kent Outdoor Center</div>
-            <div className="nav-brand__tag">Est. 1968 · North Woods · ME</div>
+            <div className="nav-brand__tag">Est. 1968 · Fort Kent · ME</div>
           </span>
         </Link>
 

@@ -1,5 +1,5 @@
 # Fort Kent Outdoor Center Design System
-## "North Woods Community Lodge" Theme
+## "Fort Kent Community Lodge" Theme
 
 ---
 

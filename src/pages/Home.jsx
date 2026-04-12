@@ -19,7 +19,7 @@ function Home() {
           <>
             A <em>trailhead</em> for the
             <br />
-            North Woods.
+            Fort Kent.
           </>
         }
         lede="40 kilometers of groomed cross-country trails, a championship biathlon range, and a lodge at the heart of Maine winter sports for over fifty years."

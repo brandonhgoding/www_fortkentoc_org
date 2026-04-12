@@ -16,7 +16,7 @@ function Footer() {
             <div className="mark">Fort Kent Outdoor Center</div>
             <p>
               Promoting healthy outdoor lifestyles through a first-rate facility, trail system, and
-              recreational programs in the North Woods of Maine.
+              recreational programs in the St. John River Valley of Maine.
             </p>
             <Coordinates onDark />
           </div>
