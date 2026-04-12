@@ -1,0 +1,75 @@
+.events-page__toggle {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  padding-bottom: var(--space-lg);
+  border-bottom: 1px solid var(--color-rule);
+  margin-bottom: var(--space-xl);
+}
+
+.events-page__toggle button {
+  border: 1px solid var(--color-rule);
+  background: var(--color-birch);
+  padding: 7px 14px;
+  border-radius: var(--radius-xs);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-midnight);
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.events-page__toggle button.on {
+  background: var(--color-midnight);
+  color: var(--color-gold);
+  border-color: var(--color-midnight);
+}
+
+.events-page__list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+}
+
+.events-page__calendar {
+  background: var(--color-birch);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-sm);
+  padding: var(--space-md);
+}
+
+/* FullCalendar color overrides */
+.events-page__calendar .fc .fc-button {
+  background: var(--color-midnight);
+  border-color: var(--color-midnight);
+  color: var(--color-gold);
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  font-size: var(--text-xs);
+  font-weight: 600;
+}
+
+.events-page__calendar .fc .fc-button:hover,
+.events-page__calendar .fc .fc-button-active {
+  background: var(--color-brick);
+  border-color: var(--color-brick);
+  color: var(--color-cream);
+}
+
+.events-page__calendar .fc .fc-toolbar-title {
+  font-family: var(--font-heading);
+  color: var(--color-brick);
+  font-weight: 800;
+}
+
+.events-page__calendar .fc-daygrid-day-number {
+  color: var(--color-midnight);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+.events-page__calendar .fc-day-today {
+  background: var(--color-birch-soft) !important;
+}
