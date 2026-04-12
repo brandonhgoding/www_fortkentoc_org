@@ -23,8 +23,8 @@ const NAV = [
     label: 'Programs',
     items: [
       { to: '/coaching-programs#fkoc-coaching', label: 'Coaching' },
-      { to: '/coaching-programs#ski-program', label: 'Jalbert ski program' },
-      { to: '/coaching-programs#biathlon-program', label: 'Jalbert biathlon' },
+      { to: '/coaching-programs#ski-program', label: 'Ski training' },
+      { to: '/coaching-programs#biathlon-program', label: 'Biathlon training' },
       { to: '/coaching-programs#residence', label: 'Biathlon residence' },
       { to: '/coaching-programs#pg-training', label: 'PG training' },
     ],
@@ -32,23 +32,16 @@ const NAV = [
   {
     id: 'events',
     label: 'Events',
-    items: [{ to: '/events', label: 'All events' }],
+    to: '/events',
   },
   {
     id: 'about',
     label: 'About',
     items: [
       { to: '/about-us', label: 'Who we are' },
+      { to: '/memberships', label: 'Memberships' },
       { to: '/endowment', label: 'Endowment fund' },
       { to: '/policies-and-safety', label: 'Policies & safety' },
-    ],
-  },
-  {
-    id: 'support',
-    label: 'Support',
-    items: [
-      { to: '/memberships', label: 'Become a member' },
-      { to: '/endowment', label: 'Donate to the endowment' },
     ],
   },
 ];
@@ -145,29 +138,39 @@ function Header() {
         <ul className="nav-list" id="primary-nav-list">
           {NAV.map((group) => (
             <li key={group.id} className="nav-item">
-              <button
-                type="button"
-                className="nav-trigger"
-                aria-haspopup="true"
-                aria-expanded={openMenu === group.id}
-                onClick={() => setOpenMenu(openMenu === group.id ? null : group.id)}
-              >
-                {group.label}
-                <svg className="nav-trigger__arrow" viewBox="0 0 10 10" fill="currentColor">
-                  <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.4" fill="none" />
-                </svg>
-              </button>
-              <div className={`nav-dropdown ${openMenu === group.id ? 'nav-dropdown--open' : ''}`}>
-                <ul>
-                  {group.items.map((item) => (
-                    <li key={item.to + item.label}>
-                      <Link to={item.to} onClick={closeAll}>
-                        {item.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {group.items ? (
+                <>
+                  <button
+                    type="button"
+                    className="nav-trigger"
+                    aria-haspopup="true"
+                    aria-expanded={openMenu === group.id}
+                    onClick={() => setOpenMenu(openMenu === group.id ? null : group.id)}
+                  >
+                    {group.label}
+                    <svg className="nav-trigger__arrow" viewBox="0 0 10 10" fill="currentColor">
+                      <path d="M2 4l3 3 3-3" stroke="currentColor" strokeWidth="1.4" fill="none" />
+                    </svg>
+                  </button>
+                  <div
+                    className={`nav-dropdown ${openMenu === group.id ? 'nav-dropdown--open' : ''}`}
+                  >
+                    <ul>
+                      {group.items.map((item) => (
+                        <li key={item.to + item.label}>
+                          <Link to={item.to} onClick={closeAll}>
+                            {item.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </>
+              ) : (
+                <Link to={group.to} className="nav-trigger" onClick={closeAll}>
+                  {group.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>
