@@ -1,0 +1,45 @@
+.trail-status-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-rule);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.trail-status-strip__cell {
+  background: var(--color-birch);
+  padding: var(--space-lg) var(--space-xl);
+}
+
+.trail-status-strip__num {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-midnight);
+  letter-spacing: var(--tracking-tight);
+  line-height: 1;
+}
+
+.trail-status-strip__num small {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-ink-muted);
+}
+
+.trail-status-strip__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: var(--tracking-wider);
+  text-transform: uppercase;
+  color: var(--color-ink-soft);
+  margin-top: 6px;
+}
+
+@media (max-width: 720px) {
+  .trail-status-strip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
