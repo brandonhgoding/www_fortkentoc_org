@@ -28,7 +28,7 @@ function Endowment() {
         path="/endowment"
       />
       <ContentPage
-        crumb={[{ label: 'Support' }, { label: 'Endowment fund' }]}
+        crumb={[{ label: 'About' }, { label: 'Endowment fund' }]}
         title={
           <>
             The <em>endowment.</em>
