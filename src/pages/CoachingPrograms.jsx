@@ -24,6 +24,7 @@ import eastRegionBiathlon from '../assets/images/programs/east-region-biathlon.j
 import PageHeader from '../components/layout/PageHeader';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
+import PageMeta from '../components/PageMeta';
 import './CoachingPrograms.css';
 
 const coaches = [
@@ -90,6 +91,11 @@ const residencePhotos = [
 function CoachingPrograms() {
   return (
     <div className="coaching-page">
+      <PageMeta
+        title="Training Programs"
+        description="Coaching, ski training, biathlon training, and residential athlete programs at Fort Kent Outdoor Center."
+        path="/coaching-programs"
+      />
       <PageHeader
         crumb={[{ label: 'Programs' }]}
         title={

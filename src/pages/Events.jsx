@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import PageHeader from '../components/layout/PageHeader';
 import Eyebrow from '../components/ui/Eyebrow';
 import EventCard from '../components/ui/EventCard';
+import PageMeta from '../components/PageMeta';
 import {
   fetchEvents,
   fetchCalendarSessions,
@@ -99,6 +100,11 @@ function Events() {
 
   return (
     <div className="events-page">
+      <PageMeta
+        title="Events"
+        description="Upcoming races, community events, and activities at Fort Kent Outdoor Center."
+        path="/events"
+      />
       <PageHeader
         crumb={[{ label: 'Events' }]}
         title={

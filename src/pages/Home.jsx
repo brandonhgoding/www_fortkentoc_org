@@ -6,12 +6,18 @@ import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import EventCard from '../components/ui/EventCard';
 import TopoDivider from '../components/ui/TopoDivider';
+import PageMeta from '../components/PageMeta';
 import { DONATE_URL } from '../lib/urls';
 import './Home.css';
 
 function Home() {
   return (
     <div className="home-page">
+      <PageMeta
+        title="Fort Kent Outdoor Center"
+        description="Year-round outdoor recreation in northern Maine — cross-country skiing, biathlon, snowshoeing, hiking, mountain biking, and roller skiing in the St. John Valley."
+        path="/"
+      />
       {/* 01 · HERO */}
       <Hero
         eyebrow="Est. 1968 · Fort Kent, Maine"

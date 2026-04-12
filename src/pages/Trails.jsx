@@ -2,6 +2,7 @@ import PageHeader from '../components/layout/PageHeader';
 import Section from '../components/ui/Section';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
+import PageMeta from '../components/PageMeta';
 import './Trails.css';
 
 // Map thumbnails
@@ -35,6 +36,11 @@ import biathlon1kmFull from '../assets/images/trails/maps-original/biathlon-1km.
 function Trails() {
   return (
     <div className="trails-page">
+      <PageMeta
+        title="Trails & Conditions"
+        description="Current trail conditions, grooming reports, and trail maps for cross-country skiing, snowshoeing, hiking, and mountain biking at Fort Kent Outdoor Center."
+        path="/trails"
+      />
       <PageHeader
         crumb={[{ label: 'Visit' }, { label: 'Trails' }]}
         title={

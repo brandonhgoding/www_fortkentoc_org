@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import IndexPage from '../templates/IndexPage';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
+import PageMeta from '../components/PageMeta';
 import massStartRace from '../assets/images/about/mass-start-race.jpg';
 import './Memberships.css';
 
@@ -93,6 +94,11 @@ function Memberships() {
 
   return (
     <>
+      <PageMeta
+        title="Memberships"
+        description="Support Fort Kent Outdoor Center with an annual membership — individual, family, and student options."
+        path="/memberships"
+      />
       <IndexPage
         crumb={[{ label: 'Support' }, { label: 'Memberships' }]}
         title={
