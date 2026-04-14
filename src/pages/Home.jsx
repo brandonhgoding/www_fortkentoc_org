@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import heroImage from '../assets/images/about/mass-start-race.jpg';
 import discGolfBasket from '../assets/images/home/basketinwoods.jpeg';
@@ -10,6 +11,7 @@ import Card from '../components/ui/Card';
 import EventCard from '../components/ui/EventCard';
 import TopoDivider from '../components/ui/TopoDivider';
 import PageMeta from '../components/PageMeta';
+import { fetchEvents } from '../services/api';
 import { DONATE_URL, FACEBOOK_URL } from '../lib/urls';
 import './Home.css';
 
@@ -41,7 +43,55 @@ const ORGANIZATION_JSON_LD = {
   sport: ['Cross-country skiing', 'Biathlon', 'Snowshoeing', 'Mountain biking', 'Disc golf'],
 };
 
+const MONTH_ABBREVIATIONS = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
+];
+
+function getUpcomingDate(event) {
+  if (event.next_session_start) {
+    return new Date(event.next_session_start);
+  }
+  const firstSession = event.sessions?.find((s) => !s.is_canceled) || event.sessions?.[0];
+  if (firstSession?.date) {
+    return new Date(`${firstSession.date}T00:00:00`);
+  }
+  return null;
+}
+
 function Home() {
+  const [upcomingEvents, setUpcomingEvents] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetchEvents({ includePast: false })
+      .then((data) => {
+        if (cancelled) return;
+        const sorted = data
+          .map((event) => ({ event, when: getUpcomingDate(event) }))
+          .filter(({ when }) => when !== null)
+          .sort((a, b) => a.when - b.when)
+          .slice(0, 3);
+        setUpcomingEvents(sorted);
+      })
+      .catch((err) => {
+        console.error('Failed to fetch upcoming events:', err);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
   return (
     <div className="home-page">
       <PageMeta
@@ -309,29 +359,20 @@ function Home() {
           >
             Races, fundraisers, programs, and community workdays. Members and visitors welcome.
           </p>
-          <div className="home-events">
-            <EventCard
-              onDark
-              month="May"
-              day="30"
-              title="Let Them Fly Disc Golf Tournament"
-              description="Open to all skill levels. BBQ to follow."
-            />
-            <EventCard
-              onDark
-              month="Jun"
-              day="14"
-              title="Volunteer trail workday"
-              description="Spring clean-up, lunch at the lodge after."
-            />
-            <EventCard
-              onDark
-              month="Jul"
-              day="04"
-              title="Independence Day fun run"
-              description="3K and 5K, register at the lodge."
-            />
-          </div>
+          {upcomingEvents.length > 0 && (
+            <div className="home-events">
+              {upcomingEvents.map(({ event, when }) => (
+                <EventCard
+                  key={event.id}
+                  onDark
+                  month={MONTH_ABBREVIATIONS[when.getMonth()]}
+                  day={String(when.getDate()).padStart(2, '0')}
+                  title={event.title}
+                  description={event.description}
+                />
+              ))}
+            </div>
+          )}
           <div style={{ marginTop: 'var(--space-xl)' }}>
             <Button variant="on-dark-outline" to="/events">
               See full calendar →
