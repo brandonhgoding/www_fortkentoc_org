@@ -1,3 +1,5 @@
+import { Helmet } from 'react-helmet-async';
+import heroImage from '../assets/images/about/mass-start-race.jpg';
 import Hero from '../components/Hero';
 // import TrailStatusStrip from '../components/TrailStatusStrip';
 import Section from '../components/ui/Section';
@@ -7,8 +9,36 @@ import Card from '../components/ui/Card';
 import EventCard from '../components/ui/EventCard';
 import TopoDivider from '../components/ui/TopoDivider';
 import PageMeta from '../components/PageMeta';
-import { DONATE_URL } from '../lib/urls';
+import { DONATE_URL, FACEBOOK_URL } from '../lib/urls';
 import './Home.css';
+
+const ORGANIZATION_JSON_LD = {
+  '@context': 'https://schema.org',
+  '@type': ['SportsActivityLocation', 'LocalBusiness'],
+  name: 'Fort Kent Outdoor Center',
+  alternateName: 'FKOC',
+  url: 'https://www.fortkentoc.org',
+  logo: 'https://www.fortkentoc.org/favicon.svg',
+  image: 'https://www.fortkentoc.org/og-default.jpg',
+  description:
+    'Year-round outdoor recreation in northern Maine — cross-country skiing, biathlon, snowshoeing, hiking, mountain biking, and roller skiing in the St. John Valley. Established 1999.',
+  foundingDate: '1999',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '33 Paradis Circle',
+    addressLocality: 'Fort Kent',
+    addressRegion: 'ME',
+    postalCode: '04743',
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 47.234,
+    longitude: -68.5895,
+  },
+  sameAs: [FACEBOOK_URL],
+  sport: ['Cross-country skiing', 'Biathlon', 'Snowshoeing', 'Mountain biking', 'Disc golf'],
+};
 
 function Home() {
   return (
@@ -18,8 +48,12 @@ function Home() {
         description="Year-round outdoor recreation in northern Maine — cross-country skiing, biathlon, snowshoeing, hiking, mountain biking, and roller skiing in the St. John Valley."
         path="/"
       />
+      <Helmet>
+        <script type="application/ld+json">{JSON.stringify(ORGANIZATION_JSON_LD)}</script>
+      </Helmet>
       {/* 01 · HERO */}
       <Hero
+        media={<img src={heroImage} alt="Skiers at the Fort Kent Outdoor Center mass start race" />}
         eyebrow="Est. 1999 · Fort Kent, Maine"
         title={
           <>
@@ -201,7 +235,8 @@ function Home() {
             </div>
             <div
               style={{
-                background: 'var(--color-midnight)',
+                background:
+                  'linear-gradient(rgba(20,30,44,0.72), rgba(20,30,44,0.82)), url("/og-default.jpg") center/cover var(--color-midnight)',
                 borderRadius: 'var(--radius-md)',
                 aspectRatio: '5/4',
                 position: 'relative',
@@ -218,7 +253,7 @@ function Home() {
                   position: 'absolute',
                   inset: 0,
                   background:
-                    'repeating-linear-gradient(115deg, transparent 0 22px, rgba(245,186,20,0.06) 22px 23px)',
+                    'repeating-linear-gradient(115deg, transparent 0 22px, rgba(245,186,20,0.08) 22px 23px)',
                   pointerEvents: 'none',
                 }}
               />

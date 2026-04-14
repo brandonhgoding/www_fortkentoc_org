@@ -15,9 +15,14 @@ function Hero({ eyebrow, title, lede, buttons, media }) {
             {lede && <p className="hero-ui__lede">{lede}</p>}
             {buttons && <div className="hero-ui__buttons">{buttons}</div>}
           </div>
-          <div className="hero-ui__media">
-            <span className="hero-ui__media-label">· HERO SLOT</span>
-            <div className="hero-ui__media-art">{media || <LodgeMark size={160} />}</div>
+          <div className={`hero-ui__media${media ? ' hero-ui__media--has-image' : ''}`}>
+            {media && <div className="hero-ui__media-image">{media}</div>}
+            <span className="hero-ui__media-label">· BIATHLON AT FKOC</span>
+            {!media && (
+              <div className="hero-ui__media-art">
+                <LodgeMark size={160} />
+              </div>
+            )}
             <span className="hero-ui__media-label">FORT KENT · MAINE</span>
           </div>
         </div>

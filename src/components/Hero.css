@@ -112,6 +112,38 @@
   opacity: 0.3;
 }
 
+.hero-ui__media-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-ui__media-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-ui__media--has-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 30, 44, 0.55) 0%,
+    rgba(20, 30, 44, 0.15) 35%,
+    rgba(20, 30, 44, 0.15) 65%,
+    rgba(20, 30, 44, 0.7) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-ui__media--has-image .hero-ui__media-label {
+  z-index: 2;
+}
+
 @media (max-width: 880px) {
   .hero-ui__grid {
     grid-template-columns: 1fr;
