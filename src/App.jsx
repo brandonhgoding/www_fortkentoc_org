@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import './styles/base.css';
 import './styles/utilities.css';
 
+import AnalyticsListener from './components/AnalyticsListener';
 import Layout from './components/Layout';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
@@ -18,24 +19,27 @@ import Location from './pages/Location';
 
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Home />} />
-        <Route path="about-us" element={<AboutUs />} />
-        <Route path="facilities" element={<Facilities />} />
-        <Route path="trails" element={<Trails />} />
-        <Route path="endowment" element={<Endowment />} />
-        <Route path="policies-and-safety" element={<PoliciesAndSafety />} />
-        <Route path="coaching-programs" element={<CoachingPrograms />} />
-        <Route path="day-passes" element={<DayPasses />} />
-        <Route path="rentals" element={<Rentals />} />
-        <Route path="memberships" element={<Memberships />} />
-        <Route path="events" element={<Events />} />
-        <Route path="event-calendar" element={<Navigate to="/events" replace />} />
-        <Route path="upcoming-events" element={<Navigate to="/events" replace />} />
-        <Route path="location" element={<Location />} />
-      </Route>
-    </Routes>
+    <>
+      <AnalyticsListener />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="about-us" element={<AboutUs />} />
+          <Route path="facilities" element={<Facilities />} />
+          <Route path="trails" element={<Trails />} />
+          <Route path="endowment" element={<Endowment />} />
+          <Route path="policies-and-safety" element={<PoliciesAndSafety />} />
+          <Route path="coaching-programs" element={<CoachingPrograms />} />
+          <Route path="day-passes" element={<DayPasses />} />
+          <Route path="rentals" element={<Rentals />} />
+          <Route path="memberships" element={<Memberships />} />
+          <Route path="events" element={<Events />} />
+          <Route path="event-calendar" element={<Navigate to="/events" replace />} />
+          <Route path="upcoming-events" element={<Navigate to="/events" replace />} />
+          <Route path="location" element={<Location />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 

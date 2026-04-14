@@ -34,7 +34,9 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-V0H2D4WQGS');
+      // send_page_view: false — AnalyticsListener fires page_view on every route change,
+      // including the initial mount, to cover SPA navigation.
+      gtag('config', 'G-V0H2D4WQGS', { send_page_view: false });
     </script>
   </head>
   <body>
