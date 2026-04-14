@@ -4,6 +4,7 @@ import logo from '../../assets/fkoc-logo.jpeg';
 import { useWebcam } from '../WebcamContext';
 import Button from '../ui/Button';
 import { DONATE_URL } from '../../lib/urls';
+import { fetchCurrentWeather } from '../../services/weather';
 import './Header.css';
 
 const NAV = [
@@ -50,7 +51,28 @@ function Header() {
   const { openWebcam } = useWebcam();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openMenu, setOpenMenu] = useState(null);
+  const [weather, setWeather] = useState(null);
   const navRef = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function load() {
+      try {
+        const result = await fetchCurrentWeather();
+        if (!cancelled) setWeather(result);
+      } catch {
+        // Silently fail — topbar will hide the temp.
+      }
+    }
+
+    load();
+    const id = setInterval(load, 15 * 60 * 1000);
+    return () => {
+      cancelled = true;
+      clearInterval(id);
+    };
+  }, []);
 
   useEffect(() => {
     function handleClick(e) {
@@ -87,18 +109,18 @@ function Header() {
       >
         <div className="nav-topbar__inner">
           <div className="nav-topbar__status">
-            <span className="nav-topbar__pill">
+            {/* <span className="nav-topbar__pill">
               <span className="nav-topbar__dot" />
               14 of 22 trails open
-            </span>
+            </span> */}
             <span className="nav-topbar__pill nav-topbar__pill--live">
               <span className="nav-topbar__dot" />
               Stadium webcam live
             </span>
           </div>
           <div className="nav-topbar__meta">
-            <span>Last groomed · 6h ago</span>
-            <span>-4°F</span>
+            {/* <span>Last groomed · 6h ago</span> */}
+            {weather && <span title={weather.description}>{weather.tempF}°F</span>}
           </div>
         </div>
       </div>
@@ -114,7 +136,7 @@ function Header() {
           </span>
           <span>
             <div className="nav-brand__title">Fort Kent Outdoor Center</div>
-            <div className="nav-brand__tag">Est. 1968 · Fort Kent · ME</div>
+            <div className="nav-brand__tag">Est. 1999 · Fort Kent · ME</div>
           </span>
         </Link>
 
