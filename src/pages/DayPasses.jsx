@@ -1,24 +1,11 @@
-import { useEffect } from 'react';
 import DataPage from '../templates/DataPage';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
 import PageMeta from '../components/PageMeta';
+import { DAY_PASS_URL } from '../lib/urls';
 import './DayPasses.css';
 
 function DayPasses() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://js.stripe.com/v3/pricing-table.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      const existing = document.querySelector(
-        'script[src="https://js.stripe.com/v3/pricing-table.js"]',
-      );
-      if (existing) document.body.removeChild(existing);
-    };
-  }, []);
-
   return (
     <>
       <PageMeta
@@ -42,12 +29,14 @@ function DayPasses() {
               Purchase your day pass online to go from the parking lot to the trails. Alternatively,
               you can place your day pass fee in our donation box found at each of our trailheads.
             </p>
-            <div className="day-passes__stripe">
-              <stripe-pricing-table
-                pricing-table-id="prctbl_1ScbCQCNUZB7PvDyamhwiHrY"
-                publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
-              />
-            </div>
+            <Button
+              variant="primary"
+              href={DAY_PASS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Purchase a day pass
+            </Button>
           </>
         }
         aside={

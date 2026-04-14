@@ -1,5 +1,5 @@
 import Hero from '../components/Hero';
-import TrailStatusStrip from '../components/TrailStatusStrip';
+// import TrailStatusStrip from '../components/TrailStatusStrip';
 import Section from '../components/ui/Section';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
@@ -23,12 +23,12 @@ function Home() {
         eyebrow="Est. 1999 · Fort Kent, Maine"
         title={
           <>
-            A <em>trailhead</em> for the
+            Fort Kent&apos;s <em>home</em>
             <br />
-            Fort Kent.
+            for the outdoors.
           </>
         }
-        lede="40 kilometers of groomed cross-country trails, a championship biathlon range, and a lodge at the heart of Maine winter sports for over fifty years."
+        lede="40 kilometers of groomed cross-country trails, a championship biathlon range, and a lodge powering northern Maine winter sports since 1999."
         buttons={
           <>
             <Button variant="primary" to="/day-passes">
@@ -41,12 +41,14 @@ function Home() {
         }
       />
 
-      {/* Live status strip */}
+      {/* Live status strip — hidden until the data sources are wired up */}
+      {/*
       <div className="home-status">
         <div className="home-status__inner">
           <TrailStatusStrip />
         </div>
       </div>
+      */}
 
       <TopoDivider />
 
@@ -128,17 +130,23 @@ function Home() {
             that do the work.
           </p>
           <div className="home-programs">
-            <Card number="Pgm 01" title="Jalbert Biathlon Program" meta="Year-round">
-              Competitive biathlon development from junior to senior national.
+            <Card title="Jalbert Biathlon Program">
+              The Jalbert Biathlon Program introduces local youth to the sport of biathlon,
+              combining cross-country skiing and marksmanship in a fun, supportive environment
+              focused on skill-building and confidence.
             </Card>
-            <Card number="Pgm 02" title="Jalbert Ski Program" meta="Year-round">
-              Cross-country ski development for junior racers.
+            <Card title="Jalbert Ski Program">
+              The Jalbert Youth Ski Program introduces young children to cross-country skiing
+              through fun, supportive lessons that build confidence and foundational skills.
             </Card>
-            <Card number="Pgm 03" title="Biathlon Residence" meta="Full-time">
-              On-site housing for elite athletes in training.
+            <Card title="Biathlon Residence">
+              The Jalbert Biathlon Residence provides housing for athletes training in Fort Kent,
+              offering a supportive, community-centered environment within walking distance of the
+              trails.
             </Card>
-            <Card number="Pgm 04" title="PG Training Program" meta="Post-grad">
-              Post-graduate athlete development program.
+            <Card title="PG Training Program">
+              A full-time training program for post-graduate athletes in Nordic skiing and biathlon,
+              based at the Fort Kent Outdoor Center.
             </Card>
           </div>
         </div>

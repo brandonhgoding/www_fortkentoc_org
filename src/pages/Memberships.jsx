@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import IndexPage from '../templates/IndexPage';
 import Eyebrow from '../components/ui/Eyebrow';
 import Button from '../components/ui/Button';
 import PageMeta from '../components/PageMeta';
 import massStartRace from '../assets/images/about/mass-start-race.jpg';
+import { MEMBERSHIP_URL } from '../lib/urls';
 import './Memberships.css';
 
 const TIERS = [
@@ -76,22 +75,6 @@ const TIERS = [
 ];
 
 function Memberships() {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://js.stripe.com/v3/pricing-table.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      const existingScript = document.querySelector(
-        'script[src="https://js.stripe.com/v3/pricing-table.js"]',
-      );
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-    };
-  }, []);
-
   return (
     <>
       <PageMeta
@@ -139,7 +122,13 @@ function Memberships() {
                 <li key={p}>{p}</li>
               ))}
             </ul>
-            <Button variant="primary" size="sm" href="#payment">
+            <Button
+              variant="primary"
+              size="sm"
+              href={MEMBERSHIP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Join now
             </Button>
           </div>
@@ -194,7 +183,7 @@ function Memberships() {
               </li>
               <li>
                 <strong>Complete payment</strong> — select your tier below and pay securely through
-                Stripe. Your membership card will be mailed after completion.
+                Zeffy. Your membership card will be mailed after completion.
               </li>
             </ol>
           </div>
@@ -239,13 +228,17 @@ function Memberships() {
               marginBottom: 'var(--space-xl)',
             }}
           >
-            Select your membership type below to complete your enrollment. Secure payment processing
-            powered by Stripe.
+            Select your membership type on Zeffy to complete your enrollment. Secure payment
+            processing powered by Zeffy.
           </p>
-          <stripe-pricing-table
-            pricing-table-id="prctbl_1ScawpCNUZB7PvDyMKHEwRED"
-            publishable-key={import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY}
-          />
+          <Button
+            variant="primary"
+            href={MEMBERSHIP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Purchase membership
+          </Button>
         </div>
       </section>
 
