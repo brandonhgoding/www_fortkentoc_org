@@ -20,7 +20,7 @@ function Home() {
       />
       {/* 01 · HERO */}
       <Hero
-        eyebrow="Est. 1968 · Fort Kent, Maine"
+        eyebrow="Est. 1999 · Fort Kent, Maine"
         title={
           <>
             A <em>trailhead</em> for the

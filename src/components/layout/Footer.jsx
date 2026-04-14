@@ -12,7 +12,7 @@ function Footer() {
       <div className="site-footer__inner">
         <div className="site-footer__grid">
           <div className="site-footer__brand">
-            <Eyebrow variant="on-dark">Est. 1968</Eyebrow>
+            <Eyebrow variant="on-dark">Est. 1999</Eyebrow>
             <div className="mark">Fort Kent Outdoor Center</div>
             <p>
               Promoting healthy outdoor lifestyles through a first-rate facility, trail system, and

@@ -61,7 +61,7 @@ function AboutUs() {
     <>
       <PageMeta
         title="About Us"
-        description="The story of Fort Kent Outdoor Center — promoting healthy outdoor lifestyles in Maine's St. John Valley since 1968."
+        description="The story of Fort Kent Outdoor Center — promoting healthy outdoor lifestyles in Maine's St. John Valley since 1999."
         path="/about-us"
       />
       <ContentPage
