@@ -4,8 +4,30 @@ const SITE_NAME = 'Fort Kent Outdoor Center';
 const BASE_URL = 'https://www.fortkentoc.org';
 const DEFAULT_IMAGE = `${BASE_URL}/og-default.jpg`;
 
+function buildBreadcrumbJsonLd({ title, url }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: BASE_URL,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: title,
+        item: url,
+      },
+    ],
+  };
+}
+
 function PageMeta({ title, description, path, image }) {
-  const fullTitle = title === SITE_NAME ? title : `${title} | ${SITE_NAME}`;
+  const isHome = title === SITE_NAME;
+  const fullTitle = isHome ? title : `${title} | ${SITE_NAME}`;
   const url = `${BASE_URL}${path}`;
   const imageUrl = image
     ? image.startsWith('http')
@@ -31,6 +53,12 @@ function PageMeta({ title, description, path, image }) {
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={imageUrl} />
+
+      {!isHome && (
+        <script type="application/ld+json">
+          {JSON.stringify(buildBreadcrumbJsonLd({ title, url }))}
+        </script>
+      )}
     </Helmet>
   );
 }

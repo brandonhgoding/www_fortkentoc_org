@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import PageHeader from '../components/layout/PageHeader';
@@ -38,6 +39,43 @@ function deriveDateParts(rawDate) {
     month: months[monthIdx] ?? '',
     day: dd ?? '',
   };
+}
+
+const EVENT_LOCATION = {
+  '@type': 'Place',
+  name: 'Fort Kent Outdoor Center',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '33 Paradis Circle',
+    addressLocality: 'Fort Kent',
+    addressRegion: 'ME',
+    postalCode: '04743',
+    addressCountry: 'US',
+  },
+};
+
+function buildEventJsonLd(event) {
+  const firstDate = event.dates[0]?.rawDate;
+  if (!firstDate) return null;
+  const lastDate = event.dates[event.dates.length - 1]?.rawDate;
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Event',
+    name: event.title,
+    startDate: firstDate,
+    eventStatus: 'https://schema.org/EventScheduled',
+    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+    location: EVENT_LOCATION,
+    organizer: {
+      '@type': 'Organization',
+      name: 'Fort Kent Outdoor Center',
+      url: 'https://www.fortkentoc.org',
+    },
+  };
+  if (lastDate && lastDate !== firstDate) jsonLd.endDate = lastDate;
+  if (event.description) jsonLd.description = event.description;
+  if (event.flyerUrl) jsonLd.image = event.flyerUrl;
+  return jsonLd;
 }
 
 function Events() {
@@ -98,6 +136,8 @@ function Events() {
     setSelectedEvent(null);
   }, []);
 
+  const eventJsonLd = listEvents.map(buildEventJsonLd).filter(Boolean);
+
   return (
     <div className="events-page">
       <PageMeta
@@ -105,6 +145,11 @@ function Events() {
         description="Upcoming races, community events, and activities at Fort Kent Outdoor Center."
         path="/events"
       />
+      {eventJsonLd.length > 0 && (
+        <Helmet>
+          <script type="application/ld+json">{JSON.stringify(eventJsonLd)}</script>
+        </Helmet>
+      )}
       <PageHeader
         crumb={[{ label: 'Events' }]}
         title={
