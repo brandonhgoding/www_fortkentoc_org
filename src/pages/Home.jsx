@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import heroImage from '../assets/images/about/mass-start-race.jpg';
+import discGolfBasket from '../assets/images/home/basketinwoods.jpeg';
 import Hero from '../components/Hero';
 // import TrailStatusStrip from '../components/TrailStatusStrip';
 import Section from '../components/ui/Section';
@@ -90,7 +91,14 @@ function Home() {
       <Section variant="soft">
         <div className="home-section__inner">
           <div className="home-two-col">
-            <div className="home-feature-art">
+            <div
+              className="home-feature-art"
+              style={{
+                background: `linear-gradient(rgba(20,30,44,0.35), rgba(20,30,44,0.8)), url(${discGolfBasket}) center/cover var(--color-midnight)`,
+              }}
+              role="img"
+              aria-label="Disc golf basket in the woods at Fort Kent Outdoor Center"
+            >
               <div className="home-feature-art__date">
                 <div className="home-feature-art__month">May · 2026</div>
                 <div className="home-feature-art__day">30</div>
