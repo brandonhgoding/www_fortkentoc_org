@@ -40,10 +40,14 @@ const NAV = [
     label: 'About',
     items: [
       { to: '/about-us', label: 'Who we are' },
-      { to: '/memberships', label: 'Memberships' },
       { to: '/endowment', label: 'Endowment fund' },
       { to: '/policies-and-safety', label: 'Policies & safety' },
     ],
+  },
+  {
+    id: 'membership',
+    label: 'Become a Member',
+    to: '/memberships',
   },
 ];
 
