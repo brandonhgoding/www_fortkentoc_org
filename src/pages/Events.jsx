@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
@@ -68,6 +68,15 @@ function Events() {
     setSelectedEvent(null);
   }, []);
 
+  useEffect(() => {
+    if (!selectedEvent) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') handleCloseModal();
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [selectedEvent, handleCloseModal]);
+
   const description = selectedEvent?.extendedProps?.description;
   const sanitizedDescription = description ? sanitizeEventDescription(description) : '';
   const attachments = selectedEvent?.extendedProps?.attachments ?? [];
@@ -99,7 +108,7 @@ function Events() {
           }}
         >
           {loadError && (
-            <p className="events-page__error" role="status">
+            <p className="events-page__error" role="alert">
               {loadError}
             </p>
           )}
@@ -134,9 +143,6 @@ function Events() {
           className="modal-backdrop"
           onClick={(e) => {
             if (e.target === e.currentTarget) handleCloseModal();
-          }}
-          onKeyDown={(e) => {
-            if (e.key === 'Escape') handleCloseModal();
           }}
           role="dialog"
           aria-modal="true"
