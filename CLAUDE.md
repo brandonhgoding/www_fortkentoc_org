@@ -56,8 +56,6 @@ Copy `.env.example` to `.env`. Variables consumed today:
 
 - `VITE_GOOGLE_CALENDAR_ID` (required for `/events`) — calendar ID like `xxxxx@group.calendar.google.com`. Calendar must be public.
 - `VITE_GOOGLE_CALENDAR_API_KEY` (required for `/events`) — Google Cloud API key restricted to the Calendar API and the production HTTP referrer (plus `http://localhost:5173/*` for dev).
-- `VITE_API_URL` — reserved for non-event services; leave at the default unless directed otherwise.
-- `VITE_STRIPE_PUBLISHABLE_KEY` — reserved for future use.
 
 ## Lint conventions
 

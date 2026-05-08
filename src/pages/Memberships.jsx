@@ -195,7 +195,6 @@ function Memberships() {
         </div>
       </section>
 
-      {/* Stripe payment section */}
       <section
         id="payment"
         style={{ padding: 'var(--space-4xl) 0', background: 'var(--color-birch)' }}
