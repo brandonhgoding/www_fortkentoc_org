@@ -1,142 +1,77 @@
-import { useState, useCallback, useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { useState, useCallback } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import PageHeader from '../components/layout/PageHeader';
-import Eyebrow from '../components/ui/Eyebrow';
-import EventCard from '../components/ui/EventCard';
 import PageMeta from '../components/PageMeta';
-import {
-  fetchEvents,
-  fetchCalendarSessions,
-  transformToCalendarEvents,
-  groupEventsForUpcoming,
-} from '../services/api';
+import { sanitizeEventDescription } from '../utils/sanitizeHtml';
 import './Events.css';
 
-/**
- * Derive a 3-letter month abbreviation and 2-digit day from a YYYY-MM-DD string.
- */
-function deriveDateParts(rawDate) {
-  if (!rawDate) return { month: '', day: '' };
-  const [, mm, dd] = rawDate.split('-');
-  const months = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'Jun',
-    'Jul',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
-  const monthIdx = parseInt(mm, 10) - 1;
-  return {
-    month: months[monthIdx] ?? '',
-    day: dd ?? '',
-  };
-}
+const GOOGLE_CALENDAR_ID = import.meta.env.VITE_GOOGLE_CALENDAR_ID;
+const GOOGLE_CALENDAR_API_KEY = import.meta.env.VITE_GOOGLE_CALENDAR_API_KEY;
+const EVENT_COLOR = '#b93830'; // var(--color-brick)
 
-const EVENT_LOCATION = {
-  '@type': 'Place',
-  name: 'Fort Kent Outdoor Center',
-  address: {
-    '@type': 'PostalAddress',
-    streetAddress: '33 Paradis Circle',
-    addressLocality: 'Fort Kent',
-    addressRegion: 'ME',
-    postalCode: '04743',
-    addressCountry: 'US',
-  },
-};
+const DATE_FORMAT = new Intl.DateTimeFormat('en-US', {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'America/New_York',
+});
 
-function buildEventJsonLd(event) {
-  const firstDate = event.dates[0]?.rawDate;
-  if (!firstDate) return null;
-  const lastDate = event.dates[event.dates.length - 1]?.rawDate;
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Event',
-    name: event.title,
-    startDate: firstDate,
-    eventStatus: 'https://schema.org/EventScheduled',
-    eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-    location: EVENT_LOCATION,
-    organizer: {
-      '@type': 'Organization',
-      name: 'Fort Kent Outdoor Center',
-      url: 'https://www.fortkentoc.org',
-    },
-  };
-  if (lastDate && lastDate !== firstDate) jsonLd.endDate = lastDate;
-  if (event.description) jsonLd.description = event.description;
-  if (event.flyerUrl) jsonLd.image = event.flyerUrl;
-  return jsonLd;
+const TIME_FORMAT = new Intl.DateTimeFormat('en-US', {
+  hour: 'numeric',
+  minute: '2-digit',
+  timeZone: 'America/New_York',
+});
+
+function formatEventWhen(event) {
+  if (!event?.start) return '';
+  const start = event.start;
+  const end = event.end;
+  if (event.allDay) {
+    if (!end) return DATE_FORMAT.format(start);
+    // FullCalendar all-day end is exclusive (next day at 00:00). Subtract a
+    // day for display so a one-day event reads as that single date.
+    const inclusiveEnd = new Date(end.getTime() - 24 * 60 * 60 * 1000);
+    const sameDay = inclusiveEnd.toDateString() === start.toDateString();
+    if (sameDay) return DATE_FORMAT.format(start);
+    return `${DATE_FORMAT.format(start)} – ${DATE_FORMAT.format(inclusiveEnd)}`;
+  }
+  if (!end) return `${DATE_FORMAT.format(start)} · ${TIME_FORMAT.format(start)}`;
+  const sameDay = start.toDateString() === end.toDateString();
+  if (sameDay) {
+    return `${DATE_FORMAT.format(start)} · ${TIME_FORMAT.format(start)} – ${TIME_FORMAT.format(end)}`;
+  }
+  return `${DATE_FORMAT.format(start)} ${TIME_FORMAT.format(start)} – ${DATE_FORMAT.format(end)} ${TIME_FORMAT.format(end)}`;
 }
 
 function Events() {
-  const [view, setView] = useState('list');
-
-  // List view state
-  const [listEvents, setListEvents] = useState([]);
-  const [listLoading, setListLoading] = useState(true);
-  const [listError, setListError] = useState(null);
-
-  // Calendar click-modal state
   const [selectedEvent, setSelectedEvent] = useState(null);
-
-  // Load list view events on mount
-  useEffect(() => {
-    async function loadListEvents() {
-      try {
-        setListLoading(true);
-        setListError(null);
-        const data = await fetchEvents({ includePast: false });
-        const grouped = groupEventsForUpcoming(data);
-        grouped.sort((a, b) => {
-          const dateA = a.dates[0]?.rawDate || '';
-          const dateB = b.dates[0]?.rawDate || '';
-          return dateA.localeCompare(dateB);
-        });
-        setListEvents(grouped);
-      } catch (err) {
-        console.error('Failed to fetch events:', err);
-        setListError('Failed to load events. Please try again later.');
-      } finally {
-        setListLoading(false);
-      }
-    }
-
-    loadListEvents();
-  }, []);
-
-  // Calendar: fetch events for the displayed date range
-  const handleCalendarEvents = useCallback(async (info, successCallback) => {
-    const start = info.startStr.split('T')[0];
-    const end = info.endStr.split('T')[0];
-    let apiEvents = [];
-    try {
-      const sessions = await fetchCalendarSessions({ start, end });
-      apiEvents = transformToCalendarEvents(sessions);
-    } catch (err) {
-      console.error('Failed to fetch calendar events:', err);
-    }
-    successCallback(apiEvents);
-  }, []);
+  const [loadError, setLoadError] = useState(null);
 
   const handleEventClick = useCallback((clickInfo) => {
+    clickInfo.jsEvent.preventDefault();
     setSelectedEvent(clickInfo.event);
+  }, []);
+
+  const handleEventSourceFailure = useCallback((error) => {
+    console.error('Google Calendar event source failed:', error);
+    setLoadError("Events couldn't load right now. Please check back soon.");
+  }, []);
+
+  const handleEventSourceSuccess = useCallback(() => {
+    setLoadError(null);
   }, []);
 
   const handleCloseModal = useCallback(() => {
     setSelectedEvent(null);
   }, []);
 
-  const eventJsonLd = listEvents.map(buildEventJsonLd).filter(Boolean);
+  const description = selectedEvent?.extendedProps?.description;
+  const sanitizedDescription = description ? sanitizeEventDescription(description) : '';
+  const attachments = selectedEvent?.extendedProps?.attachments ?? [];
+  const location = selectedEvent?.extendedProps?.location;
 
   return (
     <div className="events-page">
@@ -145,11 +80,6 @@ function Events() {
         description="Upcoming races, community events, and activities at Fort Kent Outdoor Center."
         path="/events"
       />
-      {eventJsonLd.length > 0 && (
-        <Helmet>
-          <script type="application/ld+json">{JSON.stringify(eventJsonLd)}</script>
-        </Helmet>
-      )}
       <PageHeader
         crumb={[{ label: 'Events' }]}
         title={
@@ -168,93 +98,37 @@ function Events() {
             padding: '0 var(--space-md)',
           }}
         >
-          {/* View toggle */}
-          <div className="events-page__toggle">
-            <button
-              type="button"
-              className={view === 'list' ? 'on' : ''}
-              onClick={() => setView('list')}
-            >
-              List view
-            </button>
-            <button
-              type="button"
-              className={view === 'calendar' ? 'on' : ''}
-              onClick={() => setView('calendar')}
-            >
-              Calendar view
-            </button>
+          {loadError && (
+            <p className="events-page__error" role="status">
+              {loadError}
+            </p>
+          )}
+          <div className="events-page__calendar">
+            <FullCalendar
+              plugins={[dayGridPlugin, googleCalendarPlugin]}
+              googleCalendarApiKey={GOOGLE_CALENDAR_API_KEY}
+              initialView="dayGridMonth"
+              events={{
+                googleCalendarId: GOOGLE_CALENDAR_ID,
+                color: EVENT_COLOR,
+                success: handleEventSourceSuccess,
+                failure: handleEventSourceFailure,
+              }}
+              eventClick={handleEventClick}
+              headerToolbar={{
+                left: 'title',
+                center: '',
+                right: 'today prev,next',
+              }}
+              height="auto"
+              eventDisplay="block"
+              dayMaxEvents={3}
+              eventClassNames="calendar-event-clickable"
+            />
           </div>
-
-          {/* List view */}
-          {view === 'list' && (
-            <>
-              <Eyebrow>Upcoming</Eyebrow>
-              {listError && (
-                <p
-                  style={{
-                    color: 'var(--color-brick)',
-                    fontSize: 'var(--text-sm)',
-                    marginBottom: 'var(--space-md)',
-                  }}
-                >
-                  {listError}
-                </p>
-              )}
-              {listLoading && (
-                <p style={{ color: 'var(--color-ink-soft)', fontSize: 'var(--text-sm)' }}>
-                  Loading events…
-                </p>
-              )}
-              {!listLoading && listEvents.length === 0 && !listError && (
-                <p style={{ color: 'var(--color-ink-soft)', fontSize: 'var(--text-sm)' }}>
-                  No upcoming events posted. Check back soon.
-                </p>
-              )}
-              {!listLoading && listEvents.length > 0 && (
-                <div className="events-page__list">
-                  {listEvents.map((event) => {
-                    const rawDate = event.dates[0]?.rawDate || '';
-                    const { month, day } = deriveDateParts(rawDate);
-                    return (
-                      <EventCard
-                        key={event.id}
-                        month={month}
-                        day={day}
-                        title={event.title}
-                        description={event.description}
-                      />
-                    );
-                  })}
-                </div>
-              )}
-            </>
-          )}
-
-          {/* Calendar view */}
-          {view === 'calendar' && (
-            <div className="events-page__calendar">
-              <FullCalendar
-                plugins={[dayGridPlugin]}
-                initialView="dayGridMonth"
-                events={handleCalendarEvents}
-                eventClick={handleEventClick}
-                headerToolbar={{
-                  left: 'title',
-                  center: '',
-                  right: 'today prev,next',
-                }}
-                height="auto"
-                eventDisplay="block"
-                dayMaxEvents={3}
-                eventClassNames="calendar-event-clickable"
-              />
-            </div>
-          )}
         </div>
       </div>
 
-      {/* Event detail modal (calendar view) */}
       {selectedEvent && (
         <div
           className="modal-backdrop"
@@ -287,21 +161,54 @@ function Events() {
               </svg>
             </button>
             <div className="event-modal-header">
-              {selectedEvent.extendedProps?.categoryName && (
-                <span className="event-category-badge">
-                  {selectedEvent.extendedProps.categoryName}
-                </span>
-              )}
               <h2 id="event-modal-title" className="event-modal-title">
                 {selectedEvent.title}
               </h2>
+              <p className="event-modal__meta">
+                <span>{formatEventWhen(selectedEvent)}</span>
+                {location && <span> · {location}</span>}
+              </p>
             </div>
-            {selectedEvent.extendedProps?.description && (
-              <div className="event-modal-body">
-                <p>{selectedEvent.extendedProps.description}</p>
+            {sanitizedDescription && (
+              <div
+                className="event-modal-body"
+                dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
+              />
+            )}
+            {attachments.length > 0 && (
+              <div className="event-modal__attachments">
+                <h3 className="event-modal__attachments-title">Documents</h3>
+                <ul className="event-modal__attachments-list">
+                  {attachments.map((attachment) => (
+                    <li key={attachment.fileId ?? attachment.fileUrl} className="event-modal__attachment">
+                      <a
+                        href={attachment.fileUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {attachment.mimeType === 'application/pdf' && (
+                          <span className="event-modal__attachment-icon" aria-hidden="true">
+                            PDF
+                          </span>
+                        )}
+                        <span>{attachment.title || attachment.fileUrl}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
             <div className="event-modal-footer">
+              {selectedEvent.url && (
+                <a
+                  className="btn btn-ghost"
+                  href={selectedEvent.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View on Google Calendar
+                </a>
+              )}
               <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
                 Close
               </button>
