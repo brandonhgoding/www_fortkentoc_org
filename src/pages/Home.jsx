@@ -310,7 +310,7 @@ function Home() {
           </p>
           <div style={{ marginTop: 'var(--space-xl)' }}>
             <Button variant="on-dark-outline" to="/events">
-              See full calendar →
+              view the event calendar →
             </Button>
           </div>
         </div>
