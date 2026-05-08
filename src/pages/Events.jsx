@@ -4,6 +4,7 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import googleCalendarPlugin from '@fullcalendar/google-calendar';
 import PageHeader from '../components/layout/PageHeader';
 import PageMeta from '../components/PageMeta';
+import Button from '../components/ui/Button';
 import { sanitizeEventDescription } from '../utils/sanitizeHtml';
 import './Events.css';
 
@@ -140,34 +141,36 @@ function Events() {
 
       {selectedEvent && (
         <div
-          className="modal-backdrop"
+          className="modal-overlay"
           onClick={(e) => {
             if (e.target === e.currentTarget) handleCloseModal();
           }}
           role="dialog"
           aria-modal="true"
-          aria-labelledby="event-modal-title"
+          aria-labelledby="event-modal__title"
         >
           <div className="modal-content event-modal">
             <button
               type="button"
-              className="modal-close"
+              className="modal-close-btn"
               onClick={handleCloseModal}
               aria-label="Close modal"
             >
               <svg
-                width="24"
-                height="24"
+                className="icon-close"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
               >
                 <path d="M18 6L6 18M6 6l12 12" />
               </svg>
             </button>
-            <div className="event-modal-header">
-              <h2 id="event-modal-title" className="event-modal-title">
+            <div className="event-modal__header">
+              <h2 id="event-modal__title" className="event-modal__title">
                 {selectedEvent.title}
               </h2>
               <p className="event-modal__meta">
@@ -177,7 +180,7 @@ function Events() {
             </div>
             {sanitizedDescription && (
               <div
-                className="event-modal-body"
+                className="event-modal__body"
                 dangerouslySetInnerHTML={{ __html: sanitizedDescription }}
               />
             )}
@@ -204,20 +207,20 @@ function Events() {
                 </ul>
               </div>
             )}
-            <div className="event-modal-footer">
+            <div className="event-modal__footer">
               {selectedEvent.url && (
-                <a
-                  className="btn btn-ghost"
+                <Button
+                  variant="ghost"
                   href={selectedEvent.url}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   View on Google Calendar
-                </a>
+                </Button>
               )}
-              <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>
+              <Button variant="secondary" onClick={handleCloseModal}>
                 Close
-              </button>
+              </Button>
             </div>
           </div>
         </div>
