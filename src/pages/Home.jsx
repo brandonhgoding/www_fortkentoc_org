@@ -147,8 +147,102 @@ function Home() {
         </div>
       </Section>
 
-      {/* 03 · PROGRAMS */}
+      {/* 02b · UPCOMING SUMMER CAMPS */}
       <Section>
+        <div className="home-section__inner">
+          <Eyebrow>Upcoming summer camps</Eyebrow>
+          <h2
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: 'var(--text-4xl)',
+              fontWeight: 800,
+              color: 'var(--color-brick)',
+              letterSpacing: 'var(--tracking-tight)',
+              margin: '14px 0 12px',
+              lineHeight: 1.04,
+            }}
+          >
+            Biathlon camps return in July.
+          </h2>
+          <p
+            style={{ color: 'var(--color-ink-soft)', lineHeight: 1.6, maxWidth: '52ch', margin: 0 }}
+          >
+            Two residential camps at FKOC — rollerskiing, range time, and coaching for cross-country
+            skiers ready to try biathlon.
+          </p>
+          <div className="home-camps">
+            <Card number="Jul 22–24 · 2026" title="U15 Biathlon Camp">
+              <p className="home-camps__lede">Come join us for our U15 Biathlon Camp!</p>
+              <p className="home-camps__para">
+                Camp participants will get to practice their biathlon skills on our full 30 point
+                shooting range under the guidance of our experienced coaches. Campers will also get
+                lots of time on rollerskis in a safe, car-free environment on our 3km rollerski
+                loop. This is a perfect opportunity for cross country skiers to get a strong
+                introduction to biathlon. Training will mostly be rollerskiing, but campers should
+                also bring running sneakers, and be prepared for some easy runs. Prior shooting
+                experience is not needed. Prior rollerski experience recommended, but not required.
+                We will provide rifles and ammunition. Detailed schedule, packing list and event
+                waiver will be emailed to registrants.
+              </p>
+              <p className="home-camps__para">
+                <strong>Housing:</strong> Bunk beds and cots will be provided in the lodge and wax
+                rooms, bring your sleeping bag and pillow
+              </p>
+              <p className="home-camps__para">
+                <strong>Food:</strong> We will provide meals from dinner on July 22 to lunch on July
+                24, and a few group snacks, but encourage campers to bring personal snacks. Please
+                communicate any allergies/dietary restrictions to us.
+              </p>
+              <p className="home-camps__cost">
+                <strong>Cost: $350</strong>
+              </p>
+              <Button
+                variant="primary"
+                href="mailto:info@fortkentoc.org?subject=U15%20Biathlon%20Camp%20Registration"
+              >
+                Register by email
+              </Button>
+            </Card>
+            <Card number="Jul 26–30 · 2026" title="U18 Biathlon Camp">
+              <p className="home-camps__lede">Come join us for our U18 Biathlon Camp!</p>
+              <p className="home-camps__para">
+                Camp participants will get to hone their biathlon skills on our full 30 point
+                shooting range under the guidance of our experienced coaches. Campers will also get
+                lots of time on rollerskis in a safe, car-free environment on our 3km rollerski
+                loop. This is a perfect opportunity for cross country skiers to get a strong
+                introduction to biathlon, as well as for experienced biathletes to practice their
+                skills. Prior rollerski experience is required, however, prior shooting experience
+                is not. Training will mostly be rollerskiing, but campers should also bring running
+                sneakers, and are encouraged to bring mountain or gravel bikes to explore the
+                trails during non-rollerski sessions. We will provide a rifle for you if you need
+                one, ammunition is included. Detailed schedule, packing list and event waiver will
+                be emailed to registrants.
+              </p>
+              <p className="home-camps__para">
+                <strong>Housing:</strong> Bunk beds and cots will be provided in the lodge and wax
+                rooms, bring your sleeping bag and pillow
+              </p>
+              <p className="home-camps__para">
+                <strong>Food:</strong> We will provide meals from dinner on July 26 to lunch on July
+                30, and a few group snacks, but encourage campers to bring personal snacks. Please
+                communicate any allergies/dietary restrictions to us.
+              </p>
+              <p className="home-camps__cost">
+                <strong>Cost: $550</strong>
+              </p>
+              <Button
+                variant="primary"
+                href="mailto:info@fortkentoc.org?subject=U18%20Biathlon%20Camp%20Registration"
+              >
+                Register by email
+              </Button>
+            </Card>
+          </div>
+        </div>
+      </Section>
+
+      {/* 03 · PROGRAMS */}
+      <Section variant="soft">
         <div className="home-section__inner">
           <Eyebrow>Training &amp; coaching</Eyebrow>
           <h2
