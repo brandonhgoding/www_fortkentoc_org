@@ -10,8 +10,9 @@ import './MountainBiking.css';
 const TRAILFORKS_URL = 'https://www.trailforks.com/region/fort-kent-outdoor-center-32149/';
 
 const FACTS = [
-  { value: '~8 mi', label: 'Singletrack' },
-  { value: '20+', label: 'Trails' },
+  // TODO(owner): replace XX placeholders with confirmed mileage and trail count.
+  { value: 'XX mi', label: 'Singletrack' },
+  { value: 'XX', label: 'Trails' },
   { value: 'All', label: 'Skill levels' },
   { value: '100%', label: 'Volunteer-built' },
 ];
