@@ -14,6 +14,7 @@ import CoachingPrograms from './pages/CoachingPrograms';
 import DayPasses from './pages/DayPasses';
 import Rentals from './pages/Rentals';
 import DiscGolf from './pages/DiscGolf';
+import MountainBiking from './pages/MountainBiking';
 import Memberships from './pages/Memberships';
 import Events from './pages/Events';
 import Location from './pages/Location';
@@ -34,6 +35,7 @@ function App() {
           <Route path="day-passes" element={<DayPasses />} />
           <Route path="rentals" element={<Rentals />} />
           <Route path="disc-golf" element={<DiscGolf />} />
+          <Route path="mountain-biking" element={<MountainBiking />} />
           <Route path="memberships" element={<Memberships />} />
           <Route path="events" element={<Events />} />
           <Route path="event-calendar" element={<Navigate to="/events" replace />} />
