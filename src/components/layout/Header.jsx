@@ -15,6 +15,7 @@ const NAV = [
       { to: '/trails', label: 'Trails & conditions' },
       { to: '/day-passes', label: 'Day passes' },
       { to: '/rentals', label: 'Rentals' },
+      { to: '/disc-golf', label: 'Disc golf' },
       { to: '/location', label: 'Location' },
       { to: '/facilities', label: 'Facilities' },
     ],

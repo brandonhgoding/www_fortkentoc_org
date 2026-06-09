@@ -13,6 +13,7 @@ import PoliciesAndSafety from './pages/PoliciesAndSafety';
 import CoachingPrograms from './pages/CoachingPrograms';
 import DayPasses from './pages/DayPasses';
 import Rentals from './pages/Rentals';
+import DiscGolf from './pages/DiscGolf';
 import Memberships from './pages/Memberships';
 import Events from './pages/Events';
 import Location from './pages/Location';
@@ -32,6 +33,7 @@ function App() {
           <Route path="coaching-programs" element={<CoachingPrograms />} />
           <Route path="day-passes" element={<DayPasses />} />
           <Route path="rentals" element={<Rentals />} />
+          <Route path="disc-golf" element={<DiscGolf />} />
           <Route path="memberships" element={<Memberships />} />
           <Route path="events" element={<Events />} />
           <Route path="event-calendar" element={<Navigate to="/events" replace />} />
