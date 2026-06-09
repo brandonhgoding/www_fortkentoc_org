@@ -51,25 +51,6 @@ function Trails() {
         lede="22 named trails across 40 kilometers. Cross-country ski, skate, snowshoe, and fat-bike routes. Maps are updated seasonally; conditions update daily from our groomer's GPS."
       />
 
-      {/* Live conditions section: nordic-pulse iframe */}
-      <Section>
-        <div className="trails-page__inner">
-          <Eyebrow>Live conditions</Eyebrow>
-          <h2 className="trails-page__h2">Today&rsquo;s trail report.</h2>
-          <p className="trails-page__lead">
-            Our groomer&rsquo;s GPS reports trail conditions to Nordic Pulse throughout the day.
-            Check here before you head out.
-          </p>
-          <div className="trails-page__embed">
-            <iframe
-              src="https://nordic-pulse.com/ski-areas/US/ME/Fort-Kent-Outdoor-Center/trails?embed=true&header=false&footer=false&tab=abc"
-              title="Trail Conditions"
-              allowFullScreen
-            />
-          </div>
-        </div>
-      </Section>
-
       {/* Maps section: reuse the existing trails-maps grid */}
       <Section variant="soft">
         <div className="trails-maps">
@@ -150,6 +131,25 @@ function Trails() {
                 <figcaption>1.0 Km Biathlon Course</figcaption>
               </figure>
             </div>
+          </div>
+        </div>
+      </Section>
+
+      {/* Live conditions section: nordic-pulse iframe */}
+      <Section>
+        <div className="trails-page__inner">
+          <Eyebrow>Live conditions</Eyebrow>
+          <h2 className="trails-page__h2">Today&rsquo;s trail report.</h2>
+          <p className="trails-page__lead">
+            Our groomer&rsquo;s GPS reports trail conditions to Nordic Pulse throughout the day.
+            Check here before you head out.
+          </p>
+          <div className="trails-page__embed">
+            <iframe
+              src="https://nordic-pulse.com/ski-areas/US/ME/Fort-Kent-Outdoor-Center/trails?embed=true&header=false&footer=false&tab=abc"
+              title="Trail Conditions"
+              allowFullScreen
+            />
           </div>
         </div>
       </Section>

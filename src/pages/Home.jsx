@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
-import heroImage from '../assets/images/about/mass-start-race.jpg';
-import discGolfBasket from '../assets/images/home/basketinwoods.jpeg';
+import heroImage from '../assets/images/about/lodge-fall.jpg';
+import birdingFlyer from '../assets/images/home/birding-workshop-flyer.png';
 import Hero from '../components/Hero';
 // import TrailStatusStrip from '../components/TrailStatusStrip';
 import Section from '../components/ui/Section';
@@ -21,7 +21,7 @@ const ORGANIZATION_JSON_LD = {
   logo: 'https://www.fortkentoc.org/favicon.svg',
   image: 'https://www.fortkentoc.org/og-default.jpg',
   description:
-    'Year-round outdoor recreation in northern Maine — cross-country skiing, biathlon, snowshoeing, hiking, mountain biking, and roller skiing in the St. John Valley. Established 1999.',
+    'Year-round outdoor recreation in northern Maine — biathlon, hiking, mountain biking, disc golf, and community programming in the St. John Valley. Established 1999.',
   foundingDate: '1999',
   address: {
     '@type': 'PostalAddress',
@@ -37,7 +37,7 @@ const ORGANIZATION_JSON_LD = {
     longitude: -68.5895,
   },
   sameAs: [FACEBOOK_URL],
-  sport: ['Cross-country skiing', 'Biathlon', 'Snowshoeing', 'Mountain biking', 'Disc golf'],
+  sport: ['Biathlon', 'Hiking', 'Mountain biking', 'Disc golf'],
 };
 
 function Home() {
@@ -45,7 +45,7 @@ function Home() {
     <div className="home-page">
       <PageMeta
         title="Fort Kent Outdoor Center"
-        description="Year-round outdoor recreation in northern Maine — cross-country skiing, biathlon, snowshoeing, hiking, mountain biking, and roller skiing in the St. John Valley."
+        description="Year-round outdoor recreation in northern Maine — biathlon, hiking, mountain biking, disc golf, and community programs in the St. John Valley."
         path="/"
       />
       <Helmet>
@@ -53,7 +53,7 @@ function Home() {
       </Helmet>
       {/* 01 · HERO */}
       <Hero
-        media={<img src={heroImage} alt="Skiers at the Fort Kent Outdoor Center mass start race" />}
+        media={<img src={heroImage} alt="The Fort Kent Outdoor Center lodge in autumn" />}
         eyebrow="Est. 1999 · Fort Kent, Maine"
         title={
           <>
@@ -62,14 +62,14 @@ function Home() {
             for the outdoors.
           </>
         }
-        lede="40 kilometers of groomed cross-country trails, a championship biathlon range, and a lodge powering northern Maine winter sports since 1999."
+        lede="A year-round home for outdoor recreation in northern Maine — biathlon range, 40 kilometers of trails, and a lodge anchoring community sport in the St. John Valley since 1999."
         buttons={
           <>
             <Button variant="primary" to="/day-passes">
               Buy a day pass
             </Button>
             <Button variant="secondary" to="/trails">
-              Trail conditions
+              Explore the trails
             </Button>
           </>
         }
@@ -93,14 +93,14 @@ function Home() {
             <div
               className="home-feature-art"
               style={{
-                background: `linear-gradient(rgba(20,30,44,0.35), rgba(20,30,44,0.8)), url(${discGolfBasket}) center/cover var(--color-midnight)`,
+                background: `linear-gradient(rgba(20,30,44,0.35), rgba(20,30,44,0.8)), url(${birdingFlyer}) center/cover var(--color-midnight)`,
               }}
               role="img"
-              aria-label="Disc golf basket in the woods at Fort Kent Outdoor Center"
+              aria-label="Birding Workshop flyer with songbirds — June 13, 2026 at Fort Kent Outdoor Center"
             >
               <div className="home-feature-art__date">
-                <div className="home-feature-art__month">May · 2026</div>
-                <div className="home-feature-art__day">30</div>
+                <div className="home-feature-art__month">Jun · 2026</div>
+                <div className="home-feature-art__day">13</div>
               </div>
             </div>
             <div>
@@ -116,7 +116,7 @@ function Home() {
                   lineHeight: 1.04,
                 }}
               >
-                The Lucien Theriault &quot;Let Them Fly&quot; Disc Golf Tournament &amp; BBQ.
+                Birding Workshop at the FKOC.
               </h2>
               <p
                 style={{
@@ -126,17 +126,20 @@ function Home() {
                   marginBottom: 'var(--space-lg)',
                 }}
               >
-                Tournament starts at 10 AM. $20 entry — bring a food-bank donation and save $5.
-                Proceeds support the Fort Kent Outdoor Center.
+                Saturday, June 13 · 8:00–10:00 AM at the Lodge. No charge — donations
+                welcome. Hosted by Amanda DuMusz (Maine Dept. of Inland Fisheries &amp;
+                Wildlife) and Shawn Morneault (Aroostook Birders). Bring binoculars, bug
+                repellent, and sturdy walking shoes. Open to everyone — register with Laura
+                Audibert by June 11.
               </p>
               <div style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap' }}>
                 <Button
                   variant="primary"
-                  href="https://udisc.com/events/1st-annual-lucien-theriault-let-them-fly-tournament-and-bbq-YdCNMY/about"
+                  href="https://drive.google.com/file/d/1CJRbFrouzs-aCgfrqQEzpFc9TM3qySQZ/view"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Register on UDisc
+                  View the flyer
                 </Button>
                 <Button variant="ghost" to="/events">
                   See all events →
@@ -167,8 +170,8 @@ function Home() {
           <p
             style={{ color: 'var(--color-ink-soft)', lineHeight: 1.6, maxWidth: '52ch', margin: 0 }}
           >
-            Two residential camps at FKOC — rollerskiing, range time, and coaching for cross-country
-            skiers ready to try biathlon.
+            Two residential camps at FKOC — rollerskiing, range time, and coaching for athletes
+            ready to try biathlon.
           </p>
           <div className="home-camps">
             <Card number="Jul 22–24 · 2026" title="U15 Biathlon Camp">
@@ -177,8 +180,8 @@ function Home() {
                 Camp participants will get to practice their biathlon skills on our full 30 point
                 shooting range under the guidance of our experienced coaches. Campers will also get
                 lots of time on rollerskis in a safe, car-free environment on our 3km rollerski
-                loop. This is a perfect opportunity for cross country skiers to get a strong
-                introduction to biathlon. Training will mostly be rollerskiing, but campers should
+                loop. This is a perfect opportunity for athletes to get a strong introduction to
+                biathlon. Training will mostly be rollerskiing, but campers should
                 also bring running sneakers, and be prepared for some easy runs. Prior shooting
                 experience is not needed. Prior rollerski experience recommended, but not required.
                 We will provide rifles and ammunition. Detailed schedule, packing list and event
@@ -209,9 +212,8 @@ function Home() {
                 Camp participants will get to hone their biathlon skills on our full 30 point
                 shooting range under the guidance of our experienced coaches. Campers will also get
                 lots of time on rollerskis in a safe, car-free environment on our 3km rollerski
-                loop. This is a perfect opportunity for cross country skiers to get a strong
-                introduction to biathlon, as well as for experienced biathletes to practice their
-                skills. Prior rollerski experience is required, however, prior shooting experience
+                loop. This is a perfect opportunity for new athletes to get an introduction to
+                biathlon, as well as for experienced biathletes to practice their skills. Prior rollerski experience is required, however, prior shooting experience
                 is not. Training will mostly be rollerskiing, but campers should also bring running
                 sneakers, and are encouraged to bring mountain or gravel bikes to explore the
                 trails during non-rollerski sessions. We will provide a rifle for you if you need
@@ -266,13 +268,8 @@ function Home() {
           </p>
           <div className="home-programs">
             <Card title="Jalbert Biathlon Program">
-              The Jalbert Biathlon Program introduces local youth to the sport of biathlon,
-              combining cross-country skiing and marksmanship in a fun, supportive environment
-              focused on skill-building and confidence.
-            </Card>
-            <Card title="Jalbert Ski Program">
-              The Jalbert Youth Ski Program introduces young children to cross-country skiing
-              through fun, supportive lessons that build confidence and foundational skills.
+              The Jalbert Biathlon Program introduces local youth to the sport of biathlon in a fun,
+              supportive environment focused on skill-building, marksmanship, and confidence.
             </Card>
             <Card title="Biathlon Residence">
               The Jalbert Biathlon Residence provides housing for athletes training in Fort Kent,
@@ -280,8 +277,8 @@ function Home() {
               trails.
             </Card>
             <Card title="PG Training Program">
-              A full-time training program for post-graduate athletes in Nordic skiing and biathlon,
-              based at the Fort Kent Outdoor Center.
+              A full-time training program for post-graduate athletes in Nordic biathlon, based at
+              the Fort Kent Outdoor Center.
             </Card>
           </div>
         </div>

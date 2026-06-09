@@ -17,7 +17,7 @@ function Hero({ eyebrow, title, lede, buttons, media }) {
           </div>
           <div className={`hero-ui__media${media ? ' hero-ui__media--has-image' : ''}`}>
             {media && <div className="hero-ui__media-image">{media}</div>}
-            <span className="hero-ui__media-label">· BIATHLON AT FKOC</span>
+            <span className="hero-ui__media-label">· FKOC LODGE</span>
             {!media && (
               <div className="hero-ui__media-art">
                 <LodgeMark size={160} />
