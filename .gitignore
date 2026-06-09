@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Superpowers brainstorming session files
+.superpowers/
+
 # Environment files
 .env
 .env.local
