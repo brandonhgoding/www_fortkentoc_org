@@ -2,7 +2,6 @@
 import coachBenParadis from '../assets/images/coaches/ben-paradis.png';
 import coachCarlTheriault from '../assets/images/coaches/carl-theriault.jpg';
 import coachSarahAshley from '../assets/images/coaches/sarah-ashley.jpg';
-import coachTorinLaliberte from '../assets/images/coaches/torin-laliberte.jpg';
 
 // Jalbert House images
 import jalbertHouse1 from '../assets/images/jalbert-house/jalbert-house-1.jpg';
@@ -32,12 +31,6 @@ const coaches = [
     role: 'Program Director',
     image: coachCarlTheriault,
     bio: 'Carl has been involved with coaching skiing and biathlon for the past 23 years, and is a life long lover of anything you can do on skis! Coordinating training programs, range activities, FKOC development, and the local High School Nordic team fill most his days. When he is not working on ski programs and activities, you can find Carl out traveling, or riding horses, bicycles, and motorcycles.',
-  },
-    {
-    name: 'Torin La Liberté',
-    role: 'Venue Manager / Nordic Coach',
-    image: coachTorinLaliberte,
-    bio: "Torin La Liberte comes to us after 6 years as the head coach of the Clarkson University Cross Country and Nordic Ski teams. While at Clarkson, Torin's teams tallied two USCSA National Championship titles, an NCAA Skiing Championship appearance, and were a perennial powerhouse in the USCSA. When there's not snow on the ground, you can usually find Torin riding his bike or obsessing over ski wax!",
   },
   {
     name: 'Sarah Ashley',
