@@ -69,12 +69,13 @@ function MountainBiking() {
               descents and built features. Word has traveled — riders now make the trip from as far
               as Edmundston and Bangor to ride here.
             </p>
-            <p>
+            {/* TODO: confirm Wednesday group rides are still happening before re-enabling */}
+            {/* <p>
               It is also a community as much as a trail system. Every Wednesday a group ride heads out
               from the lodge, open to all skill levels with no requirement to join, led by biathlon
               coach Charlie Cobb. New riders are welcome, and going out with a group is the easiest
               way to learn the network — and the safest way to ride the technical lines.
-            </p>
+            </p> */}
 
             <Eyebrow>Lay of the land</Eyebrow>
             <h2>Trail map</h2>
@@ -99,10 +100,11 @@ function MountainBiking() {
                 <dt>Season</dt>
                 <dd>Snow-free months</dd>
               </div>
-              <div>
+              {/* TODO: confirm Wednesday group rides are still happening before re-enabling */}
+              {/* <div>
                 <dt>Group rides</dt>
                 <dd>Wednesdays · all levels</dd>
-              </div>
+              </div> */}
             </dl>
             <div className="mtb-info__cta">
               <Button variant="primary" to="/location">
