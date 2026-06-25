@@ -7,12 +7,12 @@ import lauraAudibert from '../assets/images/board-members/laura-audibert.jpg';
 import paulKile from '../assets/images/board-members/paul-kile.jpg';
 import danielleReardon from '../assets/images/board-members/danielle-reardon.jpg';
 import patTheriault from '../assets/images/board-members/pat-theriault.jpg';
-import placeholderMember from '../assets/images/board-members/placeholder.png';
 import carlTheriault from '../assets/images/board-members/carl-theriault.jpg';
 import debHedeen from '../assets/images/board-members/deb-hedeen.jpg';
 import benParadis from '../assets/images/board-members/ben-paradis.jpg';
 import jimMarquis from '../assets/images/board-members/jim-marquis.jpg';
-import thomasAnderson from '../assets/images/board-members/thomas-anderson.jpg';
+import remi from '../assets/images/board-members/Remiphoto.jpg';
+import mike from '../assets/images/board-members/Mikephoto.jpg';
 
 // Construction / history images
 import construction1 from '../assets/images/about/construction-1.jpg';
@@ -29,12 +29,12 @@ const boardMembers = [
   { name: 'Paul Kile', role: 'Vice President', image: paulKile },
   { name: 'Danielle Reardon', role: 'Secretary', image: danielleReardon },
   { name: 'Pat Theriault', role: 'Treasurer', image: patTheriault },
-  { name: 'Mike Tanguay', role: null, image: placeholderMember },
+  { name: 'Mike Tanguay', role: null, image: mike },
   { name: 'Carl Theriault', role: null, image: carlTheriault },
   { name: 'Deb Hedeen', role: null, image: debHedeen },
   { name: 'Ben Paradis', role: null, image: benParadis },
   { name: 'Jim Marquis', role: null, image: jimMarquis },
-  { name: 'Thomas J Anderson', role: null, image: thomasAnderson },
+  { name: 'Remi Gaetjens', role: null, image: remi },
 ];
 
 const constructionPhotos = [
