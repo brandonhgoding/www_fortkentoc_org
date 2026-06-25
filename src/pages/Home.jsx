@@ -1,6 +1,5 @@
 import { Helmet } from 'react-helmet-async';
 import heroImage from '../assets/images/about/lodge-fall.jpg';
-import birdingFlyer from '../assets/images/home/birding-workshop-flyer.png';
 import Hero from '../components/Hero';
 // import TrailStatusStrip from '../components/TrailStatusStrip';
 import Section from '../components/ui/Section';
@@ -93,18 +92,19 @@ function Home() {
             <div
               className="home-feature-art"
               style={{
-                background: `linear-gradient(rgba(20,30,44,0.35), rgba(20,30,44,0.8)), url(${birdingFlyer}) center/cover var(--color-midnight)`,
+                background:
+                  'linear-gradient(rgba(20,30,44,0.45), rgba(20,30,44,0.85)), linear-gradient(135deg, var(--color-lake), var(--color-brick))',
               }}
               role="img"
-              aria-label="Birding Workshop flyer with songbirds — June 13, 2026 at Fort Kent Outdoor Center"
+              aria-label="Save the date — BBQ &amp; Band Fundraiser, Saturday August 29, 2026 at Fort Kent Outdoor Center"
             >
               <div className="home-feature-art__date">
-                <div className="home-feature-art__month">Jun · 2026</div>
-                <div className="home-feature-art__day">13</div>
+                <div className="home-feature-art__month">Aug · 2026</div>
+                <div className="home-feature-art__day">29</div>
               </div>
             </div>
             <div>
-              <Eyebrow>Featured event</Eyebrow>
+              <Eyebrow>Save the date</Eyebrow>
               <h2
                 style={{
                   fontFamily: 'var(--font-heading)',
@@ -116,7 +116,7 @@ function Home() {
                   lineHeight: 1.04,
                 }}
               >
-                Birding Workshop at the FKOC.
+                BBQ &amp; Band Fundraiser.
               </h2>
               <p
                 style={{
@@ -126,21 +126,12 @@ function Home() {
                   marginBottom: 'var(--space-lg)',
                 }}
               >
-                Saturday, June 13 · 8:00–10:00 AM at the Lodge. No charge — donations
-                welcome. Hosted by Amanda DuMusz (Maine Dept. of Inland Fisheries &amp;
-                Wildlife) and Shawn Morneault (Aroostook Birders). Bring binoculars, bug
-                repellent, and sturdy walking shoes. Open to everyone — register with Laura
-                Audibert by June 11.
+                Mark your calendar for Saturday, August 29 at the Fort Kent Outdoor Center.
+                Join us for an evening of good food, live music, and community in support of
+                the FKOC. Full details — schedule, lineup, and tickets — are coming soon.
+                Check back for updates.
               </p>
               <div style={{ display: 'flex', gap: 'var(--space-md)', flexWrap: 'wrap' }}>
-                <Button
-                  variant="primary"
-                  href="https://drive.google.com/file/d/1CJRbFrouzs-aCgfrqQEzpFc9TM3qySQZ/view"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  View the flyer
-                </Button>
                 <Button variant="ghost" to="/events">
                   See all events →
                 </Button>
